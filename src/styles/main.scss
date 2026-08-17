@@ -1,1 +1,8 @@
-// TODO: Add styles as per the requirement
+@use 'abstracts/variables' as *;
+@use 'abstracts/functions' as *;
+@use 'components/buttons' as *;
+@use 'abstracts/mixins' as *;
+@use 'base/reset' as *;
+@use 'base/typography' as *;
+@use 'layout/header' as *;
+@use 'components/navbar' as *;

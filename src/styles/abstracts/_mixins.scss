@@ -1,0 +1,44 @@
+@use '../abstracts/variables' as *;
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 431px) and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-inline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin button-reset {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
