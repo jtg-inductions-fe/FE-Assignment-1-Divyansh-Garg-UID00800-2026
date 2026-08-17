@@ -1,0 +1,245 @@
+@use '../abstracts/variables' as *;
+@use '../base/typography' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use '../vendors/icomoon' as *;
+
+.navbar {
+    width: 100%;
+    margin-top: rem(35px);
+    padding: 0 rem(16px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 1000;
+
+    background-color: $color-white;
+    box-sizing: border-box;
+}
+
+.navbar__logo {
+    @include flex-center;
+    flex-shrink: 0;
+
+    img {
+        display: block;
+        width: rem($logo);
+        height: rem($logo);
+        object-fit: contain;
+    }
+}
+
+.navbar__menu {
+    @include flex-center;
+
+    flex-direction: column;
+    gap: rem(32px);
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: rem(80px) rem(24px);
+
+    background-color: $color-white;
+
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+
+    z-index: 900;
+}
+
+.navbar__menu.is-open {
+    transform: translateX(0);
+}
+
+.navbar__menu.is-open .navbar__actions {
+    display: flex;
+    width: 100%;
+}
+
+.navbar__menu.is-open .navbar__actions .btn {
+    flex: 1;
+}
+
+.navbar__item {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__link {
+    font-family: $font-primary;
+    font-size: rem($menu-item-size);
+    font-weight: $font-weight-bold;
+    font-style: $font-style-normal;
+    line-height: $line-height-menu;
+    letter-spacing: $letter-spacing-normal;
+
+    color: $non-active-link;
+    opacity: 0.5;
+
+    text-decoration: none;
+
+    transition:
+        color 1s ease,
+        opacity 1s ease;
+
+    &:hover,
+    &.active-link {
+        color: $active-link;
+        opacity: 1;
+    }
+}
+
+.navbar__actions {
+    display: none;
+}
+
+.navbar__toggle {
+    @include flex-center;
+
+    width: rem($hamburger);
+    height: rem($hamburger);
+
+    border: none;
+    margin: 0;
+
+    position: relative;
+    z-index: 1100;
+
+    background-color: transparent;
+
+    cursor: pointer;
+    flex-shrink: 0;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.navbar__toggle.is-open {
+    display: block;
+
+    img {
+        display: none;
+    }
+
+    &::before {
+        content: '\f009';
+        font-family: 'Untitled';
+        font-size: rem(32px);
+        line-height: 1;
+        color: $active-link;
+    }
+}
+
+@include tablet {
+    .navbar {
+        margin-top: 0;
+        padding: rem(32px) 0;
+    }
+
+    .navbar__logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .navbar__menu {
+        @include flex-center;
+
+        flex-direction: column;
+        gap: rem(40px);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: auto;
+
+        width: 100%;
+        height: 100vh;
+
+        padding: rem(100px) rem(40px);
+
+        background-color: $color-white;
+
+        transform: translateX(-100%);
+        transition: transform 0.35s ease;
+
+        z-index: 900;
+    }
+
+    .navbar__menu.is-open {
+        transform: translateX(0);
+    }
+
+    .navbar__actions {
+        display: flex;
+        align-items: center;
+
+        margin-right: rem(64px);
+    }
+
+    .navbar__toggle {
+        display: flex;
+        margin-right: rem(178px);
+        margin-left: rem(64px);
+    }
+}
+
+@include desktop {
+    .navbar {
+        margin-top: rem(34px);
+
+        padding: rem(32px) 0;
+    }
+
+    .navbar__logo {
+        position: static;
+
+        transform: none;
+
+        margin-left: rem(117px);
+    }
+
+    .navbar__menu {
+        display: flex;
+
+        position: static;
+
+        width: auto;
+        height: auto;
+
+        padding: 0;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        gap: rem($menu-gap);
+
+        background-color: transparent;
+
+        transform: none;
+        transition: none;
+    }
+
+    .navbar__actions {
+        display: flex;
+        align-items: center;
+
+        margin-right: rem(117px);
+    }
+
+    .navbar__toggle {
+        display: none;
+    }
+}

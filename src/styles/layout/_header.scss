@@ -1,0 +1,6 @@
+@use '../abstracts/variables' as *;
+
+.header {
+    width: 100%;
+    background-color: $color-white;
+}
