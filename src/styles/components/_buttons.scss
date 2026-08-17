@@ -1,0 +1,43 @@
+@use '../abstracts/variables' as *;
+@use '../base/typography' as *;
+@use '../abstracts/functions' as *;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: rem($nav-button-height);
+
+    padding: rem($primary-button-padding-vertical)
+        rem($primary-button-padding-horizontal);
+
+    border: none;
+    border-radius: $radius-md;
+
+    font-family: $font-primary;
+    font-size: rem($font-size-sm);
+    font-weight: $font-weight-bold;
+    font-style: $font-style-normal;
+    line-height: $line-height-menu;
+    letter-spacing: $letter-spacing-normal;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+}
+
+.btn--login {
+    width: rem(105px);
+
+    color: $color-dark;
+    background-color: transparent;
+}
+
+.btn--signup {
+    width: rem(115px);
+
+    color: $color-white;
+    background-color: $color-primary;
+}
