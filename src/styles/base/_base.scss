@@ -1,0 +1,104 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/variables' as *;
+
+.top-ellipe {
+    position: absolute;
+    width: rem(300px);
+    height: rem(300px);
+    top: rem(9px);
+    left: rem(-40px);
+    background: $color-orange;
+    filter: blur(150px);
+    opacity: 0.5;
+    border: none;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.side-ellipe {
+    display: none;
+}
+
+.obj-img {
+    display: none;
+}
+
+.obj-img2 {
+    display: none;
+}
+
+@include tablet {
+    .top-ellipe {
+        width: rem(500px);
+        height: rem(500px);
+        left: rem(-50px);
+        filter: blur(200px);
+        top: -20%;
+        left: -20%;
+        z-index: 0;
+    }
+
+    .side-ellipe {
+        position: absolute;
+        display: block;
+        width: rem(406px);
+        height: rem(406px);
+        background: $color-yellow;
+        right: -40%;
+        filter: blur(240px);
+        z-index: -1;
+    }
+
+    .obj-img {
+        position: absolute;
+        display: block;
+        left: 4%;
+        top: -80%;
+        width: rem(70px);
+        z-index: -1;
+    }
+
+    .obj-img2 {
+        position: absolute;
+        display: block;
+        right: rem(-200px);
+        bottom: rem(50px);
+    }
+}
+
+@include desktop {
+    .top-ellipse {
+        width: rem(500px);
+        height: rem(500px);
+        left: rem(-60px);
+        filter: blur(250px);
+    }
+
+    .side-ellipe {
+        position: absolute;
+        display: block;
+        width: rem(406px);
+        height: rem(406px);
+        background: $color-yellow;
+        right: -10%;
+        filter: blur(280px);
+        z-index: -1;
+    }
+
+    .obj-img {
+        position: absolute;
+        display: block;
+        left: 4%;
+        top: -50%;
+        width: rem(60px);
+        z-index: -1;
+    }
+
+    .obj-img2 {
+        position: absolute;
+        display: block;
+        right: rem(-200px);
+        bottom: rem(50px);
+    }
+}
