@@ -1,0 +1,8 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+
+.site-header {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}

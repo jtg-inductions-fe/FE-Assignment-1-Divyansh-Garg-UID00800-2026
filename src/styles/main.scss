@@ -7,7 +7,10 @@
 @use 'abstracts/mixins' as *;
 
 @use 'components/buttons' as *;
+<<<<<<< HEAD
 @use 'components/components.scss' as *;
+=======
+>>>>>>> e166248 ([DG_A1_03]: Added the Header Section)
 
 @use 'layout/header' as *;
 @use 'components/navbar' as *;
@@ -25,7 +28,10 @@
 @use 'layout/footer' as *;
 @use 'components/site-links' as *;
 
+<<<<<<< HEAD
 @use 'layout/site-spinner' as *;
 @use 'components/spinner' as *;
 
+=======
+>>>>>>> e166248 ([DG_A1_03]: Added the Header Section)
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
