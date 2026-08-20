@@ -1,0 +1,221 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/typography' as *;
+
+.footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: rem(79px);
+    padding: rem(64px) rem(32px);
+
+    &__brand {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: rem(32px);
+    }
+
+    &__logo-link {
+        @include flex-inline;
+        justify-content: start;
+        gap: rem(16px);
+        text-decoration: none;
+    }
+
+    &__logo {
+        width: rem(40px);
+        height: rem(40px);
+        object-fit: contain;
+    }
+
+    &__brand-name {
+        font-size: rem(24px);
+        font-family: $font-primary;
+        letter-spacing: 0;
+        line-height: rem(40px);
+    }
+
+    &__description {
+        color: $non-active-link;
+        opacity: 0.5;
+        font-size: rem(16px);
+        line-height: $line-height-hero;
+        font-family: $font-primary;
+        letter-spacing: 0;
+    }
+
+    &__social {
+        &-list {
+            margin: 0;
+            padding: 0;
+            max-height: rem(32px);
+            @include flex-center;
+            justify-content: start;
+            gap: rem(32px);
+            font-size: rem(32px);
+            list-style: none;
+        }
+
+        &-link {
+            text-decoration: none;
+        }
+
+        &-item {
+            width: rem(32px);
+            height: rem(32px);
+        }
+    }
+
+    &__navigation {
+        width: 100%;
+        @include flex-center;
+        flex-direction: column;
+        gap: rem(79px);
+    }
+
+    &__section {
+        width: 100%;
+
+        &-toggle {
+            @include flex-between;
+            width: 100%;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        &-title {
+            font-family: $font-primary;
+            font-size: rem(23px);
+            font-style: $font-style-bold;
+            line-height: $line-height-menu;
+            letter-spacing: 0;
+        }
+
+        &-icon {
+            font-size: rem(24px);
+            transition: transform 0.2s ease;
+        }
+
+        &-list {
+            padding: 0;
+            margin: rem(10px) 0 0 0;
+            list-style: none;
+        }
+
+        &-item {
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-link {
+            font-family: $font-primary;
+            color: $non-active-link;
+            opacity: 0.75;
+            font-size: rem(20px);
+            text-decoration: none;
+        }
+
+        &--open {
+            .footer__section-icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    @include tablet {
+        margin: rem(96px) rem(63px) 0 rem(63px);
+        padding: rem(64px) 0;
+        gap: rem(64px);
+
+        &__description {
+            font-size: rem(23px);
+        }
+
+        &__navigation {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: rem(32px);
+            align-items: start;
+        }
+
+        &__section {
+            &-toggle {
+                margin-top: 0;
+                margin-bottom: rem(32px);
+            }
+
+            &-icon {
+                display: none;
+            }
+
+            &-list {
+                display: flex;
+                flex-direction: column;
+                gap: rem(32px);
+            }
+
+            &-link {
+                font-family: $font-secondary;
+                columns: $font-primary;
+                opacity: 0.75;
+                font-size: rem(18px);
+                font-style: $font-style-regular;
+                line-height: $line-height-hero;
+                letter-spacing: 0;
+            }
+        }
+    }
+
+    @include desktop {
+        flex-direction: row;
+        margin: rem(160px) rem(117px) 0 rem(117px);
+        padding: rem(45px) 0 rem(64px) 0;
+        gap: rem(64px);
+
+        &__description {
+            font-size: rem(23px);
+        }
+
+        &__navigation {
+            flex-direction: row;
+            align-items: start;
+        }
+
+        &__section {
+            &-toggle {
+                margin-top: 0;
+                margin-bottom: rem(32px);
+            }
+
+            &-icon {
+                display: none;
+            }
+
+            &-list {
+                display: flex;
+                flex-direction: column;
+                gap: rem(32px);
+            }
+
+            &-link {
+                font-family: $font-secondary;
+                columns: $font-primary;
+                opacity: 0.75;
+                font-size: rem(18px);
+                font-style: $font-style-regular;
+                line-height: $line-height-hero;
+                letter-spacing: 0;
+            }
+        }
+
+        &__social {
+            margin-top: rem(32px);
+        }
+    }
+}
