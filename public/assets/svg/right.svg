@@ -1,0 +1,13 @@
+<svg viewBox="0 0 24 24" fill="none" width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        :root, .palette0 {color: currentColor;
+            --color0: #f1f2f2;
+            --color1: #5d50c6;
+            --color2: #fff;
+            --color3: #f85e9f;
+            --color4: #facd49;
+            --color5: #292d32;
+        }
+    </style>
+    <path fill="var(--color2, #fff)" d="M17.7929 11 4.2071 11c-0.5523 0-1 0.4478-1 1 0 0.5523 0.4477 1 1 1l13.5858 0-3.2426 3.2427c-0.3905 0.3905-0.3905 1.0237 0 1.4142s1.0237 0.3905 1.4142 0l4.2426-4.2426c0.7811-0.7811 0.7811-2.0474 0-2.8285l-4.2426-4.2426c-0.3905-0.3906-1.0237-0.3906-1.4142 0s-0.3905 1.0236 0 1.4142z" />
+</svg>
