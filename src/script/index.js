@@ -204,3 +204,80 @@ menu.addEventListener('click', (e) => {
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open navigation menu');
 });
+
+import EmblaCarousel from 'embla-carousel';
+
+const wrapperNode = document.querySelector('.embla');
+
+const viewportNode = wrapperNode.querySelector('.embla__viewport');
+const prevButtonNode = wrapperNode.querySelector('.embla__prev');
+const nextButtonNode = wrapperNode.querySelector('.embla__next');
+const dotsNode = wrapperNode.querySelector('.testimonials__dots');
+const dotNodes = dotsNode.querySelectorAll('.testimonials__dot');
+
+const emblaApi = EmblaCarousel(viewportNode, {
+    loop: false,
+});
+
+prevButtonNode.addEventListener('click', () => {
+    emblaApi.scrollPrev();
+});
+
+nextButtonNode.addEventListener('click', () => {
+    emblaApi.scrollNext();
+});
+
+dotNodes.forEach((dotNode, index) => {
+    dotNode.addEventListener('click', () => {
+        emblaApi.scrollTo(index);
+    });
+});
+
+const updateActiveDot = (emblaApi) => {
+    const selectedIndex = emblaApi.selectedScrollSnap();
+
+    dotNodes.forEach((dotNode, index) => {
+        const isActive = index === selectedIndex;
+
+        dotNode.classList.toggle('testimonials__dot--active', isActive);
+
+        dotNode.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+};
+
+updateActiveDot(emblaApi);
+
+emblaApi.on('select', updateActiveDot);
+
+const toggles = document.querySelectorAll('.footer__section-toggle');
+
+toggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+        const section = toggle.closest('.footer__section');
+        const contentId = toggle.getAttribute('aria-controls');
+        const content = document.getElementById(contentId);
+
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+        toggles.forEach((toggleAgain) => {
+            if (toggleAgain !== toggle) {
+                const otherSection = toggleAgain.closest('.footer__section');
+
+                const otherContentId =
+                    toggleAgain.getAttribute('aria-controls');
+
+                const otherContent = document.getElementById(otherContentId);
+
+                toggleAgain.setAttribute('aria-expanded', 'false');
+                otherContent.hidden = true;
+
+                otherSection.classList.remove('footer__section--open');
+            }
+        });
+
+        toggle.setAttribute('aria-expanded', !isOpen);
+        content.hidden = isOpen;
+
+        section.classList.toggle('footer__section--open', !isOpen);
+    });
+});
