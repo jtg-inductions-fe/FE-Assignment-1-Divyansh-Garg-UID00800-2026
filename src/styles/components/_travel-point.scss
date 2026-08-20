@@ -1,0 +1,206 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/variables' as *;
+@use '../base/typography' as *;
+
+.travel-point {
+    display: flex;
+    flex-direction: column;
+    gap: rem(32px);
+    padding-bottom: rem(64px);
+    text-align: center;
+
+    &__visual {
+        margin: 0;
+        @include flex-center;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        max-width: rem(430px);
+        height: auto;
+        object-fit: contain;
+    }
+
+    &__content {
+        @include flex-center;
+        flex-direction: column;
+        margin-top: rem(32px);
+        gap: rem(32px);
+    }
+
+    &__header {
+        padding: 0;
+    }
+
+    &__eyebrow {
+        color: $color-pink;
+        font-family: $font-primary;
+        margin-bottom: rem(16px);
+        font-size: rem(16px);
+        font-weight: $font-weight-medium;
+        line-height: $line-height-menu;
+        letter-spacing: $letter-spacing-medium;
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-weight: $font-weight-medium;
+        margin-bottom: rem(32px);
+        font-size: rem(32px);
+        line-height: $line-height-menu;
+    }
+
+    &__description {
+        margin: rem(32px) rem(40px) 0 rem(40px);
+        color: $non-active-link;
+        opacity: 0.5;
+        font-size: rem(16px);
+        line-height: $line-height-hero;
+        letter-spacing: 0;
+        font-family: 'Inter', sans-serif;
+    }
+
+    &__stats {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: rem(16px);
+        padding: 0 rem(40px);
+        list-style: none;
+    }
+
+    &__stat {
+        @include flex-center;
+        flex-direction: column;
+        padding: rem(32px);
+        border: 1px solid rgba($non-active-link, 0.1);
+        border-radius: rem(32px);
+
+        &-value {
+            display: block;
+            margin-bottom: rem(16px);
+            color: $color-orange;
+            font-size: rem(35px);
+            font-family: $font-primary;
+            line-height: $line-height-menu;
+            letter-spacing: 0;
+            font-style: $font-style-bold;
+        }
+
+        &-label {
+            color: $non-active-link;
+            font-size: rem(18px);
+            font-family: 'Inter', sans-serif;
+            line-height: $line-height-hero;
+            letter-spacing: 0;
+        }
+    }
+
+    @include tablet {
+        margin-top: rem(64px);
+        padding-bottom: 0;
+
+        &__image {
+            max-width: 100%;
+        }
+
+        &__eyebrow {
+            font-size: rem(23px);
+            letter-spacing: $letter-spacing-medium;
+        }
+
+        &__title {
+            font-size: rem(40px);
+        }
+
+        &__description {
+            margin-left: 0;
+            margin-right: 0;
+            font-size: rem(18px);
+            padding: 0 rem(64px);
+        }
+
+        &__stats {
+            grid-template-columns: repeat(2, 1fr);
+            gap: rem(32px);
+            padding: 0 rem(64px);
+        }
+
+        &__stat {
+            min-height: rem(100px);
+        }
+    }
+
+    @include desktop {
+        padding: rem(77px) 0;
+        margin-right: rem(117px);
+
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+
+        max-height: none;
+        gap: 0;
+
+        &__visual {
+            order: 1;
+            min-width: 0;
+            min-height: 0;
+        }
+
+        &__image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        &__content {
+            order: 2;
+            margin: 0;
+            min-width: 0;
+            justify-content: center;
+            gap: rem(64px);
+        }
+
+        &__header {
+            text-align: left;
+        }
+
+        &__eyebrow {
+            font-size: rem(23px);
+        }
+
+        &__title {
+            font-size: rem(44px);
+        }
+
+        &__description {
+            margin: 0;
+            font-size: rem(18px);
+        }
+
+        &__stats {
+            width: 100%;
+            padding: 0;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: rem(32px);
+        }
+
+        &__stat {
+            min-width: 0;
+            min-height: rem(110px);
+            padding: rem(24px);
+
+            &-value {
+                font-size: rem(35px);
+            }
+
+            &-label {
+                font-size: rem(18px);
+            }
+        }
+    }
+}

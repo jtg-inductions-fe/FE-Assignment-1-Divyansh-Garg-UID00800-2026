@@ -9,12 +9,10 @@ The Companies component has been implemented across HTML and SCSS files.
 ```text
 src/
 └── styles/
-    └── base/
-        └──_base.scss
     └── components/
-        └──_companies.scss
+        ├── _companies.scss
     └── layout/
-        └── _site-companies.scss
+        |── _site-comapanies.scss
 
 index.html
 ```
@@ -45,12 +43,6 @@ Contains the styles responsible for the overall companies layout and appearance.
 
 Contains the styling required for the static images and div and also the main companies styling element.
 
-#### `_base.scss`
-
-`src/styles/base/_base.scss`
-
-Contains the style of the static elements placed at left and right in companies section.
-
 ## Notes
 
-The companies follows the project's component-based SCSS architecture.
+The companies follows the project's component-based SCSS architecture. 
