@@ -1,0 +1,8 @@
+@use '../abstracts/variables' as *;
+
+.site-companies {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: clip;
+}
