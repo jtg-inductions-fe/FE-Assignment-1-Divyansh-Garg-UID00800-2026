@@ -1,0 +1,80 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.companies {
+    width: 100%;
+    box-sizing: border-box;
+    margin: rem(64px) 0;
+    padding: 0 clamp(rem(16px), 4vw, rem(64px));
+    @include flex-center;
+    flex-direction: column;
+    gap: clamp(rem(20px), 8vw, rem(32px));
+
+    &__list {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: clamp(rem(20px), 8vw, rem(32px));
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        flex: 0 1 auto;
+    }
+
+    &__logo {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: clamp(rem(18px), 4.75vw, rem(32px));
+        object-fit: contain;
+    }
+
+    @include tablet {
+        margin: 0;
+        padding: clamp(rem(40px), 6.25vw, rem(64px))
+            clamp(rem(32px), 6.25vw, rem(64px));
+        gap: clamp(rem(24px), 3.125vw, rem(32px));
+
+        &__list {
+            gap: clamp(rem(18px), 2.64vw, rem(27px));
+        }
+
+        &__logo {
+            height: clamp(rem(24px), 3.125vw, rem(32px));
+        }
+    }
+
+    @include desktop {
+        margin: 0;
+        padding: rem(64px) clamp(rem(64px), 8.125vw, rem(117px));
+        flex-direction: row;
+        gap: clamp(rem(32px), 6vw, rem(110px));
+
+        &__list {
+            width: auto;
+            flex-wrap: nowrap;
+            gap: clamp(rem(40px), 6vw, rem(100px));
+            justify-content: center;
+        }
+
+        &__item {
+            flex: 0 0 auto;
+        }
+
+        &__logo {
+            height: rem(32px);
+            width: auto;
+            max-width: rem(160px);
+        }
+    }
+}
