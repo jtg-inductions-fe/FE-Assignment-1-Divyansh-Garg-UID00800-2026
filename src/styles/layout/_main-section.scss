@@ -1,0 +1,8 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+
+.site-main {
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+}
