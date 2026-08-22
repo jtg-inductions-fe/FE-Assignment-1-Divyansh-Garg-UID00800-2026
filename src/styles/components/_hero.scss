@@ -139,6 +139,14 @@
 
     &__actions {
         flex-direction: column;
+<<<<<<< HEAD
+=======
+        width: 100%;
+        margin-top: rem(32px);
+        // margin-bottom: rem(64px);
+        gap: rem(24px);
+        box-sizing: border-box;
+>>>>>>> 9eab84b ([DG_A1_04]: Corrected alt text in hero section, corrected naming of staic element, corrected mixin, corrected flex in site-main)
     }
 
     &__button {
@@ -309,11 +317,25 @@
             &--left {
                 left: 40.5%;
                 top: 46.5%;
+<<<<<<< HEAD
+=======
+                @include flex-center;
+                @include floating-icon($color-pink, 64px);
+>>>>>>> 9eab84b ([DG_A1_04]: Corrected alt text in hero section, corrected naming of staic element, corrected mixin, corrected flex in site-main)
             }
 
             &--bottom {
                 left: 75.5%;
                 top: 82.5%;
+<<<<<<< HEAD
+=======
+                @include flex-center;
+                @include floating-icon($color-orange, 64px);
+            }
+
+            .icon {
+                font-size: rem(32px);
+>>>>>>> 9eab84b ([DG_A1_04]: Corrected alt text in hero section, corrected naming of staic element, corrected mixin, corrected flex in site-main)
             }
         }
 
