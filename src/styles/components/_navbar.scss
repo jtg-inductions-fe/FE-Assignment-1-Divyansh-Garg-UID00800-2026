@@ -57,11 +57,9 @@
             opacity: 1;
         }
     }
-
     &__actions {
         display: none;
     }
-
     &__toggle {
         @include flex-center;
 
@@ -79,7 +77,6 @@
             object-fit: contain;
         }
     }
-
     @include tablet {
         margin-top: 0;
         padding: pxToRem(32) 0;
@@ -87,7 +84,6 @@
         &__logo {
             margin: 0 auto;
         }
-
         &__menu {
             transform: translateX(-100%);
             transition: transform 0.5s ease;
@@ -100,7 +96,6 @@
                 }
             }
         }
-
         &__actions {
             display: flex;
             gap: 0;
