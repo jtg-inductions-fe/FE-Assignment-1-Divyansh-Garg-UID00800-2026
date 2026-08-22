@@ -169,6 +169,11 @@
             &-list {
                 gap: pxToRem(32);
             }
+
+            &-item {
+                margin-bottom: 0;
+                overflow-wrap: break-word;
+            }
         }
 
         &__social {
