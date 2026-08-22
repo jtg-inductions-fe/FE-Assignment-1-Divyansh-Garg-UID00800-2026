@@ -2,7 +2,7 @@
 @use '../abstracts/functions' as *;
 
 @mixin tablet {
-    @media (min-width: 431px) {
+    @media (min-width: $tablet) {
         @content;
     }
 }
@@ -17,6 +17,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@mixin flex-center-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 @mixin flex-center-col {
