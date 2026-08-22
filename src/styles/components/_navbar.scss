@@ -3,24 +3,23 @@
 @use '../abstracts/functions' as *;
 @use '../abstracts/mixins' as *;
 @use '../vendors/icomoon' as *;
-
 .navbar {
     width: 100%;
     margin-top: rem(35px);
     padding: 0 rem(16px);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
+    @include flex-between;
     position: relative;
-    z-index: 1000;
     box-sizing: border-box;
-
+    &-shorter {
+        padding: rem(16px) rem(16px);
+        background: rgba($color-white, 0.9);
+        border-radius: rem(100px);
+        width: 90%;
+    }
+    transition: width 0.5s ease;
     &__logo {
         @include flex-center;
         flex-shrink: 0;
-
         img {
             display: block;
             width: rem($logo);
@@ -28,43 +27,27 @@
             object-fit: contain;
         }
     }
-
     &__menu {
         @include flex-center;
-
         flex-direction: column;
         gap: rem(32px);
-
         position: fixed;
         top: 0;
         right: 0;
-
         width: 100%;
         height: 100vh;
-
         padding: rem(80px) rem(24px);
-
         background-color: $color-white;
-
         transform: translateX(100%);
         transition: transform 0.35s ease;
-
-        z-index: 900;
-
-        &.is-open {
+        z-index: 99;
+        &--is-open {
             transform: translateX(0);
-
             .navbar__link {
                 font-size: rem(20px);
             }
         }
     }
-
-    &__item {
-        display: flex;
-        align-items: center;
-    }
-
     &__link {
         font-family: $font-primary;
         font-size: rem($menu-item-size);
@@ -72,110 +55,87 @@
         font-style: $font-style-normal;
         line-height: $line-height-menu;
         letter-spacing: $letter-spacing-normal;
-
         color: $non-active-link;
         opacity: 0.5;
-
         text-decoration: none;
-
         transition:
             color 1s ease,
             opacity 1s ease;
-
         &:hover,
-        &.active-link {
+        &-active-link {
             color: $active-link;
             opacity: 1;
         }
     }
-
     &__actions {
         display: none;
     }
-
     &__toggle {
         @include flex-center;
-
         width: rem($hamburger);
         height: rem($hamburger);
-
         border: none;
         margin: 0;
-
         position: relative;
-        z-index: 1100;
-
+        z-index: 100;
         background-color: transparent;
-
         cursor: pointer;
         flex-shrink: 0;
-
         img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
-
-        &.is-open {
-            display: block;
-
-            img {
-                display: none;
-            }
-
-            &::before {
-                content: '\f009';
-                font-family: 'Untitled';
-                font-size: rem(32px);
-                line-height: 1;
-                color: $active-link;
-            }
-        }
     }
-
     @include tablet {
         margin-top: 0;
         padding: rem(32px) 0;
-
         &__logo {
             margin-left: auto;
             margin-right: auto;
         }
-
         &__menu {
             transform: translateX(-100%);
-            transition: transform 0.35s ease;
-
-            &.is-open {
+            transition: transform 0.5s ease;
+            &--is-open {
                 transform: translateX(0);
-
                 .navbar__link {
-                    font-size: rem(40px);
+                    font-size: rem(25px);
                 }
             }
         }
-
         &__actions {
             display: flex;
             align-items: center;
-            width: clamp(rem(140px), 2vw, rem(220px));
-            margin-right: clamp(rem(50px), 20vw, rem(64px));
+            width: clamp(rem(10px), 35vw, rem(220px));
+            // width: rem(220px);
+            margin-right: clamp(rem(40px), 10vw, rem(64px));
         }
-
         &__toggle {
             display: flex;
             justify-content: flex-start;
-            width: clamp(rem(140px), 2vw, rem(220px));
-            margin-left: clamp(rem(50px), 20vw, rem(64px));
+            width: clamp(rem(120px), 21.5vw, rem(220px));
+            margin-left: clamp(rem(40px), 10vw, rem(64px));
+        }
+        &-shorter {
+            margin-top: rem(32px);
+            transition: margin-top 0.5s ease;
+            padding: rem(16px) 0;
+
+            .navbar__actions {
+                margin-right: rem(32px);
+            }
+
+            .navbar__toggle {
+                margin-left: rem(32px);
+            }
         }
     }
-
     @include desktop {
         margin-top: rem(34px);
-
         padding: rem(32px) 0;
-
+        justify-content: center;
         &__logo {
             position: static;
 
@@ -183,47 +143,53 @@
 
             margin-left: rem(117px);
         }
-
         &__menu {
-            display: flex;
-
+            @include flex-between;
+            flex-direction: row;
             position: static;
-
             width: auto;
             height: auto;
-
+            margin-left: auto;
+            margin-right: auto;
             padding: 0;
-
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-
             gap: rem($menu-gap);
-
             background-color: transparent;
-
             transform: none;
             transition: none;
+            &-shorter {
+                gap: rem($menu-gap-shorter);
+            }
+            transition: gap 0.5s ease;
         }
-
         &__actions {
-            display: flex;
-            align-items: center;
-
+            @include flex-center;
+            width: rem(220px);
             margin-right: rem(117px);
         }
-
+        &-shorter {
+            .navbar__logo {
+                margin-left: rem(64px);
+            }
+            .navbar__actions {
+                margin-right: rem(64px);
+            }
+            .navbar__menu {
+                height: rem(50px);
+            }
+            .navbar__link {
+                font-size: rem(20px);
+                font-style: bold;
+            }
+            .btn {
+                font-size: rem(15px);
+            }
+        }
         &__toggle {
             display: none;
         }
     }
 }
-
-.navbar__menu.is-open .navbar__actions {
+.navbar__menu--is-open .navbar__actions {
     display: flex;
     width: 100%;
-}
-
-.navbar__menu.is-open .navbar__actions .btn {
-    flex: 1;
 }
