@@ -2,7 +2,7 @@
 @use '../abstracts/functions' as *;
 @use '../abstracts/variables' as *;
 
-.top-ellipe {
+.ellipse-top {
     position: absolute;
     width: rem(300px);
     height: rem(300px);
@@ -16,7 +16,7 @@
     z-index: 1000;
 }
 
-.side-ellipe {
+.ellipse-side {
     display: none;
 }
 
@@ -29,7 +29,7 @@
 }
 
 @include tablet {
-    .top-ellipe {
+    .ellipse-top {
         width: rem(500px);
         height: rem(500px);
         left: rem(-50px);
@@ -39,7 +39,7 @@
         z-index: 0;
     }
 
-    .side-ellipe {
+    .ellipse-side {
         position: absolute;
         display: block;
         width: rem(406px);
@@ -54,8 +54,8 @@
         position: absolute;
         display: block;
         left: 4%;
-        top: -80%;
-        width: rem(70px);
+        top: -82%;
+        width: rem(64px);
         z-index: -1;
     }
 
@@ -63,19 +63,19 @@
         position: absolute;
         display: block;
         right: rem(-200px);
-        bottom: rem(50px);
+        bottom: rem(110px);
     }
 }
 
 @include desktop {
-    .top-ellipse {
+    .ellipse-top {
         width: rem(500px);
         height: rem(500px);
         left: rem(-60px);
         filter: blur(250px);
     }
 
-    .side-ellipe {
+    .ellipse-side {
         position: absolute;
         display: block;
         width: rem(406px);
