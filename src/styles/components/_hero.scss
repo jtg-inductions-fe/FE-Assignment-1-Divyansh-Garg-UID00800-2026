@@ -6,7 +6,7 @@
 
 .hero {
     position: relative;
-    max-width: 100%;
+    width: 100%;
     margin-top: rem(64px);
     padding: 0 rem(17px);
     box-sizing: border-box;
@@ -170,7 +170,7 @@
     }
 
     &__title {
-        margin-top: clamp(rem(20px), 5vw, rem(50px));
+        margin-top: clamp(rem(20px), 4.5vw, rem(50px));
         padding: 0 rem(22px);
         font-family: $font-primary;
         font-size: clamp(rem(40px), 9vw, rem(44px));
@@ -199,7 +199,7 @@
         flex-direction: column;
         width: 100%;
         margin-top: rem(32px);
-        margin-bottom: rem(64px);
+        // margin-bottom: rem(64px);
         gap: rem(24px);
         box-sizing: border-box;
     }
@@ -231,7 +231,7 @@
         &--secondary {
             gap: rem(8px);
             border: 1px solid $color-light;
-            background-color: transparent;
+            background-color: $color-white;
             color: inherit;
         }
     }
@@ -243,7 +243,6 @@
     }
 
     @include tablet {
-        margin-top: 0;
         margin: 0 clamp(rem(24px), 6.25vw, rem(64px));
         padding: 0;
 
@@ -339,7 +338,7 @@
 
         &__actions {
             flex-direction: row;
-            width: clamp(rem(280px), 33vw, rem(338px));
+            width: clamp(rem(296px), 33vw, rem(338px));
             margin-top: clamp(rem(24px), 4vw, rem(43px));
 
             gap: clamp(rem(10px), 1.56vw, rem(16px));
@@ -354,23 +353,19 @@
     }
 
     @include desktop {
-        padding: rem(64px) 0;
+        padding: rem(64px) 0 0 0;
         box-sizing: border-box;
         margin: 0 clamp(rem(48px), 8.13vw, rem(117px));
-        min-height: clamp(rem(628px), 42vw, rem(848px));
+        min-height: clamp(rem(750px), 60vw, rem(1000px));
         overflow: visible;
 
         &__media {
             position: absolute;
             right: 0;
 
-            width: clamp(rem(600px), 40vw, rem(772px));
-            height: 80%;
-
-            max-height: clamp(rem(600px), 42vw, rem(800px));
-
-            min-height: 0;
-
+            width: clamp(rem(600px), 54vw, rem(800px));
+            min-height: clamp(rem(650px), 100vw, rem(710px));
+            // height: 80%;
             margin: 0;
         }
 
@@ -383,13 +378,13 @@
             padding: clamp(rem(50px), 7.32vw, rem(75px))
                 clamp(rem(55px), 8.88vw, rem(91px)) rem(1px);
 
-            gap: 5.4%;
+            gap: clamp(0%, 100vw, 5.3%);
         }
 
         &__images {
             &--left {
                 width: 47.3%;
-                gap: 5%;
+                gap: clamp(0%, 100vw, 5%);
             }
 
             &--right {
@@ -409,15 +404,15 @@
 
         &__decor {
             &--left {
-                left: 41%;
-                top: 47.8%;
+                left: 40.5%;
+                top: 46.5%;
                 @include flex-center;
                 @include floating-icon($color-pink, 64px);
             }
 
             &--bottom {
-                left: 75%;
-                top: 86%;
+                left: 75.5%;
+                top: 82.5%;
                 @include flex-center;
                 @include floating-icon($color-orange, 64px);
             }
@@ -428,21 +423,21 @@
         }
 
         &__badge {
-            top: 66%;
-            left: 86%;
+            top: 63.5%;
+            left: 85%;
             right: auto;
             width: rem(170px);
             padding: rem(16px) rem(32px);
             border-radius: rem(100px);
             font-size: rem(14px);
-            gap: rem(8px);
             &-icon {
                 font-size: rem(24px);
             }
         }
 
         &__content {
-            display: block;
+            justify-content: center;
+            min-height: clamp(rem(700px), 40vw, rem(710px));
             width: 40%;
             text-align: left;
             align-items: start;
