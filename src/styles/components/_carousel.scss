@@ -6,7 +6,7 @@
 .testimonials {
     position: relative;
     width: 100%;
-    padding: rem(64px) rem(32px);
+    padding: rem(60px) rem(20px);
     overflow: hidden;
     text-align: center;
     font-family: $font-primary;
@@ -91,7 +91,7 @@
         height: rem(128px);
         overflow: hidden;
         border-radius: 50%;
-        margin: rem(64px) 0;
+        margin: rem(60px) 0 rem(72px) 0;
 
         &--image {
             display: block;
@@ -112,7 +112,7 @@
     }
 
     &__quote {
-        margin: rem(64px) 0;
+        margin: rem(64px) 0 rem(45px) 0;
         color: $non-active-link;
         opacity: 0.75;
         font-size: rem(18px);
@@ -228,24 +228,31 @@
     }
 
     @include tablet {
-        padding: rem(64px);
+        padding: rem(32px) rem(64px) rem(64px) rem(64px);
         gap: rem(56px);
 
         &__eyebrow {
             font-size: rem(23px);
+            letter-spacing: $letter-spacing-large;
         }
 
         &__title {
             font-size: rem(40px);
         }
 
+        &__avatar {
+            margin: rem(50px) 0 rem(65px) 0;
+        }
+
         &__quote {
+            margin-top: rem(60px);
+            margin-bottom: rem(55px);
             font-size: rem(23px);
             padding: 0 rem(156px);
         }
 
         &__navigation {
-            top: 36%;
+            top: 33%;
         }
 
         &__button {
@@ -254,7 +261,15 @@
         }
 
         .icon {
-            font-size: rem(25px);
+            font-size: rem(30px);
+        }
+
+        &__star {
+            font-size: rem(30px);
+        }
+
+        &__rating {
+            margin-top: rem(35px);
         }
 
         .testimonials__button--black_left {
@@ -270,6 +285,7 @@
             display: block;
             position: absolute;
             left: 0;
+            top: -1%;
 
             &--image {
                 object-fit: cover;
@@ -280,11 +296,12 @@
     }
 
     @include desktop {
-        padding: rem(64px) rem(140px);
+        padding: rem(28px) rem(140px) rem(64px) rem(140px);
         gap: rem(56px);
 
         &__eyebrow {
             font-size: rem(23px);
+            letter-spacing: $letter-spacing-xlarge;
         }
 
         &__title {
@@ -294,10 +311,15 @@
         &__quote {
             font-size: rem(23px);
             padding: 0 rem(160px);
+            margin: rem(62px) 0 rem(52px) 0;
+        }
+
+        &__avatar {
+            margin: rem(55px) 0 rem(64px) 0;
         }
 
         &__navigation {
-            top: 36%;
+            top: 33%;
         }
 
         &__button {
@@ -305,8 +327,8 @@
             height: rem(100px);
         }
 
-        .icon {
-            font-size: rem(25px);
+        &__star {
+            font-size: rem(32px);
         }
 
         .testimonials__button--black_left {
@@ -317,13 +339,23 @@
             font-size: rem(14px);
         }
 
+        .testimonials__button--white_left {
+            font-size: rem(28px);
+        }
+
+        .testimonials__button--white_right {
+            font-size: rem(28px);
+        }
+
         &__background {
             height: 100%;
             display: block;
             position: absolute;
             left: 0;
+            overflow: visible;
 
             &--image {
+                overflow: visible;
                 object-fit: cover;
                 width: 100vw;
                 height: 100%;
