@@ -4,7 +4,7 @@
 @use '../abstracts/mixins' as *;
 
 .btn {
-    @include flex-inline;
+    @include flex-center;
     box-sizing: border-box;
     min-height: rem($nav-button-height);
 
