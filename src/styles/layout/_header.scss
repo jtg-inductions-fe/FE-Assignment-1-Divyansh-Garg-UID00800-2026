@@ -2,7 +2,12 @@
 @use '../abstracts/functions' as *;
 
 .site-header {
-    position: relative;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
     box-sizing: border-box;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: rem(1440px);
 }
