@@ -1,0 +1,14 @@
+<svg viewBox="0 0 15 15" fill="none" width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        :root, .palette0 {color: currentColor;
+            --color0: #f1f2f2;
+            --color1: #5d50c6;
+            --color2: #fff;
+            --color3: #f85e9f;
+            --color4: #facd49;
+            --color5: #292d32;
+            --color6: #f4436c;
+        }
+    </style>
+    <path stroke-width="1.6" stroke="var(--color6, #f4436c)" stroke-linecap="round" stroke-linejoin="round" d="M12.8 7.4665v6.6666H2.1334l0-6.6666M7.4667 14.1331l0-10M7.4667 4.1331l-3 0c-0.442 0-0.8659-0.1756-1.1785-0.4881S2.8001 2.9085 2.8001 2.4665 2.9756 1.6005 3.2882 1.288 4.0247 0.7998 4.4667 0.7998c2.3333 0 3 3.3333 3 3.3333zM7.4667 4.1331l3 0c0.442 0 0.866-0.1756 1.1785-0.4881 0.3126-0.3126 0.4882-0.7365 0.4882-1.1785s-0.1756-0.866-0.4882-1.1785c-0.3125-0.3126-0.7365-0.4882-1.1785-0.4882-2.3333 0-3 3.3333-3 3.3333zM0.8 4.1331l13.3334 0v3.3334l-13.3334 0z" />
+</svg>

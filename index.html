@@ -742,7 +742,208 @@
                 </nav>
             </div>
         </footer>
+        <div
+            class="site-spin-modal site-spin-modal--hidden"
+            id="spinModal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="spinModalTitle"
+        >
+            <div class="overlay"></div>
+            <div class="spin-modal">
+                <div class="spin-modal__header">
+                    <div class="spin-modal__heading">
+                        <span class="spin-modal__eyebrow">
+                            <span class="icon" aria-hidden="true"
+                                >&#xf00f;</span
+                            >
+                            Special Deals
+                        </span>
+
+                        <h2 class="spin-modal__title" id="spinModalTitle">
+                            Spin & Win!
+                        </h2>
+
+                        <p
+                            class="spin-modal__subtitle"
+                            id="spinModalSubtitle"
+                        ></p>
+                    </div>
+
+                    <button
+                        class="spin-modal__close"
+                        type="button"
+                        aria-label="Close spin and win modal"
+                    >
+                        <span class="icon" aria-hidden="true">&#xf009;</span>
+                    </button>
+                </div>
+                <main class="spin-modal__content">
+                    <div
+                        class="spin-modal__view spin-modal__view--wheel"
+                        id="spinViewWheel"
+                    >
+                        <section
+                            class="spin-wheel"
+                            aria-label="Spin the wheel to win a deal"
+                        >
+                            <div class="spin-wheel__pointer" aria-hidden="true">
+                                <span class="icon">&#xf011;</span>
+                            </div>
+
+                            <div class="spin-wheel__container">
+                                <div
+                                    class="spin-wheel__loading"
+                                    id="spinLoading"
+                                >
+                                    <span>Loading...</span>
+                                </div>
+
+                                <div
+                                    class="spin-wheel__segments"
+                                    id="spinWheel"
+                                    hidden
+                                >
+                                    <div
+                                        class="spin-wheel__segment"
+                                        data-option-id="option-1"
+                                        data-option-label="20% Off Flights"
+                                    >
+                                        <span class="spin-wheel__text"></span>
+                                    </div>
+
+                                    <div
+                                        class="spin-wheel__segment"
+                                        data-option-id="option-2"
+                                        data-option-label="Free Hotel Nights"
+                                    >
+                                        <span class="spin-wheel__text"></span>
+                                    </div>
+
+                                    <div
+                                        class="spin-wheel__segment"
+                                        data-option-id="option-3"
+                                        data-option-label="VIP Lounge Access"
+                                    >
+                                        <span class="spin-wheel__text"></span>
+                                    </div>
+
+                                    <div
+                                        class="spin-wheel__segment"
+                                        data-option-id="option-4"
+                                        data-option-label="10% Off Packages"
+                                    >
+                                        <span class="spin-wheel__text"></span>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="spin-wheel__button"
+                                    id="spinButton"
+                                    type="button"
+                                    aria-label="Spin the wheel"
+                                    hidden
+                                >
+                                    Spin
+                                </button>
+                            </div>
+                        </section>
+
+                        <div class="spin-modal__result" id="spinResult" hidden>
+                            <p class="spin-modal__result-heading">You won!</p>
+                            <div class="spin-modal__result-card">
+                                <div class="spin-modal__result-info">
+                                    <p
+                                        class="spin-modal__result-name"
+                                        id="spinResultName"
+                                    ></p>
+                                    <p
+                                        class="spin-modal__result-expiry"
+                                        id="spinResultExpiry"
+                                    ></p>
+                                </div>
+                                <div class="spin-modal__result-code">
+                                    <div class="spin-modal__code">
+                                        <span
+                                            class="spin-modal__code-text"
+                                            id="spinResultCode"
+                                        ></span>
+                                    </div>
+                                    <button
+                                        class="spin-modal__copy"
+                                        type="button"
+                                        aria-label="Copy code"
+                                    >
+                                        <span class="icon" aria-hidden="true"
+                                            >&#xf010;</span
+                                        >
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spin-modal__empty" id="spinEmpty" hidden>
+                            <p class="spin-modal__empty-title">
+                                All deals unlocked!
+                            </p>
+                            <p class="spin-modal__empty-sub">
+                                You've claimed everything on the wheel. Check
+                                your deals below.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="spin-modal__view spin-modal__view--list"
+                        id="spinViewList"
+                        hidden
+                    >
+                        <div
+                            class="spin-modal__deal-list"
+                            id="spinDealList"
+                        ></div>
+                        <p
+                            class="spin-modal__list-empty"
+                            id="spinListEmpty"
+                            hidden
+                        >
+                            No deals unlocked yet — spin the wheel to win your
+                            first one.
+                        </p>
+                    </div>
+                </main>
+                <div class="spin-modal__footer">
+                    <button class="spin-modal__deals-button" type="button">
+                        <span class="spin-modal__deals-text">
+                            View All Unlocked Deals
+                        </span>
+
+                        <span
+                            class="spin-modal__deals-count"
+                            id="dealsCount"
+                            aria-label="0 unlocked deals"
+                            hidden
+                        >
+                            0
+                        </span>
+                    </button>
+
+                    <button
+                        class="spin-modal__back-button"
+                        type="button"
+                        hidden
+                    >
+                        Go Back
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="spin-modal__toast" id="spinToast" role="status">
+            Code copied!
+        </div>
 
         <script type="module" src="./src/script/index.js"></script>
+        <script type="module" src="./src/script/spinner.js"></script>
     </body>
 </html>
