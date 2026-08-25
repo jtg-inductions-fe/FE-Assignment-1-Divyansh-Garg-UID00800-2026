@@ -1,0 +1,41 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+
+.site-spin-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    @include flex-center;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0 rem(20px);
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba($color-black, 50%);
+    }
+
+    &--hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+            opacity 0.2s ease,
+            visibility 0s linear 0.2s;
+
+        .spin-modal {
+            transform: translateY(20px) scale(0.97);
+        }
+    }
+
+    @include tablet {
+        @include flex-center;
+        flex-direction: row;
+    }
+}
+
+[hidden] {
+    display: none !important;
+}

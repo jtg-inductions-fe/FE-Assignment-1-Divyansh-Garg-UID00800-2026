@@ -511,7 +511,7 @@
             </p>
             <div data-lang="HTML">
                 <pre>
-&lt;span <em>class="icon"</em>&gt;&#xf00c;&lt;/span&gt;</pre
+&lt;span <em>class="icon"</em>&gt;&#xf011;&lt;/span&gt;</pre
                 >
             </div>
             <p>
@@ -527,13 +527,13 @@
             </div>
             <div data-lang="HTML">
                 <pre>
-&lt;span class="icon <em>my-size</em>"&gt;&#xf00c;&lt;/span&gt;</pre
+&lt;span class="icon <em>my-size</em>"&gt;&#xf011;&lt;/span&gt;</pre
                 >
             </div>
             <p>You can specify which color palette to use like so:</p>
             <div data-lang="HTML">
                 <pre>
-&lt;span class="icon <em>palette0</em>"&gt;&#xf00c;&lt;/span&gt;</pre
+&lt;span class="icon <em>palette0</em>"&gt;&#xf011;&lt;/span&gt;</pre
                 >
             </div>
             <p>You could also customize a palette in CSS:</p>
@@ -552,7 +552,7 @@
             </div>
             <div data-lang="HTML">
                 <pre>
-&lt;span class="icon <em>custom</em>"&gt;&#xf00c;&lt;/span&gt;</pre
+&lt;span class="icon <em>custom</em>"&gt;&#xf011;&lt;/span&gt;</pre
                 >
             </div>
         </details>
@@ -562,7 +562,7 @@
                     Enable JavaScript for easier copying of codes to clipboard.
                 </p>
             </noscript>
-            <summary>List of Glyphs <small>(15)</small></summary>
+            <summary>List of Glyphs <small>(18)</small></summary>
             <div id="copy_settings" style="display: none">
                 <label>
                     Click/tap on each glyph to copy:
@@ -576,7 +576,9 @@
                 <label>
                     Color Palette:
                     <select id="palette">
-                        <option value="0">palette0</option>
+                        <option data-background="none" value="0">
+                            palette0
+                        </option>
                     </select>
                 </label>
                 <label>
@@ -613,7 +615,31 @@
                     change the size.
                 </p>
             </div>
-            <div class="_demo_glyphs">
+            <div class="_demo_glyphs" style="--background: none">
+                <div>
+                    <div class="_demo_glyph">
+                        <span class="icon">&#xf011;</span> icon-Vector1
+                    </div>
+                    <label class="_demo_code"
+                        >U+ <input readonly value="f011"
+                    /></label>
+                </div>
+                <div>
+                    <div class="_demo_glyph">
+                        <span class="icon">&#xf010;</span> icon-Icon1
+                    </div>
+                    <label class="_demo_code"
+                        >U+ <input readonly value="f010"
+                    /></label>
+                </div>
+                <div>
+                    <div class="_demo_glyph">
+                        <span class="icon">&#xf00f;</span> icon-Icon
+                    </div>
+                    <label class="_demo_code"
+                        >U+ <input readonly value="f00f"
+                    /></label>
+                </div>
                 <div>
                     <div class="_demo_glyph">
                         <span class="icon">&#xf00c;</span> icon-down-arrow
@@ -738,7 +764,7 @@
             </div>
             <label id="test">
                 Try the generated font:
-                <textarea class="icon"></textarea>
+                <textarea class="icon" style="--background: none"></textarea>
             </label>
         </details>
         <footer>
@@ -757,6 +783,9 @@
             const htmlEntity = document.getElementById('html_entity');
             const wrapper = document.querySelector('._demo_glyphs');
             const names = {
+                0xf011: 'Vector1',
+                0xf010: 'Icon1',
+                0xf00f: 'Icon',
                 0xf00c: 'down-arrow',
                 0xf00d: 'left-black',
                 0xf00e: 'right-black',
