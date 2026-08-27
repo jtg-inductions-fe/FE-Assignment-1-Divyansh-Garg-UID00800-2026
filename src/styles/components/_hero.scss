@@ -13,50 +13,31 @@
     overflow: hidden;
 
     &__decor {
-        position: absolute;
-        z-index: 10;
-        pointer-events: none;
         &--left {
-            left: clamp(rem(20px), 10.4vw, rem(45px));
-            top: clamp(rem(100px), 40.7vw, rem(175px));
-            @include floating-icon($color-pink, 32.85px);
+            left: rem(45px);
+            top: rem(175px);
+
+            @include floating-icon($color-pink);
         }
 
         &--bottom {
-            left: 60%;
-            top: 37.5%;
+            left: rem(265px);
+            top: rem(340px);
 
-            @include floating-icon($color-orange, 32.85px);
-        }
-
-        .icon {
-            font-size: rem(16px);
+            @include floating-icon($color-orange);
         }
     }
 
     &__badge {
         position: absolute;
 
-        top: clamp(rem(180px), 58.25vw, rem(250px));
-        right: clamp(rem(10px), 5.59vw, rem(24px));
-        @include flex-between;
-        width: clamp(rem(70px), 19.82vw, rem(85px));
-        box-sizing: border-box;
-        padding: clamp(rem(6px), 1.91vw, rem(8px))
-            clamp(rem(10px), 3.82vw, rem(16px));
+        top: rem(250px);
+        right: rem(24px);
+        width: rem(85px);
+        border-radius: rem(50px);
 
-        gap: clamp(rem(3px), 0.95vw, rem(4px));
-
-        border: none;
-        border-radius: rem(51px);
-        background-color: $color-white;
-        font-family: $font-primary;
-        font-size: clamp(rem(6px), 1.67vw, rem(7px));
-        line-height: $line-height-menu;
-        z-index: 20;
         &-icon {
             flex-shrink: 0;
-
             font-size: rem(10px);
         }
     }
@@ -122,22 +103,6 @@
         }
     }
 
-    &__content {
-        @include flex-center;
-
-        flex-direction: column;
-
-        width: 100%;
-
-        box-sizing: border-box;
-
-        font-family: $font-primary;
-
-        text-align: center;
-
-        min-width: 0;
-    }
-
     &__eyebrow {
         @include flex-center;
         width: rem(224px);
@@ -165,43 +130,22 @@
     }
 
     &__header {
-        width: 100%;
-        min-width: 0;
+        gap: rem(24px);
     }
 
     &__title {
-        margin-top: clamp(rem(20px), 4.5vw, rem(50px));
+        flex-direction: column;
+        display: inline;
         padding: 0 rem(22px);
-        font-family: $font-primary;
-        font-size: clamp(rem(40px), 9vw, rem(44px));
-        font-weight: $font-weight-medium;
-        font-style: $font-style-bold;
-        line-height: $line-height-menu;
-        letter-spacing: 0;
+        font-size: rem(40px);
+
         &-highlight {
             color: $color-pink;
         }
     }
 
-    &__description {
-        max-width: rem(700px);
-        margin-top: rem(24px);
-        color: $non-active-link;
-        opacity: 0.5;
-        font-family: $font-secondary;
-        font-size: clamp(rem(16px), 2vw, rem(18px));
-        line-height: $line-height-hero;
-        box-sizing: border-box;
-    }
-
     &__actions {
-        @include flex-center;
         flex-direction: column;
-        width: 100%;
-        margin-top: rem(32px);
-        // margin-bottom: rem(64px);
-        gap: rem(24px);
-        box-sizing: border-box;
     }
 
     &__button {
@@ -278,39 +222,23 @@
 
         &__decor {
             &--left {
-                left: clamp(rem(55px), 11.52vw, rem(118px));
+                left: rem(118px);
 
-                top: clamp(rem(180px), 32.32vw, rem(331px));
-
-                @include floating-icon($color-pink, 64px);
+                top: rem(410px);
             }
 
             &--bottom {
-                left: clamp(rem(300px), 52.34vw, rem(536px));
+                left: rem(536px);
 
-                top: clamp(rem(400px), 63.38vw, rem(649px));
-
-                @include floating-icon($color-orange, 64px);
-            }
-
-            .icon {
-                font-size: rem(32px);
+                top: rem(730px);
             }
         }
 
         &__badge {
-            top: clamp(rem(300px), 47.66vw, rem(488px));
+            top: rem(488px);
+            right: rem(56px);
 
-            right: clamp(rem(24px), 5.47vw, rem(56px));
-
-            width: clamp(rem(130px), 16.6vw, rem(170px));
-
-            padding: clamp(rem(10px), 1.56vw, rem(16px))
-                clamp(rem(20px), 3.125vw, rem(32px));
-
-            font-size: clamp(rem(11px), 1.37vw, rem(14px));
-
-            gap: clamp(rem(5px), 0.78vw, rem(8px));
+            width: rem(170px);
 
             &-icon {
                 font-size: rem(24px);
@@ -321,28 +249,24 @@
             font-size: rem(14px);
         }
 
+        &__header {
+            gap: rem(43px);
+        }
+
         &__title {
-            margin-top: clamp(rem(24px), 4.2vw, rem(43px));
-            padding: 0 clamp(rem(50px), 14.65vw, rem(150px));
-            font-size: clamp(rem(42px), 5.47vw, rem(56px));
+            padding: 0 rem(150px);
+            font-size: rem(56px);
         }
 
         &__description {
             max-width: 100%;
-            margin-top: clamp(rem(24px), 4.2vw, rem(43px));
-
-            padding: 0 clamp(rem(40px), 22.46vw, rem(250px));
-
-            font-size: clamp(rem(16px), 1.76vw, rem(18px));
+            padding: 0 rem(230px);
         }
 
         &__actions {
             flex-direction: row;
-            width: clamp(rem(296px), 33vw, rem(338px));
-            margin-top: clamp(rem(24px), 4vw, rem(43px));
-
-            gap: clamp(rem(10px), 1.56vw, rem(16px));
-            padding: 0;
+            width: rem(338px);
+            gap: rem(16px);
         }
 
         &__button {
@@ -406,37 +330,22 @@
             &--left {
                 left: 40.5%;
                 top: 46.5%;
-                @include flex-center;
-                @include floating-icon($color-pink, 64px);
             }
 
             &--bottom {
                 left: 75.5%;
                 top: 82.5%;
-                @include flex-center;
-                @include floating-icon($color-orange, 64px);
-            }
-
-            .icon {
-                font-size: rem(32px);
             }
         }
 
         &__badge {
-            top: 63.5%;
-            left: 85%;
-            right: auto;
+            top: rem(550px);
+            right: rem(10px);
             width: rem(170px);
-            padding: rem(16px) rem(32px);
             border-radius: rem(100px);
-            font-size: rem(14px);
-            &-icon {
-                font-size: rem(24px);
-            }
         }
 
         &__content {
-            justify-content: center;
             min-height: clamp(rem(700px), 40vw, rem(710px));
             width: 40%;
             text-align: left;
@@ -448,37 +357,19 @@
         }
 
         &__header {
-            width: 90%;
+            padding-right: rem(50px);
         }
 
         &__title {
-            margin-top: rem(43px);
             padding: 0;
-            font-size: clamp(rem(56px), 5vw, rem(69px));
+            font-size: rem(69px);
         }
 
         &__description {
-            margin-top: rem(43px);
-
-            padding: 0 clamp(rem(20px), 4.88vw, rem(50px)) 0 0;
-
-            font-size: rem(18px);
-        }
-
-        &__actions {
-            flex-direction: row;
-            width: rem(338px);
-            margin-top: rem(43px);
-            margin-bottom: 0;
-            gap: rem(16px);
-            padding: 0;
-            align-items: center;
-        }
-
-        &__button {
-            width: auto;
-            white-space: nowrap;
-            padding: rem(20px) rem(24px);
+            padding: 0 rem(50px) 0 0;
+            &--block {
+                display: block;
+            }
         }
     }
 }
