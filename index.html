@@ -8,18 +8,20 @@
         <link rel="icon" href="/assets/images/logo.png" />
     </head>
     <body>
-        <div class="top-ellipe"></div>
-
-        <header class="site-header">
+        <header class="site-header" id="header">
             <nav class="navbar" aria-label="Main navigation">
-                <a href="/" class="navbar__logo">
+                <a href="/" class="logo navbar__logo">
                     <img
                         src="public/assets/images/logo.png"
                         alt="Travel Point"
                     />
                 </a>
 
-                <ul class="navbar__menu" id="mobile-menu">
+                <ul
+                    class="list navbar__menu"
+                    id="mobile-menu"
+                    aria-modal="true"
+                >
                     <li class="navbar__item">
                         <a
                             href="/"
@@ -33,7 +35,7 @@
                     </li>
 
                     <li class="navbar__item">
-                        <a href="#special_deals" class="navbar__link"
+                        <a href="#" class="navbar__link spinner__link"
                             >Special Deals</a
                         >
                     </li>
@@ -52,7 +54,7 @@
                     </li>
                 </ul>
 
-                <div class="navbar__actions">
+                <div class="actions navbar__actions">
                     <a href="/login" class="btn btn--login">Log In</a>
                     <a href="/signup" class="btn btn--signup">Sign Up</a>
                 </div>

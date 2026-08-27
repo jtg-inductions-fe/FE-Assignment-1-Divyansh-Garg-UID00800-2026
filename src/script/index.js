@@ -1,31 +1,41 @@
 /**
- * Media query objects to handle dynamic responsive layout changes.
+ * @typedef MediaQueryList
+ * @type {number}
+ */
+
+/**
+ * @typedef NavigationLink
+ * @type {HTMLElement}
+ */
+
+/**
+ * media query value which is used for handling the layout of the navbar on different screen sizes
  * @type {MediaQueryList}
  */
 const mobileQuery = window.matchMedia('(max-width: 430px)');
-
-/** @type {MediaQueryList} */
 const tabletQuery = window.matchMedia(
     '(min-width: 431px) and (max-width: 1024px)',
 );
-
-/** @type {MediaQueryList} */
 const desktopQuery = window.matchMedia('(min-width: 1025px)');
 
-/* ==========================================================================
-   NAVBAR LOGIC
-   ========================================================================== */
-
-/** @type {HTMLElement} The main navigation bar container. */
+/**
+ * the main container of the navbar
+ * @type {HTMLElement}
+ */
 const navbar = document.querySelector('.navbar');
 
-/** @type {HTMLElement} The navigation menu container containing links. */
+/**
+ * menu list element which is used for showing the list in mobile view with hamburger function.
+ * @type {HTMLElement}
+ */
 const menu = navbar.querySelector('.navbar__menu');
 
 /**
- * Listens for scroll events to shrink the navbar after passing a specific threshold.
- * Adds or removes styling modifiers based on the vertical scroll position.
- */
+ * listens for the height changes in the y direction
+ * applying specific styling to the navbar in the scrolled view
+ * @type {HTMLDocument}
+ * @event scroll
+ * */
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.classList.add('navbar-shorter');
@@ -36,19 +46,27 @@ window.addEventListener('scroll', () => {
     }
 });
 
-/** @type {HTMLElement} The site branding logo element. */
+/**
+ * logo of the site for placing according to the media query
+ * @type {HTMLElement}
+ * */
 const logo = navbar.querySelector('.navbar__logo');
 
-/** @type {HTMLElement} Action elements like buttons. */
+/**
+ * action btn element which is getting used for hiding and showing the element according to the media query
+ * @type {HTMLElement}
+ * */
 const actions = navbar.querySelector('.navbar__actions');
 
-/** @type {HTMLElement} The mobile hamburger toggle button. */
+/**
+ * mobile hamburger button getting used for toggling the expanded view of navbar, specially menu items and actions
+ * @type {HTMLElement}
+ * */
 const toggle = navbar.querySelector('.navbar__toggle');
 
 /**
- * Dynamically reorders structural navbar components inside the DOM
- * based on current active media query breakpoints.
- *
+ * funciton which helps in dynamically aligning the navbar components according to the media query
+ * @param {number} viewportSize
  * @returns {void}
  */
 function updateNavbarOrder() {
@@ -61,15 +79,28 @@ function updateNavbarOrder() {
     }
 }
 
-// Initial arrangement and binding listeners for viewport updates
+/**
+ * calling the function initially so that the changes could be load at the time of page loading only
+ * @event change
+ * @param {MediaQueryList}
+ * @returns {void}
+ */
 updateNavbarOrder();
+
+/**
+ * calling the function when the mediaquery get changes
+ * @event change
+ * @param {MediaQueryList}
+ * @returns {void}
+ */
 mobileQuery.addEventListener('change', updateNavbarOrder);
 tabletQuery.addEventListener('change', updateNavbarOrder);
 desktopQuery.addEventListener('change', updateNavbarOrder);
 
 /**
- * Handles clicks on the mobile toggle button to expand or collapse
- * the responsive mobile navigation menu while maintaining accessible attributes.
+ * event listner which is reponsible for the toggling of the hamburger and expanding and compressing of the navbar
+ * @return {void}
+ * @event click
  */
 toggle.addEventListener('click', () => {
     const isOpen = menu.classList.toggle('navbar__menu--is-open');
@@ -83,27 +114,61 @@ toggle.addEventListener('click', () => {
 });
 
 /**
- * Automatically appends the user actions section into the main menu container
- * specifically when the mobile screen query condition matches.
- *
- * @param {MediaQueryList | MediaQueryListEvent} e - The query match status context object.
+ * Handles the collapse of the mobile menu when it is already open.
+ * Using the Escape key for closing the expanded navbar helping in the accessibility
+ * @event keydown
+ * @return {void}
+ */
+document.addEventListener('keydown', (e) => {
+    if (
+        e.key === 'Escape' &&
+        menu.classList.contains('navbar__menu--is-open')
+    ) {
+        menu.classList.remove('navbar__menu--is-open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+    }
+});
+
+/**
+ * Function for adding the actions element into the menu items automatically when mobile media query is find
+ * @event change
+ * @param {MediaQueryList}
  * @returns {void}
  */
 function addingActions(e) {
     if (e.matches) menu.append(actions);
 }
 
-// Handle positioning adjustments for action clusters
+/**
+ * calling the function intially so that the chanages could be applied at the time of page loading only
+ * @event change
+ * @param {MediaQueryList}
+ * @returns {void}
+ */
 addingActions(mobileQuery);
+
+/**
+ * calling the function when the mediaquery get changes
+ * @event change
+ * @param {MediaQueryList}
+ * @returns {void}
+ */
 mobileQuery.addEventListener('change', addingActions);
 
-/** @type {NodeListOf<HTMLElement>} Individual navigational anchor items. */
+/**
+ * each navigation items which is getting used for changing the current view of the page and also the active link status.
+ * @type {NodeListOf<HTMLElement>}
+ * */
 const navLinks = document.querySelectorAll('.navbar__link');
 
 /**
- * Attaches pointer interactions to navigation links.
- * Clears prior active styling states and forces the mobile drawer shut on click.
- */
+ * Adding the event to each navigation link which is used for toggle the status of the active link
+ * and making all the other links inactive by looping on them
+ * @type {NodeListOf<HTMLElement>}
+ * @param {NavigationLink}
+ * @event click
+ * */
 navLinks.forEach((link) => {
     link.addEventListener('click', () => {
         document

@@ -17,24 +17,12 @@
         width: 90%;
     }
     transition: width 0.5s ease;
-    &__logo {
-        @include flex-center;
-        flex-shrink: 0;
-        img {
-            display: block;
-            width: rem($logo);
-            height: rem($logo);
-            object-fit: contain;
-        }
-    }
+
     &__menu {
-        @include flex-center;
         flex-direction: column;
-        gap: rem(32px);
         position: fixed;
         top: 0;
         right: 0;
-        width: 100%;
         height: 100vh;
         padding: rem(80px) rem(24px);
         background-color: $color-white;
@@ -52,7 +40,6 @@
         font-family: $font-primary;
         font-size: rem($menu-item-size);
         font-weight: $font-weight-bold;
-        font-style: $font-style-normal;
         line-height: $line-height-menu;
         letter-spacing: $letter-spacing-normal;
         color: $non-active-link;
@@ -107,7 +94,7 @@
         }
         &__actions {
             display: flex;
-            align-items: center;
+            gap: 0;
             width: clamp(rem(10px), 35vw, rem(220px));
             // width: rem(220px);
             margin-right: clamp(rem(40px), 10vw, rem(64px));
@@ -138,9 +125,7 @@
         justify-content: center;
         &__logo {
             position: static;
-
             transform: none;
-
             margin-left: rem(117px);
         }
         &__menu {
@@ -162,7 +147,6 @@
             transition: gap 0.5s ease;
         }
         &__actions {
-            @include flex-center;
             width: rem(220px);
             margin-right: rem(117px);
         }
@@ -178,7 +162,6 @@
             }
             .navbar__link {
                 font-size: rem(20px);
-                font-style: bold;
             }
             .btn {
                 font-size: rem(15px);
