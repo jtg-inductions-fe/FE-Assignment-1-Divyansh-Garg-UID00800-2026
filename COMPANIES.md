@@ -45,4 +45,4 @@ Contains the styling required for the static images and div and also the main co
 
 ## Notes
 
-The companies follows the project's component-based SCSS architecture. 
+The companies follows the project's component-based SCSS architecture.
