@@ -13,13 +13,9 @@
  * @type {MediaQueryList}
  */
 const mobileQuery = window.matchMedia('(max-width: 430px)');
-
-/** @type {MediaQueryList} */
 const tabletQuery = window.matchMedia(
     '(min-width: 431px) and (max-width: 1024px)',
 );
-
-/** @type {MediaQueryList} */
 const desktopQuery = window.matchMedia('(min-width: 1025px)');
 
 /**
