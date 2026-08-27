@@ -9,6 +9,16 @@
  */
 
 /**
+ * @typedef CarouselSlide
+ * @type {HTMLElement}
+ */
+
+/**
+ * @typedef DotNode
+ * @type {HTMLElement}
+ */
+
+/**
  * media query value which is used for handling the layout of the navbar on different screen sizes
  * @type {MediaQueryList}
  */
@@ -189,46 +199,81 @@ navLinks.forEach((link) => {
     });
 });
 
-/* ==========================================================================
-   TESTIMONIAL CAROUSEL LOGIC
-   ========================================================================== */
-
+/**
+ * adding the embla carousel libraray for implementation of the carousel
+ * used the naming convention of the elements getting used in the carousel according to the documentation
+ * */
 import EmblaCarousel from 'embla-carousel';
 
-/** @type {HTMLElement} Core shell element containing the carousel. */
+/**
+ * the main shell element which is used for wrapping the whole carousel
+ * @type {HTMLElement}
+ */
 const wrapperNode = document.querySelector('.embla');
 
-/** @type {HTMLElement} Mask view panel for the slider tracks. */
+/**
+ * the viewport which is working as as slide in the carousel
+ * @type {HTMLElement}
+ */
 const viewportNode = wrapperNode.querySelector('.embla__viewport');
 
-/** @type {HTMLElement} Carousel backwards step controller button. */
+/**
+ * prev button elenent which is getting used for moving backward
+ * @type {HTMLElement}
+ */
 const prevButtonNode = wrapperNode.querySelector('.embla__prev');
 
-/** @type {HTMLElement} Carousel forwards step controller button. */
+/**
+ * next button elenent which is getting used for moving forward
+ * @type {HTMLElement}
+ */
 const nextButtonNode = wrapperNode.querySelector('.embla__next');
 
-/** @type {HTMLElement} Node wrapper housing individual dots trackers. */
+/**
+ * it is the element which is holding all the dot elements required for the movement of the carousel
+ * @type {HTMLElement}
+ */
 const dotsNode = wrapperNode.querySelector('.testimonials__dots');
 
-/** @type {NodeListOf<HTMLElement>} Node array grouping individual visual indicator elements. */
+/**
+ * a node array which has all the dot elements reponsible for the moving of carousel and getting to a spefic slide directly
+ * @type {NodeListOf<HTMLElement>}
+ * */
 const dotNodes = dotsNode.querySelectorAll('.testimonials__dot');
 
 /**
  * Instantiated API instance controlling slide engine executions.
+ * Used for the movement of slides and for adding the more functionality
+ * allowing the slides to loop and not getting ended in one direction
  * @type {Object}
  */
 const emblaApi = EmblaCarousel(viewportNode, {
     loop: true,
 });
 
+/**
+ * listener on the prev btn element for moving to the previous slide using the instantiated APi
+ * @event click
+ * @return {CarouselSlide}
+ */
 prevButtonNode.addEventListener('click', () => {
     emblaApi.scrollPrev();
 });
 
+/**
+ * listener on the next btn element for moving to the next slide using the instantiated APi
+ * @event click
+ * @return {CarouselSlide}
+ */
 nextButtonNode.addEventListener('click', () => {
     emblaApi.scrollNext();
 });
 
+/**
+ * listener on each dot element element for moving to the spefic slide using the instantiated APi
+ * @event click
+ * @return {DotNode}
+ */
 dotNodes.forEach((dotNode, index) => {
     dotNode.addEventListener('click', () => {
         emblaApi.scrollTo(index);
@@ -236,9 +281,8 @@ dotNodes.forEach((dotNode, index) => {
 });
 
 /**
- * Synchronizes the visual active states and accessibility indicators
- * across the navigation dot cluster matching the current active index.
- *
+ * Used for synchornization of the dots and making the current dot active and other in-active
+ * by adding the specific class and looping on each dot
  * @param {Object} emblaApi - The active instance controlling carousel interactions.
  * @returns {void}
  */
@@ -253,21 +297,25 @@ const updateActiveDot = (emblaApi) => {
     });
 };
 
-// Sync dot trackers instantly and hook slide navigation updates
+/**
+ * calling the function intially so that the chanages could be applied at the time of page loading only
+ * @event change
+ * @returns {void}
+ */
 updateActiveDot(emblaApi);
 emblaApi.on('select', updateActiveDot);
 
-/* ==========================================================================
-   FOOTER SECTION LOGIC
-   ========================================================================== */
-
-/** @type {NodeListOf<HTMLElement>} Mobile breakdown toggle selectors inside the layout footer. */
+/**
+ * toggles which are responsible for mobile media for toggling the state of navigation links
+ * @type {NodeListOf<HTMLElement>}
+ * */
 const toggles = document.querySelectorAll('.footer__section-toggle');
 
 /**
- * Manages click parameters across footer column drawers.
- * Displays hidden sublist areas and forces closing other rows to emulate accordion panels.
- */
+ * specific toggle element which is responsible for the toggling of the clicked navigation
+ * and toggling the state of other navigation too
+ * @type {HTMLElement}
+ * */
 toggles.forEach((toggle) => {
     toggle.addEventListener('click', () => {
         const section = toggle.closest('.footer__section');
@@ -293,83 +341,6 @@ toggles.forEach((toggle) => {
         // Toggle state indicators for current target section
         toggle.setAttribute('aria-expanded', !isOpen);
         content.classList.toggle('footer__section-list-hidden');
-        section.classList.toggle('footer__section--open', !isOpen);
-    });
-});
-
-import EmblaCarousel from 'embla-carousel';
-
-const wrapperNode = document.querySelector('.embla');
-
-const viewportNode = wrapperNode.querySelector('.embla__viewport');
-const prevButtonNode = wrapperNode.querySelector('.embla__prev');
-const nextButtonNode = wrapperNode.querySelector('.embla__next');
-const dotsNode = wrapperNode.querySelector('.testimonials__dots');
-const dotNodes = dotsNode.querySelectorAll('.testimonials__dot');
-
-const emblaApi = EmblaCarousel(viewportNode, {
-    loop: false,
-});
-
-prevButtonNode.addEventListener('click', () => {
-    emblaApi.scrollPrev();
-});
-
-nextButtonNode.addEventListener('click', () => {
-    emblaApi.scrollNext();
-});
-
-dotNodes.forEach((dotNode, index) => {
-    dotNode.addEventListener('click', () => {
-        emblaApi.scrollTo(index);
-    });
-});
-
-const updateActiveDot = (emblaApi) => {
-    const selectedIndex = emblaApi.selectedScrollSnap();
-
-    dotNodes.forEach((dotNode, index) => {
-        const isActive = index === selectedIndex;
-
-        dotNode.classList.toggle('testimonials__dot--active', isActive);
-
-        dotNode.setAttribute('aria-current', isActive ? 'true' : 'false');
-    });
-};
-
-updateActiveDot(emblaApi);
-
-emblaApi.on('select', updateActiveDot);
-
-const toggles = document.querySelectorAll('.footer__section-toggle');
-
-toggles.forEach((toggle) => {
-    toggle.addEventListener('click', () => {
-        const section = toggle.closest('.footer__section');
-        const contentId = toggle.getAttribute('aria-controls');
-        const content = document.getElementById(contentId);
-
-        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-
-        toggles.forEach((toggleAgain) => {
-            if (toggleAgain !== toggle) {
-                const otherSection = toggleAgain.closest('.footer__section');
-
-                const otherContentId =
-                    toggleAgain.getAttribute('aria-controls');
-
-                const otherContent = document.getElementById(otherContentId);
-
-                toggleAgain.setAttribute('aria-expanded', 'false');
-                otherContent.hidden = true;
-
-                otherSection.classList.remove('footer__section--open');
-            }
-        });
-
-        toggle.setAttribute('aria-expanded', !isOpen);
-        content.hidden = isOpen;
-
         section.classList.toggle('footer__section--open', !isOpen);
     });
 });

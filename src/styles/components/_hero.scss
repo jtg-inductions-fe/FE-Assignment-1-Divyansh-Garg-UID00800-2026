@@ -134,12 +134,8 @@
     }
 
     &__title {
-<<<<<<< HEAD
         flex-direction: column;
         display: inline;
-=======
-        margin-top: clamp(rem(20px), 4.5vw, rem(50px));
->>>>>>> 9eab84b ([DG_A1_04]: Corrected alt text in hero section, corrected naming of staic element, corrected mixin, corrected flex in site-main)
         padding: 0 rem(22px);
         font-size: rem(40px);
 
@@ -150,14 +146,6 @@
 
     &__actions {
         flex-direction: column;
-<<<<<<< HEAD
-=======
-        width: 100%;
-        margin-top: rem(32px);
-        // margin-bottom: rem(64px);
-        gap: rem(24px);
-        box-sizing: border-box;
->>>>>>> 9eab84b ([DG_A1_04]: Corrected alt text in hero section, corrected naming of staic element, corrected mixin, corrected flex in site-main)
     }
 
     &__button {
@@ -277,16 +265,8 @@
 
         &__actions {
             flex-direction: row;
-<<<<<<< HEAD
             width: rem(338px);
             gap: rem(16px);
-=======
-            width: clamp(rem(296px), 33vw, rem(338px));
-            margin-top: clamp(rem(24px), 4vw, rem(43px));
-
-            gap: clamp(rem(10px), 1.56vw, rem(16px));
-            padding: 0;
->>>>>>> 9eab84b ([DG_A1_04]: Corrected alt text in hero section, corrected naming of staic element, corrected mixin, corrected flex in site-main)
         }
 
         &__button {
@@ -350,53 +330,22 @@
             &--left {
                 left: 40.5%;
                 top: 46.5%;
-<<<<<<< HEAD
-=======
-                @include flex-center;
-                @include floating-icon($color-pink, 64px);
->>>>>>> 9eab84b ([DG_A1_04]: Corrected alt text in hero section, corrected naming of staic element, corrected mixin, corrected flex in site-main)
             }
 
             &--bottom {
                 left: 75.5%;
                 top: 82.5%;
-<<<<<<< HEAD
-=======
-                @include flex-center;
-                @include floating-icon($color-orange, 64px);
-            }
-
-            .icon {
-                font-size: rem(32px);
->>>>>>> 9eab84b ([DG_A1_04]: Corrected alt text in hero section, corrected naming of staic element, corrected mixin, corrected flex in site-main)
             }
         }
 
         &__badge {
-<<<<<<< HEAD
             top: rem(550px);
             right: rem(10px);
-=======
-            top: 63.5%;
-            left: 85%;
-            right: auto;
->>>>>>> 9eab84b ([DG_A1_04]: Corrected alt text in hero section, corrected naming of staic element, corrected mixin, corrected flex in site-main)
             width: rem(170px);
             border-radius: rem(100px);
-<<<<<<< HEAD
         }
 
         &__content {
-=======
-            font-size: rem(14px);
-            &-icon {
-                font-size: rem(24px);
-            }
-        }
-
-        &__content {
-            justify-content: center;
->>>>>>> 9eab84b ([DG_A1_04]: Corrected alt text in hero section, corrected naming of staic element, corrected mixin, corrected flex in site-main)
             min-height: clamp(rem(700px), 40vw, rem(710px));
             width: 40%;
             text-align: left;
