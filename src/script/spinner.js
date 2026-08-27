@@ -1,81 +1,142 @@
 const STORAGE_KEY = 'travlogUnlockedDeals';
 const SPIN_DURATION_MS = 6500;
 
+/**
+ * the navbar link which is used for opening the modal
+ * @type {HTMLElement}
+ * */
+const openTrigger = document.querySelector('.spinner__link');
+
+/**
+ * the main element which is showing as modal
+ * @type {HTMLElement}
+ * */
+const modal = document.getElementById('spinModal');
+
+/**
+ * a variabale containg the url of the deals data
+ * @var {string}
+ * */
 const DEALS_URL =
     'https://gist.githubusercontent.com/ameer-wajid-ali/1f29ebee4295cede36f8d74b45e576df/raw/122966c9a123861249f173911d8d93a76dc06d7a/';
 
-// structuring the data accorind to the raw data we are using in starting
-function formatDealMeta(rawData) {
-    if (!Array.isArray(rawData)) return {};
+/**
+ * loading element which will be shown at the time to api fetch
+ * @type {HTMLElement}
+ * */
+const loadingEl = document.getElementById('spinLoading');
 
-    return rawData.reduce((accumulator, item, index) => {
-        const key = `${index + 1}`;
-        accumulator[key] = {
-            label: item.label,
-            codePrefix: item.promoCode,
-            validityDays:
-                item.validFor !== null && item.validFor !== undefined
-                    ? item.validFor
-                    : 7,
-        };
-        return accumulator;
-    }, {});
-}
-
-// fetching the deals data from the url provided
-async function fetchData() {
-    try {
-        const response = await fetch(DEALS_URL);
-        if (!response.ok) {
-            return [];
-        }
-        const data = await response.json();
-        return formatDealMeta(data);
-    } catch {
-        return [];
-    }
-}
-
-const DEAL_META = await fetchData();
+let DEAL_META = {};
 
 function initSpinner() {
-    const modal = document.getElementById('spinModal');
-
-    // the navlink for triggering the spinner
-    const openTrigger = document.querySelector('.spinner__link');
+    /**
+     * the div element which is used for displaying in the background of the modal
+     * @type {HTMLElement}
+     * */
     const overlay = modal.querySelector('.overlay');
 
+    /**
+     * title and subtitle for the modal which is getting changed dynamically by js
+     * @type {HTMLElement}
+     * */
     const titleEl = document.getElementById('spinModalTitle');
     const subtitleEl = document.getElementById('spinModalSubtitle');
+
+    /**
+     * close button which is placed absolute to the header and is used for closing the modal from any state
+     * @type {HTMLElement}
+     * */
     const closeBtn = modal.querySelector('.spin-modal__close');
 
+    /**
+     * element showing deals to user which he can win and the winning result
+     * @type {HTMLElement}
+     * */
     const viewWheel = document.getElementById('spinViewWheel');
+
+    /**
+     * element showing deals to user which he has already one.. or
+     * @type {HTMLElement}
+     * */
     const viewList = document.getElementById('spinViewList');
 
+    /**
+     * element containing the whole wheel and all the components
+     * @type {HTMLElement}
+     * */
     const wheelWrap = modal.querySelector('.spin-wheel');
-    const loadingEl = document.getElementById('spinLoading');
+
+    /**
+     * the actual element which will be having the rotation efect
+     * @type {HTMLElement}
+     * */
     const wheelEl = document.getElementById('spinWheel'); // rotating disc
+
+    /**
+     * element which is reponsible for the rotation of the wheel
+     * @type {HTMLElement}
+     * */
     const spinBtn = document.getElementById('spinButton');
+
+    /**
+     * segments which contain the text element of the deals placed dynamically
+     * @type {HTMLElement}
+     * */
     const segmentEls = Array.from(
         wheelEl.querySelectorAll('.spin-wheel__segment'),
     );
 
+    /**
+     * elements which will be shown to user when he won a deal containing name, expiry, code and banner
+     * @type {HTMLElement}
+     * */
     const resultBanner = document.getElementById('spinResult');
     const resultName = document.getElementById('spinResultName');
     const resultExpiry = document.getElementById('spinResultExpiry');
     const resultCode = document.getElementById('spinResultCode');
 
+    /**
+     * element that will be shown when no deal is present to take
+     * @type {HTMLElement}
+     * */
     const emptyState = document.getElementById('spinEmpty');
 
+    /**
+     * element containing the flow to the deal list and also the deals count which the use has won
+     * @type {HTMLElement}
+     * */
     const dealsButton = modal.querySelector('.spin-modal__deals-button');
     const dealsCount = document.getElementById('dealsCount');
+
+    /**
+     * element responsible for returning back to the spin wheel section
+     * @type {HTMLElement}
+     * */
     const backButton = modal.querySelector('.spin-modal__back-button');
 
+    /**
+     * element containing all the lists of deals which the user has won
+     * @type {HTMLElement}
+     * */
     const dealList = document.getElementById('spinDealList');
+
+    /**
+     * element shown when no deal is won
+     * @type {HTMLElement}
+     * */
     const listEmpty = document.getElementById('spinListEmpty');
 
+    /**
+     * element which will be shown when the user copied any deal code
+     * @type {HTMLElement}
+     * */
     const toast = document.getElementById('spinToast');
 
+    /**
+     * function responsible for loading of all the deals which are won by the user previously
+     * by getting deals from the localstorage
+     * @return {[]} - array of all the unlocked deals
+     * */
     function loadUnlocked() {
         try {
             const raw = localStorage.getItem(STORAGE_KEY);
@@ -90,6 +151,10 @@ function initSpinner() {
     let currentRotation = 0;
     let isSpinning = false;
 
+    /**
+     * function responsible for saving all the deals which user won to localstorgae
+     * @return {}
+     * */
     function saveUnlocked() {
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(unlocked));
@@ -98,6 +163,14 @@ function initSpinner() {
         }
     }
 
+    /**
+     * function responsible for fetching all the deals which are avaiable for the user to win
+     * by getting deals from the localstorage and comparing them by the help of the unlocked deals id
+     * and will return a list that contain the structured data
+     * will return only top 4 entries if more than 4 are present
+     * @type {HTMLElement}
+     * @return {[]} - array of all the unlocked deals
+     * */
     function getAvailableDeals() {
         const colors = ['#F4436C', '#7C3AED', '#FBBF24', '#06B6D4'];
 
@@ -114,7 +187,7 @@ function initSpinner() {
             return {
                 id: dealData.id,
                 label: dealData.label || '',
-                el: segmentEls[index],
+                el: segmentEls[index % 4],
                 color: colors[index % 4],
                 codePrefix: dealData.codePrefix || 'DEAL',
                 validityDays: dealData.validityDays || 7,
@@ -122,13 +195,25 @@ function initSpinner() {
         });
     }
 
+    /**
+     * @typedef DEALS
+     * @type {object}
+     */
+
+    /**
+     * function responsible for getting the expiry info of the deals by comparing with the won time ms
+     * by getting deals from the localstorage
+     * @param {object}
+     * @type {DEALS}
+     * @return {[]} - array of all the unlocked deals
+     * */
     function getExpiryInfo(deal) {
         const expiresAt = deal.wonAt + deal.validityDays * 24 * 60 * 60 * 1000;
         const msLeft = expiresAt - Date.now();
 
         if (msLeft <= 0) return { expired: true, text: 'Deal expired' };
 
-        const daysLeft = Math.floor(msLeft / (24 * 60 * 60 * 1000));
+        const daysLeft = Math.ceil(msLeft / (24 * 60 * 60 * 1000));
         if (daysLeft >= 1)
             return { expired: false, text: `Expires in ${daysLeft}d` };
 
@@ -136,12 +221,22 @@ function initSpinner() {
         return { expired: false, text: `Expires in ${hoursLeft}h` };
     }
 
+    /**
+     * function which is returning an HTML element
+     * @param {string}
+     * @return {HTMLElement}
+     * */
     function escapeHtml(str) {
         const div = document.createElement('div');
         div.textContent = str;
         return div.innerHTML;
     }
 
+    /** function responsbile for showing the wheel on the modal
+     * will check the availabel and then show wheel dynamically
+     * by making the wheel using hte segAngle calculated with the help of the size of the avaiable deals max 4
+     * and showing the deal text using the elements and the seperation in betwen them expect for 1 deal left
+     * */
     function renderWheel() {
         const available = getAvailableDeals();
 
@@ -190,12 +285,14 @@ function initSpinner() {
             .forEach((el) => el.remove());
 
         // for adding the white line in between
-        available.forEach((_, i) => {
-            const divider = document.createElement('div');
-            divider.className = 'spin-wheel-divider';
-            divider.style.transform = `rotate(${i * segAngle}deg)`;
-            wheelEl.appendChild(divider);
-        });
+        if (available.length > 1) {
+            available.forEach((_, i) => {
+                const divider = document.createElement('div');
+                divider.className = 'spin-wheel-divider';
+                divider.style.transform = `rotate(${i * segAngle}deg)`;
+                wheelEl.appendChild(divider);
+            });
+        }
 
         available.forEach((deal, i) => {
             deal.el.hidden = false;
@@ -206,10 +303,19 @@ function initSpinner() {
         });
     }
 
+    /**
+     * function for generating the index of the deal which the user will won
+     * @param {number}
+     * @return {number}
+     * */
     function pickWinnerIndex(count) {
         return Math.floor(Math.random() * count);
     }
 
+    /**
+     * function responsible for showing the spin effect of the wheel
+     * @return {}
+     * */
     function spinWheel() {
         if (isSpinning) return;
 
@@ -238,6 +344,11 @@ function initSpinner() {
         window.setTimeout(() => handleSpinResult(winnerDeal), SPIN_DURATION_MS);
     }
 
+    /**
+     * this function generate the won result and then call different function to show them up on screen
+     * @param {object}
+     * @return {}
+     * */
     function handleSpinResult(deal) {
         const won = {
             id: deal.id,
@@ -259,6 +370,10 @@ function initSpinner() {
         renderWheel();
     }
 
+    /**
+     * function responsible for showing result on screen
+     * @return {object}
+     * */
     function showResult(won) {
         const { text } = getExpiryInfo(won);
         resultName.textContent = won.label;
@@ -267,6 +382,11 @@ function initSpinner() {
         resultBanner.hidden = false;
     }
 
+    /**
+     * function responsible for showing all the deals which the user has won
+     * and also no deal and the empty deal list element if no deal has been won by the user
+     * @return {}
+     * */
     function renderDealList() {
         dealList.innerHTML = '';
 
@@ -276,7 +396,9 @@ function initSpinner() {
         }
         listEmpty.hidden = true;
 
-        const sorted = [...unlocked].sort((a, b) => b.wonAt - a.wonAt);
+        const sorted = [...unlocked].sort(
+            (a, b) => b.validityDays - a.validityDays,
+        );
 
         sorted.forEach((deal) => {
             const { expired, text } = getExpiryInfo(deal);
@@ -303,6 +425,10 @@ function initSpinner() {
         });
     }
 
+    /**
+     * function responsible for showing the deal count to the user which he has already won
+     * @return {}
+     * */
     function updateBadge() {
         const count = unlocked.length;
         dealsCount.textContent = String(count);
@@ -313,8 +439,16 @@ function initSpinner() {
         );
     }
 
+    /**
+     * a variable which is used for creating a timer for the toaster
+     * @var {number}
+     * */
     let timer = 0;
 
+    /**
+     * function responsible for copying the code and showing toaster and creating a timer for it
+     * @return {}
+     * */
     function copyCode(text) {
         const finish = () => {
             toast.classList.add('spin-modal__toast--is-visible');
@@ -328,6 +462,12 @@ function initSpinner() {
         navigator.clipboard.writeText(text).then(finish).catch(finish);
     }
 
+    /**
+     * function handling the click event of the modal for copying code
+     * and is using the event delegation allowing not targeting each btn seperately
+     * @event click
+     * @return {}
+     * */
     modal.addEventListener('click', (e) => {
         const btn = e.target.closest('.spin-modal__copy');
         if (!btn) return;
@@ -338,6 +478,10 @@ function initSpinner() {
         if (text) copyCode(text);
     });
 
+    /**
+     * function which is showing hte wheel component and making the list hide
+     * @return {}
+     * */
     function showWheelView() {
         viewList.hidden = true;
         viewWheel.hidden = false;
@@ -349,6 +493,10 @@ function initSpinner() {
             : "You've unlocked every deal";
     }
 
+    /**
+     * function responsible for showing the list view that contain the deals which user has won
+     * @return {}
+     * */
     function showListView() {
         renderDealList();
         viewWheel.hidden = true;
@@ -359,25 +507,23 @@ function initSpinner() {
         subtitleEl.textContent = "All the deals you've unlocked yet!";
     }
 
-    function openModal() {
-        modal.classList.remove('site-spin-modal--hidden');
-        document.body.style.overflow = 'hidden';
-    }
-
+    /**
+     * function which is used for closing the modal
+     * */
     function closeModal() {
         modal.classList.add('site-spin-modal--hidden');
         document.body.style.overflow = '';
     }
 
-    if (openTrigger) {
-        openTrigger.addEventListener('click', (e) => {
-            openModal(e);
-        });
-    }
-
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', closeModal);
 
+    /**
+     * Handles the closing of the modal
+     * Using the Escape key for closing the modal is helping in the accessibility
+     * @event keydown
+     * @return {void}
+     */
     document.addEventListener('keydown', (e) => {
         if (
             e.key === 'Escape' &&
@@ -387,6 +533,11 @@ function initSpinner() {
         }
     });
 
+    /**
+     * Handles the spinning of the wheel
+     * @event click
+     * @type {HTMLElement}
+     */
     spinBtn.addEventListener('click', spinWheel);
 
     dealsButton.addEventListener('click', showListView);
@@ -394,11 +545,78 @@ function initSpinner() {
 
     updateBadge();
     renderDealList();
-
-    window.setTimeout(() => {
-        loadingEl.hidden = true;
-        renderWheel();
-    }, 1600);
+    renderWheel();
 }
 
-initSpinner();
+/**
+ * function which is formatting the data to work with the wheel requirements
+ * @type {HTMLElement}
+ * */
+function formatDealMeta(rawData) {
+    if (!Array.isArray(rawData)) return {};
+
+    return rawData.reduce((accumulator, item, index) => {
+        const key = `${index + 1}`;
+        accumulator[key] = {
+            label: item.label,
+            codePrefix: item.promoCode,
+            validityDays:
+                item.validFor !== null && item.validFor !== undefined
+                    ? item.validFor
+                    : 7,
+        };
+        return accumulator;
+    }, {});
+}
+
+/**
+ * fetching the deals data from the url provided
+ * added the cache using the local storage with validity of 1 day
+ * */
+async function fetchData() {
+    try {
+        loadingEl.hidden = false;
+        const lockedDeals = localStorage.getItem('travlogLockedDeals');
+        if (lockedDeals) {
+            if (
+                Date.now() - localStorage.getItem('dateIssued') <
+                24 * 60 * 60 * 1000
+            ) {
+                return JSON.parse(lockedDeals);
+            }
+        }
+        const response = await fetch(DEALS_URL);
+        if (!response.ok) {
+            return [];
+        }
+        const data = await response.json();
+        localStorage.setItem(
+            'travlogLockedDeals',
+            JSON.stringify(formatDealMeta(data)),
+        );
+        localStorage.setItem('dateIssued', Date.now());
+        loadingEl.hidden = true;
+        return formatDealMeta(data);
+    } catch {
+        return [];
+    }
+}
+
+/**
+ * function which is used for opening the modal
+ * */
+function openModal() {
+    modal.classList.remove('site-spin-modal--hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+/**
+ * condition for opeining the modal by clicking on the html element
+ * @type {HTMLElement}
+ * @event click
+ * */
+openTrigger.addEventListener('click', async (e) => {
+    openModal(e);
+    DEAL_META = await fetchData();
+    initSpinner();
+});
