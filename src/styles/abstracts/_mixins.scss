@@ -32,12 +32,38 @@
     justify-content: space-between;
 }
 
-@mixin floating-icon($background-color, $size) {
-    width: rem($size);
-    height: rem($size);
+@mixin floating-icon($background-color) {
+    @include flex-center;
+    width: rem(32.85px);
+    height: rem(32.85px);
     border: none;
     border-radius: 50%;
     padding: rem(8.21px);
     background-color: $background-color;
+
+    @media (min-width: $tablet) {
+        width: rem(64px);
+        height: rem(64px);
+    }
+}
+
+@mixin spin-pill-button {
     @include flex-center;
+    gap: 8px;
+    width: 100%;
+    border: none;
+    color: $color-dark;
+    background-color: $color-white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: rem(13px);
+    cursor: pointer;
+
+    &:hover {
+        background: rgba($color-gray, -3%);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
 }

@@ -1,28 +1,7 @@
-$font-size-sm: 14px;
-$font-size-xsm: 12px;
-
-$font-weight-regular: 400;
-$font-weight-medium: 500;
-$font-weight-bold: 500;
-$font-weight-extra: 700;
-
-$font-style-normal: 700;
-$font-style-bold: bold;
-$font-style-regular: regular;
-
-$line-height-menu: 120%;
-$line-height-hero: 160%;
-
-$letter-spacing-normal: 0;
-$letter-spacing-medium: 0.2rem;
-$letter-spacing-large: 0.3rem;
-$letter-spacing-xlarge: 0.35rem;
-
 @font-face {
     font-family: 'Circular Std';
     src: url('/assets/fonts/circular-std-medium-500.ttf') format('truetype');
     font-weight: 500;
-    font-style: normal;
     font-display: swap;
 }
 
@@ -31,6 +10,3 @@ $letter-spacing-xlarge: 0.35rem;
     base-palette: 0;
     override-colors: 0 #000000;
 }
-
-$font-primary: 'Circular Std', sans-serif;
-$font-secondary: 'Inter', sans-serif;

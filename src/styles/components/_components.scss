@@ -1,0 +1,167 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(16px);
+    list-style: none;
+
+    @media (min-width: $tablet) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: rem(32px);
+    }
+}
+
+.stat {
+    @include flex-center;
+    flex-direction: column;
+    padding: rem(32px);
+}
+
+.value {
+    font-family: $font-primary;
+    line-height: $line-height-menu;
+    font-size: rem(35px);
+    color: $color-orange;
+
+    @media (min-width: $desktop) {
+        font-size: rem(35px);
+    }
+}
+
+.content {
+    @include flex-center-col;
+    box-sizing: border-box;
+    font-family: $font-primary;
+    text-align: center;
+    gap: rem(32px);
+
+    @media (min-width: $tablet) {
+        gap: rem(43px);
+    }
+}
+
+.header {
+    @include flex-center-col;
+    box-sizing: border-box;
+    justify-content: space-between;
+    gap: rem(16px);
+}
+
+.eyebrow {
+    @include flex-center;
+    font-family: $font-primary;
+    line-height: $line-height-menu;
+    letter-spacing: $letter-spacing-medium;
+    text-transform: uppercase;
+    font-size: rem(16px);
+    font-weight: $font-weight-medium;
+    color: $color-pink;
+
+    @media (min-width: $tablet) {
+        font-size: rem(23px);
+    }
+}
+
+.title {
+    @include flex-center;
+    font-family: $font-primary;
+    line-height: $line-height-menu;
+    font-size: rem(32px);
+    font-weight: $font-weight-medium;
+    color: $non-active-link;
+
+    @media (min-width: $tablet) {
+        font-size: rem(40px);
+    }
+
+    @media (min-width: $desktop) {
+        font-size: rem(44px);
+    }
+}
+
+.description {
+    font-size: rem(16px);
+    font-family: $font-secondary;
+    line-height: $line-height-hero;
+    font-weight: $font-weight-regular;
+    color: $non-active-link;
+    opacity: 0.5;
+
+    @media (min-width: $tablet) {
+        font-size: rem(18px);
+    }
+}
+
+.label {
+    font-family: $font-secondary;
+    font-size: rem(18px);
+    line-height: $line-height-hero;
+    color: $non-active-link;
+
+    @media (min-width: $desktop) {
+        font-size: rem(18px);
+    }
+}
+
+.logo {
+    @include flex-center;
+    flex-shrink: 0;
+
+    img {
+        display: block;
+        width: rem($logo);
+        height: rem($logo);
+        object-fit: contain;
+    }
+}
+
+.decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+
+    .icon {
+        font-size: rem(16px);
+
+        @media (min-width: $tablet) {
+            font-size: rem(32px);
+        }
+    }
+}
+
+.badge {
+    @include flex-between;
+    box-sizing: border-box;
+    background-color: $color-white;
+    font-size: rem(7px);
+    font-family: $font-primary;
+    border: none;
+    z-index: 20;
+    line-height: $line-height-menu;
+    gap: rem(4px);
+    padding: rem(8px) rem(16px);
+
+    @media (min-width: $tablet) {
+        gap: rem(8px);
+        font-size: rem(14px);
+        padding: rem(16px) rem(32px);
+    }
+}
+
+.list {
+    @include flex-center;
+    list-style: none;
+    width: 100%;
+    gap: rem(32px);
+    flex-wrap: wrap;
+}
+
+.actions {
+    @include flex-center;
+    box-sizing: border-box;
+    width: 100%;
+    gap: rem(24px);
+}
