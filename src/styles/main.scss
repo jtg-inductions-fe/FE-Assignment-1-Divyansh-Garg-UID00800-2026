@@ -26,3 +26,6 @@
 
 @use 'layout/footer';
 @use 'components/site-links';
+
+@use 'layout/site-spinner' as *;
+@use 'components/spinner' as *;
