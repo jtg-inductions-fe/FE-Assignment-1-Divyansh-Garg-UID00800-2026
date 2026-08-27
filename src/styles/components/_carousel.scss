@@ -15,32 +15,6 @@
         display: none;
     }
 
-    &__header {
-        box-sizing: border-box;
-        @include flex-center;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: rem(16px);
-    }
-
-    &__eyebrow {
-        color: $color-pink;
-        font-size: rem(16px);
-        line-height: $line-height-menu;
-        letter-spacing: $letter-spacing-medium;
-        font-style: $font-style-bold;
-        letter-spacing: $letter-spacing-medium;
-        text-transform: uppercase;
-    }
-
-    &__title {
-        color: $non-active-link;
-        font-size: rem(32px);
-        font-style: $font-style-bold;
-        line-height: $line-height-menu;
-        letter-spacing: 0;
-    }
-
     &__carousel {
         position: relative;
     }
@@ -231,15 +205,6 @@
         padding: rem(32px) rem(64px) rem(64px) rem(64px);
         gap: rem(56px);
 
-        &__eyebrow {
-            font-size: rem(23px);
-            letter-spacing: $letter-spacing-large;
-        }
-
-        &__title {
-            font-size: rem(40px);
-        }
-
         &__avatar {
             margin: rem(50px) 0 rem(65px) 0;
         }
@@ -298,15 +263,6 @@
     @include desktop {
         padding: rem(28px) rem(140px) rem(64px) rem(140px);
         gap: rem(56px);
-
-        &__eyebrow {
-            font-size: rem(23px);
-            letter-spacing: $letter-spacing-xlarge;
-        }
-
-        &__title {
-            font-size: rem(44px);
-        }
 
         &__quote {
             font-size: rem(23px);

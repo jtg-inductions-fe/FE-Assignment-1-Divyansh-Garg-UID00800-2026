@@ -9,6 +9,16 @@
  */
 
 /**
+ * @typedef CarouselSlide
+ * @type {HTMLElement}
+ */
+
+/**
+ * @typedef DotNode
+ * @type {HTMLElement}
+ */
+
+/**
  * media query value which is used for handling the layout of the navbar on different screen sizes
  * @type {MediaQueryList}
  */
@@ -201,38 +211,98 @@ menu.addEventListener('click', (e) => {
     menu.classList.remove('navbar__menu--is-open');
     toggle.classList.remove('navbar__menu--is-open');
 
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open navigation menu');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+    });
 });
 
+/**
+ * adding the embla carousel libraray for implementation of the carousel
+ * used the naming convention of the elements getting used in the carousel according to the documentation
+ * */
 import EmblaCarousel from 'embla-carousel';
 
+/**
+ * the main shell element which is used for wrapping the whole carousel
+ * @type {HTMLElement}
+ */
 const wrapperNode = document.querySelector('.embla');
 
+/**
+ * the viewport which is working as as slide in the carousel
+ * @type {HTMLElement}
+ */
 const viewportNode = wrapperNode.querySelector('.embla__viewport');
+
+/**
+ * prev button elenent which is getting used for moving backward
+ * @type {HTMLElement}
+ */
 const prevButtonNode = wrapperNode.querySelector('.embla__prev');
+
+/**
+ * next button elenent which is getting used for moving forward
+ * @type {HTMLElement}
+ */
 const nextButtonNode = wrapperNode.querySelector('.embla__next');
+
+/**
+ * it is the element which is holding all the dot elements required for the movement of the carousel
+ * @type {HTMLElement}
+ */
 const dotsNode = wrapperNode.querySelector('.testimonials__dots');
+
+/**
+ * a node array which has all the dot elements reponsible for the moving of carousel and getting to a spefic slide directly
+ * @type {NodeListOf<HTMLElement>}
+ * */
 const dotNodes = dotsNode.querySelectorAll('.testimonials__dot');
 
+/**
+ * Instantiated API instance controlling slide engine executions.
+ * Used for the movement of slides and for adding the more functionality
+ * allowing the slides to loop and not getting ended in one direction
+ * @type {Object}
+ */
 const emblaApi = EmblaCarousel(viewportNode, {
-    loop: false,
+    loop: true,
 });
 
+/**
+ * listener on the prev btn element for moving to the previous slide using the instantiated APi
+ * @event click
+ * @return {CarouselSlide}
+ */
 prevButtonNode.addEventListener('click', () => {
     emblaApi.scrollPrev();
 });
 
+/**
+ * listener on the next btn element for moving to the next slide using the instantiated APi
+ * @event click
+ * @return {CarouselSlide}
+ */
 nextButtonNode.addEventListener('click', () => {
     emblaApi.scrollNext();
 });
 
+/**
+ * listener on each dot element element for moving to the spefic slide using the instantiated APi
+ * @event click
+ * @return {DotNode}
+ */
 dotNodes.forEach((dotNode, index) => {
     dotNode.addEventListener('click', () => {
         emblaApi.scrollTo(index);
     });
 });
 
+/**
+ * Used for synchornization of the dots and making the current dot active and other in-active
+ * by adding the specific class and looping on each dot
+ * @param {Object} emblaApi - The active instance controlling carousel interactions.
+ * @returns {void}
+ */
 const updateActiveDot = (emblaApi) => {
     const selectedIndex = emblaApi.selectedScrollSnap();
 
@@ -240,17 +310,29 @@ const updateActiveDot = (emblaApi) => {
         const isActive = index === selectedIndex;
 
         dotNode.classList.toggle('testimonials__dot--active', isActive);
-
         dotNode.setAttribute('aria-current', isActive ? 'true' : 'false');
     });
 };
 
+/**
+ * calling the function intially so that the chanages could be applied at the time of page loading only
+ * @event change
+ * @returns {void}
+ */
 updateActiveDot(emblaApi);
-
 emblaApi.on('select', updateActiveDot);
 
+/**
+ * toggles which are responsible for mobile media for toggling the state of navigation links
+ * @type {NodeListOf<HTMLElement>}
+ * */
 const toggles = document.querySelectorAll('.footer__section-toggle');
 
+/**
+ * specific toggle element which is responsible for the toggling of the clicked navigation
+ * and toggling the state of other navigation too
+ * @type {HTMLElement}
+ * */
 toggles.forEach((toggle) => {
     toggle.addEventListener('click', () => {
         const section = toggle.closest('.footer__section');
@@ -259,25 +341,23 @@ toggles.forEach((toggle) => {
 
         const isOpen = toggle.getAttribute('aria-expanded') === 'true';
 
+        // Standard close loop for remaining accordion sections
         toggles.forEach((toggleAgain) => {
             if (toggleAgain !== toggle) {
                 const otherSection = toggleAgain.closest('.footer__section');
-
                 const otherContentId =
                     toggleAgain.getAttribute('aria-controls');
-
                 const otherContent = document.getElementById(otherContentId);
 
                 toggleAgain.setAttribute('aria-expanded', 'false');
-                otherContent.hidden = true;
-
+                otherContent.classList.add('footer__section-list-hidden');
                 otherSection.classList.remove('footer__section--open');
             }
         });
 
+        // Toggle state indicators for current target section
         toggle.setAttribute('aria-expanded', !isOpen);
-        content.hidden = isOpen;
-
+        content.classList.toggle('footer__section-list-hidden');
         section.classList.toggle('footer__section--open', !isOpen);
     });
 });
