@@ -25,4 +25,7 @@
 @use 'layout/footer' as *;
 @use 'components/site-links' as *;
 
+@use 'layout/site-spinner' as *;
+@use 'components/spinner' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
