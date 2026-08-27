@@ -6,10 +6,10 @@ Implemented the hero section with the required layout, content, image positionin
 
 ## Added
 
-- Hero section structure and layout.
-- Positioned and styled hero images.
-- Added responsive styling.
-- Separated component and layout styles for better maintainability.
+-   Hero section structure and layout.
+-   Positioned and styled hero images.
+-   Added responsive styling.
+-   Separated component and layout styles for better maintainability.
 
 ## SCSS Files
 
@@ -21,3 +21,4 @@ src/styles/
 │   └── _hero.scss
 └── layout/
     └── _main-section.scss
+```
