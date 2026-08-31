@@ -6,10 +6,10 @@
 .companies {
     @include flex-center;
     box-sizing: border-box;
-    margin: rem(60px) 0;
-    padding: 0 rem(64px);
+    margin: pxToRem(60) 0;
+    padding: 0 pxToRem(64);
     flex-direction: column;
-    gap: clamp(rem(20px), 8vw, rem(32px));
+    gap: clamp(pxToRem(20), 8vw, pxToRem(32));
 
     &__item {
         @include flex-center;
@@ -21,35 +21,35 @@
         display: block;
         width: auto;
         max-width: 100%;
-        height: rem(32px);
+        height: pxToRem(32);
         object-fit: contain;
     }
 
     @include tablet {
         margin: 0;
-        padding: rem(64px) rem(170px);
+        padding: pxToRem(64) pxToRem(170);
 
-        gap: rem(32px);
+        gap: pxToRem(32);
 
         &__logo {
-            height: rem(32px);
+            height: pxToRem(32);
         }
     }
 
     @include desktop {
         margin: 0;
         width: 100%;
-        margin-bottom: rem(10px);
-        padding: rem(32px) clamp(rem(64px), 1vw, rem(80px));
+        margin-bottom: pxToRem(10);
+        padding: pxToRem(32) clamp(pxToRem(64), 1vw, pxToRem(80));
         flex-direction: row;
 
         &__list {
-            gap: rem(48px);
+            gap: pxToRem(48);
         }
 
         &__logo {
-            height: rem(32px);
-            width: rem(200px);
+            height: pxToRem(32);
+            width: pxToRem(200);
         }
     }
 }

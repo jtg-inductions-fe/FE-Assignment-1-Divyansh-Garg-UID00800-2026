@@ -16,3 +16,6 @@
 
 @use 'components/hero';
 @use 'layout/main-section';
+
+@use 'layout/site-companies' as *;
+@use 'components/companies' as *;
