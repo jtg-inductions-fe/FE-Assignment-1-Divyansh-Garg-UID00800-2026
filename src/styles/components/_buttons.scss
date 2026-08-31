@@ -6,24 +6,25 @@
 .btn {
     @include flex-center;
     box-sizing: border-box;
-    min-height: rem($nav-button-height);
+    min-height: pxToRem($nav-button-height);
 
+    // here the clamp is used for keeping the icon in center in tablet view, otherwise multiple media query has to be written specially for the tablet navbar view
     padding: clamp(
-            rem($primary-button-padding-vertical-small),
+            pxToRem($primary-button-padding-vertical-small),
             1vh,
-            rem($primary-button-padding-vertical)
+            pxToRem($primary-button-padding-vertical)
         )
         clamp(
-            rem($primary-button-padding-horizontal-small),
+            pxToRem($primary-button-padding-horizontal-small),
             1vw,
-            rem($primary-button-padding-horizontal)
+            pxToRem($primary-button-padding-horizontal)
         );
 
     border: none;
     border-radius: $radius-md;
 
     font-family: $font-primary;
-    font-size: clamp(rem($font-size-xsm), 2vw, rem($font-size-sm));
+    font-size: clamp(pxToRem($font-size-xsm), 2vw, pxToRem($font-size-sm));
     font-weight: $font-weight-bold;
     line-height: $line-height-menu;
     letter-spacing: $letter-spacing-normal;
