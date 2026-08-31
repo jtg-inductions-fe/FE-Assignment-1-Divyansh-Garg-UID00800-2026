@@ -60,8 +60,8 @@ Header
 ├── Logo / Branding
 │
 ├── Navigation
-│   ├── Navigation Links
-│   └── Navigation Items
+│   ├── Navigation Items
+│   └── Navigation Links
 │
 └── Actions
     ├── Login
@@ -73,8 +73,8 @@ Header
 | File                                 | Purpose                        |
 | ------------------------------------ | ------------------------------ |
 | `index.html`                         | Header HTML structure          |
-| `src/script/script.js`               | Header/navigation interactions |
-| `src/styles/components/_header.scss` | Header layout and styling      |
+| `src/script/index.js`                | Header/navigation interactions |
+| `src/styles/layout/_header.scss`     | Header layout and styling      |
 | `src/styles/components/_navbar.scss` | Navbar and navigation styling  |
 
 ## Notes

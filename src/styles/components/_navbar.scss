@@ -5,15 +5,15 @@
 @use '../vendors/icomoon' as *;
 .navbar {
     width: 100%;
-    margin-top: rem(35px);
-    padding: 0 rem(16px);
+    margin-top: pxToRem(35);
+    padding: 0 pxToRem(16);
     @include flex-between;
     position: relative;
     box-sizing: border-box;
     &-shorter {
-        padding: rem(16px) rem(16px);
+        padding: pxToRem(16) pxToRem(16);
         background: rgba($color-white, 0.9);
-        border-radius: rem(100px);
+        border-radius: pxToRem(100);
         width: 90%;
     }
     transition: width 0.5s ease;
@@ -24,7 +24,7 @@
         top: 0;
         right: 0;
         height: 100vh;
-        padding: rem(80px) rem(24px);
+        padding: pxToRem(80) pxToRem(24);
         background-color: $color-white;
         transform: translateX(100%);
         transition: transform 0.35s ease;
@@ -32,13 +32,13 @@
         &--is-open {
             transform: translateX(0);
             .navbar__link {
-                font-size: rem(20px);
+                font-size: pxToRem(20);
             }
         }
     }
     &__link {
         font-family: $font-primary;
-        font-size: rem($menu-item-size);
+        font-size: pxToRem($menu-item-size);
         font-weight: $font-weight-bold;
         line-height: $line-height-menu;
         letter-spacing: $letter-spacing-normal;
@@ -59,8 +59,8 @@
     }
     &__toggle {
         @include flex-center;
-        width: rem($hamburger);
-        height: rem($hamburger);
+        width: pxToRem($hamburger-size);
+        height: pxToRem($hamburger-size);
         border: none;
         margin: 0;
         position: relative;
@@ -77,7 +77,7 @@
     }
     @include tablet {
         margin-top: 0;
-        padding: rem(32px) 0;
+        padding: pxToRem(32) 0;
         &__logo {
             margin-left: auto;
             margin-right: auto;
@@ -88,45 +88,45 @@
             &--is-open {
                 transform: translateX(0);
                 .navbar__link {
-                    font-size: rem(25px);
+                    font-size: pxToRem(25);
                 }
             }
         }
         &__actions {
             display: flex;
             gap: 0;
-            width: clamp(rem(10px), 35vw, rem(220px));
-            // width: rem(220px);
-            margin-right: clamp(rem(40px), 10vw, rem(64px));
+            width: clamp(pxToRem(10), 35vw, pxToRem(220));
+            // width: pxToRem(220);
+            margin-right: clamp(pxToRem(40), 10vw, pxToRem(64));
         }
         &__toggle {
             display: flex;
             justify-content: flex-start;
-            width: clamp(rem(120px), 21.5vw, rem(220px));
-            margin-left: clamp(rem(40px), 10vw, rem(64px));
+            width: clamp(pxToRem(120), 21.5vw, pxToRem(220));
+            margin-left: clamp(pxToRem(40), 10vw, pxToRem(64));
         }
         &-shorter {
-            margin-top: rem(32px);
+            margin-top: pxToRem(32);
             transition: margin-top 0.5s ease;
-            padding: rem(16px) 0;
+            padding: pxToRem(16) 0;
 
             .navbar__actions {
-                margin-right: rem(32px);
+                margin-right: pxToRem(32);
             }
 
             .navbar__toggle {
-                margin-left: rem(32px);
+                margin-left: pxToRem(32);
             }
         }
     }
     @include desktop {
-        margin-top: rem(34px);
-        padding: rem(32px) 0;
+        margin-top: pxToRem(34);
+        padding: pxToRem(32) 0;
         justify-content: center;
         &__logo {
             position: static;
             transform: none;
-            margin-left: rem(117px);
+            margin-left: pxToRem(117);
         }
         &__menu {
             @include flex-between;
@@ -137,34 +137,34 @@
             margin-left: auto;
             margin-right: auto;
             padding: 0;
-            gap: rem($menu-gap);
+            gap: pxToRem($menu-gap);
             background-color: transparent;
             transform: none;
             transition: none;
             &-shorter {
-                gap: rem($menu-gap-shorter);
+                gap: pxToRem($menu-gap-shorter);
             }
             transition: gap 0.5s ease;
         }
         &__actions {
-            width: rem(220px);
-            margin-right: rem(117px);
+            width: pxToRem(220);
+            margin-right: pxToRem(117);
         }
         &-shorter {
             .navbar__logo {
-                margin-left: rem(64px);
+                margin-left: pxToRem(64);
             }
             .navbar__actions {
-                margin-right: rem(64px);
+                margin-right: pxToRem(64);
             }
             .navbar__menu {
-                height: rem(50px);
+                height: pxToRem(50);
             }
             .navbar__link {
-                font-size: rem(20px);
+                font-size: pxToRem(20);
             }
             .btn {
-                font-size: rem(15px);
+                font-size: pxToRem(15);
             }
         }
         &__toggle {
