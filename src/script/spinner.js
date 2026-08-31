@@ -26,7 +26,9 @@ const DEALS_URL =
  * */
 const loadingEl = document.getElementById('spinLoading');
 
-let DEAL_META = {};
+let DEAL_META = [];
+
+const colors = ['#F4436C', '#7C3AED', '#FBBF24', '#06B6D4'];
 
 function initSpinner() {
     /**
@@ -90,10 +92,13 @@ function initSpinner() {
      * elements which will be shown to user when he won a deal containing name, expiry, code and banner
      * @type {HTMLElement}
      * */
+    const resultHeading = document.getElementById('spinResultHeading');
+    const resultCard = document.getElementById('resultCard');
     const resultBanner = document.getElementById('spinResult');
     const resultName = document.getElementById('spinResultName');
     const resultExpiry = document.getElementById('spinResultExpiry');
     const resultCode = document.getElementById('spinResultCode');
+    const resultCodeContainer = document.getElementById('resultCodeBox');
 
     /**
      * element that will be shown when no deal is present to take
@@ -172,18 +177,16 @@ function initSpinner() {
      * @return {[]} - array of all the unlocked deals
      * */
     function getAvailableDeals() {
-        const colors = ['#F4436C', '#7C3AED', '#FBBF24', '#06B6D4'];
-
         // id of the unlocked deals
         const wonIds = new Set(unlocked.map((d) => d.id));
 
         // getting the deals which are locked by comapring with the unlocked deals id
-        const lockedDealsData = Object.keys(DEAL_META)
+        let lockedDealsData = Object.keys(DEAL_META)
             .filter((id) => !wonIds.has(id))
             .map((id) => ({ id, ...DEAL_META[id] }));
 
         // returning only 4 at max
-        return lockedDealsData.slice(0, 4).map((dealData, index) => {
+        lockedDealsData = lockedDealsData.slice(0, 4).map((dealData, index) => {
             return {
                 id: dealData.id,
                 label: dealData.label || '',
@@ -193,6 +196,23 @@ function initSpinner() {
                 validityDays: dealData.validityDays || 7,
             };
         });
+
+        if (lockedDealsData.length !== 0) {
+            let rem = 4 - lockedDealsData.length;
+            let newIndex = 3;
+            for (let i = 0; i < rem; i++) {
+                lockedDealsData.push({
+                    label: 'Try Again',
+                    el: segmentEls[newIndex],
+                    color: colors[newIndex],
+                    codePrefix: 'TRY-AGN',
+                    validityDays: 0,
+                });
+
+                newIndex--;
+            }
+        }
+        return lockedDealsData;
     }
 
     /**
@@ -358,8 +378,10 @@ function initSpinner() {
             validityDays: deal.validityDays,
         };
 
-        unlocked = [...unlocked, won];
-        saveUnlocked();
+        if (won.label !== 'Try Again') {
+            unlocked = [...unlocked, won];
+            saveUnlocked();
+        }
 
         showResult(won);
         updateBadge();
@@ -375,11 +397,24 @@ function initSpinner() {
      * @return {object}
      * */
     function showResult(won) {
-        const { text } = getExpiryInfo(won);
-        resultName.textContent = won.label;
-        resultExpiry.textContent = text;
-        resultCode.textContent = won.code;
-        resultBanner.hidden = false;
+        if (won.label === 'Try Again') {
+            resultHeading.textContent = 'Better luck next time!';
+            resultName.textContent = won.label;
+            resultExpiry.hidden = true;
+            resultCodeContainer.hidden = true;
+            resultBanner.hidden = false;
+            resultCard.style.justifyContent = 'center';
+            resultCard.style.background = 'rgba(gray, 0.5)';
+        } else {
+            resultHeading.textContent = 'You Won!';
+            const { text } = getExpiryInfo(won);
+            resultName.textContent = won.label;
+            resultExpiry.hidden = false;
+            resultCodeContainer.hidden = false;
+            resultExpiry.textContent = text;
+            resultCode.textContent = won.code;
+            resultBanner.hidden = false;
+        }
     }
 
     /**
