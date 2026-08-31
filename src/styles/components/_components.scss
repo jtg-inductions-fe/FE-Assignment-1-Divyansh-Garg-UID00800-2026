@@ -112,8 +112,8 @@
 
     img {
         display: block;
-        width: pxToRem($logo);
-        height: pxToRem($logo);
+        width: pxToRem($logo-size);
+        height: pxToRem($logo-size);
         object-fit: contain;
     }
 }

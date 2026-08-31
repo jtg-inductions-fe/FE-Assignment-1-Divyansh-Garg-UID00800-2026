@@ -21,7 +21,7 @@
         );
 
     border: none;
-    border-radius: $radius-md;
+    border-radius: pxToRem($radius-md);
 
     font-family: $font-primary;
     font-size: clamp(pxToRem($font-size-xsm), 2vw, pxToRem($font-size-sm));
