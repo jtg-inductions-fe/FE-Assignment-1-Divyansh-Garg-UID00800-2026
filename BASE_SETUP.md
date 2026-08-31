@@ -7,11 +7,12 @@ Installed and configured **NVM (Node Version Manager)**.
 Installed the required Node.js version using NVM.
 
 Verified the Node.js and npm installations:
+Here we are using the v24.19.0 version of node.
 
 ```bash
-nvm --version
-node --version
-npm --version
+nvm --version (0.39.7)
+node --version (v24.19.0)
+npm --version (11.17.0)
 ```
 
 ## 2. Project Structure
@@ -21,7 +22,7 @@ Created the project using the 7-1 Sass architecture.
 ```bash
 src/
 ├── script/
-│   └── index.js
+|   └── index.js
 └── styles/
     ├── abstracts/
     │   ├── _functions.scss
@@ -33,12 +34,21 @@ src/
     │   └── _typography.scss
     ├── components/
     │   ├── _buttons.scss
-    │   ├── _cards.scss
-    │   └── _navbar.scss
+    │   ├── _carousel.scss
+    |   ├── _companies.scss
+    │   ├── _components.scss
+    |   ├── _hero.scss
+    │   ├── _navbar.scss
+    |   ├── _site-links.scss
+    |   ├── _spinner.scss
+    │   └── _travel-point.scss
     ├── layout/
     │   ├── _container.scss
     │   ├── _footer.scss
-    │   └── _header.scss
+    |   ├── _header.scss
+    │   ├── _main-section.scss
+    |   ├── _site-companies.scss
+    │   └── _site-spinner.scss
     ├── pages/
     ├── themes/
     │   └── _default.scss
@@ -54,8 +64,7 @@ Created the public folder for static assets.
 ```bash
 public/
 ├── fonts/
-├── images/
-└── svg/
+└── images/
 ```
 
 # Fonts
@@ -72,14 +81,6 @@ Added project images inside:
 
 ```bash
 public/images/
-```
-
-# SVG
-
-Created a dedicated folder for SVG assets:
-
-```bash
-public/svg/
 ```
 
 ## 4. SCSS Functions
@@ -141,23 +142,7 @@ src/base/_reset.scss
 
 The reset provides a consistent starting point across browsers.
 
-## 8. Typography
-
-Created the typography configuration inside:
-
-```bash
-src/base/_typography.scss
-```
-
-This contains the project's:
-
-Font families
-Font sizes
-Font weights
-Line heights
-Related typography styles
-
-## 9. IcoMoon Setup
+## 8. IcoMoon Setup
 
 Added the generated IcoMoon stylesheet to the vendors directory:
 
@@ -172,16 +157,6 @@ Icons can be used through the generated icon classes or code points.
 Example:
 
 <span class="icon">&#xf009;</span>
-
-## 10. IcoMoon SVG Generation
-
-Generated the required SVG/icon assets using IcoMoon.
-
-The generated SVG assets were added to:
-
-```bash
-public/svg/
-```
 
 The generated IcoMoon font files and stylesheet were also integrated into the project.
 
@@ -208,5 +183,4 @@ Typography setup
 Public asset organization
 Custom fonts
 IcoMoon integration
-Generated SVG assets
 Main SCSS entry point
