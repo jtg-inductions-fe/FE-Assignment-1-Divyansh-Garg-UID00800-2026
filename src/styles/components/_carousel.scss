@@ -225,6 +225,16 @@
         &__button {
             width: rem(100px);
             height: rem(100px);
+
+            &:hover {
+                .testimonials__button--white_right {
+                    font-size: rem(27px);
+                }
+
+                .testimonials__button--white_left {
+                    font-size: rem(27px);
+                }
+            }
         }
 
         .icon {
