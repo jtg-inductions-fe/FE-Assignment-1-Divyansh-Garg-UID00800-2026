@@ -7,22 +7,22 @@
 .hero {
     position: relative;
     width: 100%;
-    margin-top: rem(64px);
-    padding: 0 rem(17px);
+    margin-top: pxToRem(64);
+    padding: 0 pxToRem(17);
     box-sizing: border-box;
     overflow: hidden;
 
     &__decor {
         &--left {
-            left: rem(45px);
-            top: rem(175px);
+            left: pxToRem(45);
+            top: pxToRem(175);
 
             @include floating-icon($color-pink);
         }
 
         &--bottom {
-            left: rem(265px);
-            top: rem(340px);
+            left: pxToRem(265);
+            top: pxToRem(340);
 
             @include floating-icon($color-orange);
         }
@@ -31,22 +31,22 @@
     &__badge {
         position: absolute;
 
-        top: rem(250px);
-        right: rem(24px);
-        width: rem(85px);
-        border-radius: rem(50px);
+        top: pxToRem(250);
+        right: pxToRem(24);
+        width: pxToRem(85);
+        border-radius: pxToRem(50);
 
         &-icon {
             flex-shrink: 0;
-            font-size: rem(10px);
+            font-size: pxToRem(10);
         }
     }
 
     &__media {
         position: relative;
         width: 100%;
-        min-height: rem(366px);
-        margin-bottom: rem(32px);
+        min-height: pxToRem(366);
+        margin-bottom: pxToRem(32);
         box-sizing: border-box;
     }
 
@@ -61,12 +61,12 @@
         display: flex;
         inset: 0;
 
-        gap: rem(16px);
+        gap: pxToRem(16);
 
         box-sizing: border-box;
 
-        padding: clamp(rem(26px), 11vw, rem(39px))
-            clamp(rem(20px), 11vw, rem(54px)) rem(1px);
+        padding: clamp(pxToRem(26), 11vw, pxToRem(39))
+            clamp(pxToRem(20), 11vw, pxToRem(54)) pxToRem(1);
     }
 
     &__images {
@@ -77,7 +77,7 @@
             @include flex-center;
             flex-direction: column;
             width: 50%;
-            gap: clamp(rem(10px), 3.82vw, rem(16px));
+            gap: clamp(pxToRem(10), 3.82vw, pxToRem(16));
         }
 
         &--right {
@@ -105,15 +105,15 @@
 
     &__eyebrow {
         @include flex-center;
-        width: rem(224px);
+        width: pxToRem(224);
         box-sizing: border-box;
-        padding: rem(16px) rem(32px);
-        margin-top: rem(4px);
-        gap: rem(18px);
+        padding: pxToRem(16) pxToRem(32);
+        margin-top: pxToRem(4);
+        gap: pxToRem(18);
         border: none;
-        border-radius: rem(100px);
+        border-radius: pxToRem(100);
         color: $color-pink;
-        font-size: rem(14px);
+        font-size: pxToRem(14);
         white-space: nowrap;
         box-shadow:
             0 0 0 rgba(0, 0, 0, 0.07),
@@ -125,19 +125,19 @@
 
         &-icon {
             flex-shrink: 0;
-            font-size: rem(20px);
+            font-size: pxToRem(20);
         }
     }
 
     &__header {
-        gap: rem(24px);
+        gap: pxToRem(24);
     }
 
     &__title {
         flex-direction: column;
         display: inline;
-        padding: 0 rem(22px);
-        font-size: rem(40px);
+        padding: 0 pxToRem(22);
+        font-size: pxToRem(40);
 
         &-highlight {
             color: $color-pink;
@@ -152,11 +152,11 @@
         @include flex-center;
         width: 100%;
         box-sizing: border-box;
-        padding: rem(24px) rem(32px);
+        padding: pxToRem(24) pxToRem(32);
         text-align: center;
-        border-radius: rem(100px);
+        border-radius: pxToRem(100);
         text-decoration: none;
-        font-size: rem(14px);
+        font-size: pxToRem(14);
 
         &--primary {
             background: $color-primary;
@@ -165,15 +165,15 @@
 
             box-shadow:
                 0 0 0 rgba(0, 0, 0, 0.1),
-                0 rem(5px) rem(11px) rgba(0, 0, 0, 0.1),
-                0 rem(20px) rem(20px) rgba(0, 0, 0, 0.09),
-                0 rem(45px) rem(27px) rgba(0, 0, 0, 0.05),
-                0 rem(81px) rem(32px) rgba(0, 0, 0, 0.01),
-                0 rem(126px) rem(35px) rgba(0, 0, 0, 0);
+                0 pxToRem(5) pxToRem(11) rgba(0, 0, 0, 0.1),
+                0 pxToRem(20) pxToRem(20) rgba(0, 0, 0, 0.09),
+                0 pxToRem(45) pxToRem(27) rgba(0, 0, 0, 0.05),
+                0 pxToRem(81) pxToRem(32) rgba(0, 0, 0, 0.01),
+                0 pxToRem(126) pxToRem(35) rgba(0, 0, 0, 0);
         }
 
         &--secondary {
-            gap: rem(8px);
+            gap: pxToRem(8);
             border: 1px solid $color-light;
             background-color: $color-white;
             color: inherit;
@@ -182,20 +182,20 @@
 
     &__button-icon {
         flex-shrink: 0;
-        font-size: rem(20px);
-        margin-bottom: rem(5px);
+        font-size: pxToRem(20);
+        margin-bottom: pxToRem(5);
     }
 
     @include tablet {
-        margin: 0 clamp(rem(24px), 6.25vw, rem(64px));
+        margin: 0 clamp(pxToRem(24), 6.25vw, pxToRem(64));
         padding: 0;
 
         overflow: visible;
 
         &__media {
-            min-height: clamp(rem(500px), 69.63vw, rem(713px));
-            margin: clamp(rem(32px), 6.25vw, rem(64px))
-                clamp(rem(24px), 6.05vw, rem(62px));
+            min-height: clamp(pxToRem(500), 69.63vw, pxToRem(713));
+            margin: clamp(pxToRem(32), 6.25vw, pxToRem(64))
+                clamp(pxToRem(24), 6.05vw, pxToRem(62));
             width: auto;
         }
 
@@ -203,16 +203,16 @@
             width: 100%;
             height: 100%;
 
-            padding: clamp(rem(40px), 7.32vw, rem(75px))
-                clamp(rem(48px), 8.89vw, rem(91px)) rem(1px);
+            padding: clamp(pxToRem(40), 7.32vw, pxToRem(75))
+                clamp(pxToRem(48), 8.89vw, pxToRem(91)) pxToRem(1);
 
-            gap: clamp(rem(18px), 3.03vw, rem(31px));
+            gap: clamp(pxToRem(18), 3.03vw, pxToRem(31));
         }
 
         &__images {
             &--left {
                 width: 50%;
-                gap: clamp(rem(18px), 3.03vw, rem(31px));
+                gap: clamp(pxToRem(18), 3.03vw, pxToRem(31));
             }
 
             &--right {
@@ -222,73 +222,73 @@
 
         &__decor {
             &--left {
-                left: rem(118px);
+                left: pxToRem(118);
 
-                top: rem(410px);
+                top: pxToRem(410);
             }
 
             &--bottom {
-                left: rem(536px);
+                left: pxToRem(536);
 
-                top: rem(730px);
+                top: pxToRem(730);
             }
         }
 
         &__badge {
-            top: rem(488px);
-            right: rem(56px);
+            top: pxToRem(488);
+            right: pxToRem(56);
 
-            width: rem(170px);
+            width: pxToRem(170);
 
             &-icon {
-                font-size: rem(24px);
+                font-size: pxToRem(24);
             }
         }
 
         &__eyebrow {
-            font-size: rem(14px);
+            font-size: pxToRem(14);
         }
 
         &__header {
-            gap: rem(43px);
+            gap: pxToRem(43);
         }
 
         &__title {
-            padding: 0 rem(150px);
-            font-size: rem(56px);
+            padding: 0 pxToRem(150);
+            font-size: pxToRem(56);
         }
 
         &__description {
             max-width: 100%;
-            padding: 0 rem(230px);
+            padding: 0 pxToRem(230);
         }
 
         &__actions {
             flex-direction: row;
-            width: rem(338px);
-            gap: rem(16px);
+            width: pxToRem(338);
+            gap: pxToRem(16);
         }
 
         &__button {
             width: auto;
             white-space: nowrap;
-            padding: rem(16px) rem(32px);
+            padding: pxToRem(16) pxToRem(32);
         }
     }
 
     @include desktop {
-        padding: rem(64px) 0 0 0;
+        padding: pxToRem(64) 0 0 0;
         box-sizing: border-box;
-        margin: 0 clamp(rem(48px), 8.13vw, rem(117px));
-        min-height: clamp(rem(750px), 60vw, rem(1000px));
+        margin: 0 clamp(pxToRem(48), 8.13vw, pxToRem(117));
+        min-height: clamp(pxToRem(750), 60vw, pxToRem(1000));
         overflow: visible;
 
         &__media {
             position: absolute;
             right: 0;
 
-            width: clamp(rem(600px), 54vw, rem(800px));
-            min-height: clamp(rem(650px), 100vw, rem(710px));
+            width: clamp(pxToRem(600), 54vw, pxToRem(800));
+            min-height: clamp(pxToRem(650), 100vw, pxToRem(710));
             // height: 80%;
             margin: 0;
         }
@@ -299,8 +299,8 @@
 
             margin: 0;
 
-            padding: clamp(rem(50px), 7.32vw, rem(75px))
-                clamp(rem(55px), 8.88vw, rem(91px)) rem(1px);
+            padding: clamp(pxToRem(50), 7.32vw, pxToRem(75))
+                clamp(pxToRem(55), 8.88vw, pxToRem(91)) pxToRem(1);
 
             gap: clamp(0%, 100vw, 5.3%);
         }
@@ -339,34 +339,34 @@
         }
 
         &__badge {
-            top: rem(550px);
-            right: rem(10px);
-            width: rem(170px);
-            border-radius: rem(100px);
+            top: pxToRem(550);
+            right: pxToRem(10);
+            width: pxToRem(170);
+            border-radius: pxToRem(100);
         }
 
         &__content {
-            min-height: clamp(rem(700px), 40vw, rem(710px));
+            min-height: clamp(pxToRem(700), 40vw, pxToRem(710));
             width: 40%;
             text-align: left;
             align-items: start;
         }
 
         &__eyebrow {
-            font-size: rem(14px);
+            font-size: pxToRem(14);
         }
 
         &__header {
-            padding-right: rem(50px);
+            padding-right: pxToRem(50);
         }
 
         &__title {
             padding: 0;
-            font-size: rem(69px);
+            font-size: pxToRem(69);
         }
 
         &__description {
-            padding: 0 rem(50px) 0 0;
+            padding: 0 pxToRem(50) 0 0;
             &--block {
                 display: block;
             }

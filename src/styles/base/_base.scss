@@ -4,101 +4,35 @@
 
 .ellipse-top {
     position: absolute;
-    width: rem(300px);
-    height: rem(300px);
-    top: rem(9px);
-    left: rem(-40px);
+    width: pxToRem(300);
+    height: pxToRem(300);
+    top: pxToRem(9);
+    left: pxToRem(-40);
     background: $color-orange;
-    filter: blur(150px);
+    filter: blur(pxToRem(150));
     opacity: 0.5;
     border: none;
     border-radius: 50%;
     z-index: 1000;
 }
 
-.ellipse-side {
-    display: none;
-}
-
-.obj-img {
-    display: none;
-}
-
-.obj-img2 {
-    display: none;
-}
-
 @include tablet {
     .ellipse-top {
-        width: rem(500px);
-        height: rem(500px);
-        left: rem(-50px);
-        filter: blur(200px);
+        width: pxToRem(500);
+        height: pxToRem(500);
+        left: pxToRem(-50);
+        filter: blur(pxToRem(200));
         top: -20%;
         left: -20%;
         z-index: 0;
-    }
-
-    .ellipse-side {
-        position: absolute;
-        display: block;
-        width: rem(406px);
-        height: rem(406px);
-        background: $color-yellow;
-        right: -40%;
-        filter: blur(240px);
-        z-index: -1;
-    }
-
-    .obj-img {
-        position: absolute;
-        display: block;
-        left: 4%;
-        top: -82%;
-        width: rem(64px);
-        z-index: -1;
-    }
-
-    .obj-img2 {
-        position: absolute;
-        display: block;
-        right: rem(-200px);
-        bottom: rem(110px);
     }
 }
 
 @include desktop {
     .ellipse-top {
-        width: rem(500px);
-        height: rem(500px);
-        left: rem(-60px);
-        filter: blur(250px);
-    }
-
-    .ellipse-side {
-        position: absolute;
-        display: block;
-        width: rem(406px);
-        height: rem(406px);
-        background: $color-yellow;
-        right: -10%;
-        filter: blur(280px);
-        z-index: -1;
-    }
-
-    .obj-img {
-        position: absolute;
-        display: block;
-        left: 4%;
-        top: -50%;
-        width: rem(60px);
-        z-index: -1;
-    }
-
-    .obj-img2 {
-        position: absolute;
-        display: block;
-        right: rem(-200px);
-        bottom: rem(50px);
+        width: pxToRem(500);
+        height: pxToRem(500);
+        left: pxToRem(-60);
+        filter: blur(pxToRem(250));
     }
 }

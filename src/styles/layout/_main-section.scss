@@ -4,19 +4,19 @@
 
 .site-main {
     display: flex;
-    padding-top: rem(80px);
+    padding-top: pxToRem(80);
     box-sizing: border-box;
     width: 100%;
     position: relative;
     overflow-x: clip;
 
     @include tablet {
-        margin-bottom: rem(64px);
-        padding-top: rem(112px);
+        margin-bottom: pxToRem(64);
+        padding-top: pxToRem(112);
     }
 
     @include desktop {
-        padding-top: rem(144px);
+        padding-top: pxToRem(144);
         overflow-x: clip;
     }
 }
