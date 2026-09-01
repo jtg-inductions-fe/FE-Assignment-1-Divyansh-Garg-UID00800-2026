@@ -45,6 +45,8 @@
         "*.{html,scss,json}": "prettier --check"
     },
     "dependencies": {
-        "embla-carousel": "^8.6.0"
+        "@vitejs/plugin-vue": "^6.0.8",
+        "embla-carousel": "^8.6.0",
+        "path": "^0.12.7"
     }
 }

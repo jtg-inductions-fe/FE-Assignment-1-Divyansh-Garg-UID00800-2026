@@ -1,6 +1,8 @@
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'path';
 
 export default defineConfig(() => {
     return {
@@ -22,7 +24,23 @@ export default defineConfig(() => {
                     quality: 90,
                 },
             }),
+            vue(),
         ],
+        resolve: {
+            alias: {
+                '@': path.resolve(__dirname, './src'),
+                '@abstracts': path.resolve(__dirname, './src/styles/abstracts'),
+                '@base': path.resolve(__dirname, './src/styles/base'),
+                '@components': path.resolve(
+                    __dirname,
+                    './src/styles/components',
+                ),
+                '@layout': path.resolve(__dirname, './src/styles/layout'),
+                '@pages': path.resolve(__dirname, './src/styles/pages'),
+                '@themes': path.resolve(__dirname, './src/styles/themes'),
+                '@vendors': path.resolve(__dirname, './src/styles/vendors'),
+            },
+        },
         build: {
             rollupOptions: {
                 output: {
