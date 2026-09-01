@@ -1,8 +1,8 @@
-@use '../abstracts/variables' as *;
-@use '../base/typography' as *;
-@use '../abstracts/functions' as *;
-@use '../abstracts/mixins' as *;
-@use '../vendors/icomoon' as *;
+@use '@abstracts/variables' as *;
+@use '@base/typography' as *;
+@use '@abstracts/functions' as *;
+@use '@abstracts/mixins' as *;
+@use '@vendors/icomoon' as *;
 .navbar {
     width: 100%;
     margin-top: pxToRem(35);
