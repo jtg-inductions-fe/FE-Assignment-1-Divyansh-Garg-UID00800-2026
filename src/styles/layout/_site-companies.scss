@@ -1,5 +1,5 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use '@abstracts/variables' as *;
+@use '@abstracts/mixins' as *;
 
 .site-companies {
     display: flex;
@@ -7,8 +7,4 @@
     width: 100%;
     box-sizing: border-box;
     overflow-x: clip;
-
-    @include desktop {
-        overflow-x: clip;
-    }
 }
