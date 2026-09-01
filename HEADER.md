@@ -9,11 +9,12 @@ The header component has been implemented across HTML, JavaScript, and SCSS file
 ```text
 src/
 ├── script/
-│   └── script.js
+│   └── index.js
 └── styles/
-    └── components/
-        ├── _header.scss
-        └── _navbar.scss
+    |── components/
+    |   └── _navbar.scss
+    └── layout/
+        └── _header.scss
 
 index.html
 ```
