@@ -1,6 +1,6 @@
 /**
  * @typedef MediaQueryList
- * @type {number}
+ * @type {object}
  */
 
 /**
@@ -65,8 +65,7 @@ const actions = navbar.querySelector('.navbar__actions');
 const toggle = navbar.querySelector('.navbar__toggle');
 
 /**
- * funciton which helps in dynamically aligning the navbar components according to the media query
- * @param {number} viewportSize
+ * funciton which helps in dynamically updating the navbar components order according to the viewport
  * @returns {void}
  */
 function updateNavbarOrder() {
@@ -98,7 +97,7 @@ tabletQuery.addEventListener('change', updateNavbarOrder);
 desktopQuery.addEventListener('change', updateNavbarOrder);
 
 /**
- * event listner which is reponsible for the toggling of the hamburger and expanding and compressing of the navbar
+ * event listener which is reponsible for the toggling of the menu items
  * @return {void}
  * @event click
  */
@@ -136,17 +135,17 @@ document.addEventListener('keydown', (e) => {
  * @param {MediaQueryList}
  * @returns {void}
  */
-function addingActions(e) {
+function addAuthActionButtons(e) {
     if (e.matches) menu.append(actions);
 }
 
 /**
- * calling the function intially so that the chanages could be applied at the time of page loading only
+ * calling the function initially so that the chanages could be applied at the time of page loading only
  * @event change
  * @param {MediaQueryList}
  * @returns {void}
  */
-addingActions(mobileQuery);
+addAuthActionButtons(mobileQuery);
 
 /**
  * calling the function when the mediaquery get changes
@@ -154,13 +153,7 @@ addingActions(mobileQuery);
  * @param {MediaQueryList}
  * @returns {void}
  */
-mobileQuery.addEventListener('change', addingActions);
-
-/**
- * each navigation items which is getting used for changing the current view of the page and also the active link status.
- * @type {NodeListOf<HTMLElement>}
- * */
-const navLinks = document.querySelectorAll('.navbar__link');
+mobileQuery.addEventListener('change', addAuthActionButtons);
 
 /**
  * Adding the event to each navigation link which is used for toggle the status of the active link
@@ -169,18 +162,18 @@ const navLinks = document.querySelectorAll('.navbar__link');
  * @param {NavigationLink}
  * @event click
  * */
-navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-        document
-            .querySelector('.navbar__link-active-link')
-            ?.classList.remove('navbar__link-active-link');
+menu.addEventListener('click', (e) => {
+    const link = e.target.closest('.navbar__link');
+    if (!link) return;
+    menu.querySelector('.navbar__link-active-link').classList.remove(
+        'navbar__link-active-link',
+    );
 
-        link.classList.add('navbar__link-active-link');
+    link.classList.add('navbar__link-active-link');
 
-        menu.classList.remove('navbar__menu--is-open');
-        toggle.classList.remove('navbar__menu--is-open');
+    menu.classList.remove('navbar__menu--is-open');
+    toggle.classList.remove('navbar__menu--is-open');
 
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation menu');
-    });
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation menu');
 });

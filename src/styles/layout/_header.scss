@@ -3,7 +3,7 @@
 
 .site-header {
     position: fixed;
-    z-index: 9999;
+    z-index: $z-index-max;
     top: 0;
     box-sizing: border-box;
     width: 100%;

@@ -2,14 +2,14 @@
 @use '@base/typography' as *;
 @use '@abstracts/functions' as *;
 @use '@abstracts/mixins' as *;
-@use '@vendors/icomoon' as *;
+
 .navbar {
     width: 100%;
     margin-top: pxToRem(35);
     padding: 0 pxToRem(16);
     @include flex-between;
     position: relative;
-    box-sizing: border-box;
+
     &-shorter {
         padding: pxToRem(16) pxToRem(16);
         background: rgba($color-white, 0.9);
@@ -28,7 +28,7 @@
         background-color: $color-white;
         transform: translateX(100%);
         transition: transform 0.35s ease;
-        z-index: 99;
+        z-index: $z-index-menu;
         &--is-open {
             transform: translateX(0);
             .navbar__link {
@@ -36,6 +36,7 @@
             }
         }
     }
+
     &__link {
         font-family: $font-primary;
         font-size: pxToRem($menu-item-size);
@@ -54,9 +55,11 @@
             opacity: 1;
         }
     }
+
     &__actions {
         display: none;
     }
+
     &__toggle {
         @include flex-center;
         width: pxToRem($hamburger-size);
@@ -64,24 +67,24 @@
         border: none;
         margin: 0;
         position: relative;
-        z-index: 100;
+        z-index: $z-index-toggle-button;
         background-color: transparent;
         cursor: pointer;
         flex-shrink: 0;
         img {
-            display: block;
-            width: 100%;
-            height: 100%;
             object-fit: contain;
         }
     }
+
     @include tablet {
         margin-top: 0;
         padding: pxToRem(32) 0;
+
         &__logo {
             margin-left: auto;
             margin-right: auto;
         }
+
         &__menu {
             transform: translateX(-100%);
             transition: transform 0.5s ease;
@@ -92,11 +95,11 @@
                 }
             }
         }
+
         &__actions {
             display: flex;
             gap: 0;
             width: clamp(pxToRem(10), 35vw, pxToRem(220));
-            // width: pxToRem(220);
             margin-right: clamp(pxToRem(40), 10vw, pxToRem(64));
         }
         &__toggle {
