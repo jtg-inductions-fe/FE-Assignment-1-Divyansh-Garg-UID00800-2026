@@ -1,6 +1,38 @@
 @use '@abstracts/variables' as *;
 @use '@abstracts/functions' as *;
 @use '@abstracts/mixins' as *;
+@use '@base/typography' as *;
+
+.btn {
+    @include flex-center;
+    min-height: pxToRem($nav-button-height);
+    padding: pxToRem($primary-button-padding-vertical)
+        pxToRem($primary-button-padding-horizontal);
+
+    border: none;
+    border-radius: pxToRem($radius-md);
+
+    font-family: $font-primary;
+    font-size: pxToRem($font-size-sm);
+    font-weight: $font-weight-bold;
+    line-height: $line-height-menu;
+    letter-spacing: $letter-spacing-normal;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    &--secondary {
+        color: $color-dark;
+        background-color: transparent;
+    }
+
+    &--primary {
+        color: $color-white;
+        background-color: $color-primary;
+    }
+}
 
 .stats {
     display: grid;
@@ -8,7 +40,7 @@
     gap: pxToRem(16);
     list-style: none;
 
-    @media (min-width: $tablet) {
+    @include tablet {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: pxToRem(32);
     }
@@ -26,26 +58,25 @@
     font-size: pxToRem(35);
     color: $color-orange;
 
-    @media (min-width: $desktop) {
+    @include desktop {
         font-size: pxToRem(35);
     }
 }
 
 .content {
     @include flex-center-col;
-    box-sizing: border-box;
     font-family: $font-primary;
     text-align: center;
     gap: pxToRem(32);
 
-    @media (min-width: $tablet) {
+    @include tablet {
         gap: pxToRem(43);
     }
 }
 
 .header {
     @include flex-center-col;
-    box-sizing: border-box;
+
     justify-content: space-between;
     gap: pxToRem(16);
 }
@@ -60,7 +91,7 @@
     font-weight: $font-weight-medium;
     color: $color-pink;
 
-    @media (min-width: $tablet) {
+    @include tablet {
         font-size: pxToRem(23);
     }
 }
@@ -73,11 +104,11 @@
     font-weight: $font-weight-medium;
     color: $non-active-link;
 
-    @media (min-width: $tablet) {
+    @include tablet {
         font-size: pxToRem(40);
     }
 
-    @media (min-width: $desktop) {
+    @include desktop {
         font-size: pxToRem(44);
     }
 }
@@ -90,7 +121,7 @@
     color: $non-active-link;
     opacity: 0.5;
 
-    @media (min-width: $tablet) {
+    @include tablet {
         font-size: pxToRem(18);
     }
 }
@@ -101,7 +132,7 @@
     line-height: $line-height-hero;
     color: $non-active-link;
 
-    @media (min-width: $desktop) {
+    @include desktop {
         font-size: pxToRem(18);
     }
 }
@@ -110,7 +141,7 @@
     @include flex-center;
     flex-shrink: 0;
 
-    img {
+    &__img {
         display: block;
         width: pxToRem($logo-size);
         height: pxToRem($logo-size);
@@ -121,12 +152,12 @@
 .decor {
     position: absolute;
     pointer-events: none;
-    z-index: 10;
+    z-index: $z-index-hero-decoration;
 
     .icon {
         font-size: pxToRem(16);
 
-        @media (min-width: $tablet) {
+        @include tablet {
             font-size: pxToRem(32);
         }
     }
@@ -134,17 +165,16 @@
 
 .badge {
     @include flex-between;
-    box-sizing: border-box;
     background-color: $color-white;
     font-size: pxToRem(7);
     font-family: $font-primary;
     border: none;
-    z-index: 20;
+    z-index: $z-index-hero-decoration;
     line-height: $line-height-menu;
     gap: pxToRem(4);
     padding: pxToRem(8) pxToRem(16);
 
-    @media (min-width: $tablet) {
+    @include tablet {
         gap: pxToRem(8);
         font-size: pxToRem(14);
         padding: pxToRem(16) pxToRem(32);
@@ -161,7 +191,6 @@
 
 .actions {
     @include flex-center;
-    box-sizing: border-box;
     width: 100%;
     gap: pxToRem(24);
 }
