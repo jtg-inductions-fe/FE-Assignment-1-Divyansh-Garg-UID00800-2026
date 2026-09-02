@@ -1,8 +1,7 @@
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import path from 'path';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig(() => {
     return {
@@ -24,21 +23,31 @@ export default defineConfig(() => {
                     quality: 90,
                 },
             }),
-            vue(),
         ],
         resolve: {
             alias: {
-                '@': path.resolve(__dirname, './src'),
-                '@abstracts': path.resolve(__dirname, './src/styles/abstracts'),
-                '@base': path.resolve(__dirname, './src/styles/base'),
-                '@components': path.resolve(
-                    __dirname,
-                    './src/styles/components',
+                '@': fileURLToPath(new URL('./src', import.meta.url)),
+                '@abstracts': fileURLToPath(
+                    new URL('./src/styles/abstracts', import.meta.url),
                 ),
-                '@layout': path.resolve(__dirname, './src/styles/layout'),
-                '@pages': path.resolve(__dirname, './src/styles/pages'),
-                '@themes': path.resolve(__dirname, './src/styles/themes'),
-                '@vendors': path.resolve(__dirname, './src/styles/vendors'),
+                '@base': fileURLToPath(
+                    new URL('./src/styles/base', import.meta.url),
+                ),
+                '@components': fileURLToPath(
+                    new URL('./src/styles/components', import.meta.url),
+                ),
+                '@layout': fileURLToPath(
+                    new URL('./src/styles/layout', import.meta.url),
+                ),
+                '@pages': fileURLToPath(
+                    new URL('./src/styles/pages', import.meta.url),
+                ),
+                '@themes': fileURLToPath(
+                    new URL('./src/styles/themes', import.meta.url),
+                ),
+                '@vendors': fileURLToPath(
+                    new URL('./src/styles/vendors', import.meta.url),
+                ),
             },
         },
         build: {
