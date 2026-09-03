@@ -9,7 +9,6 @@
     width: 100%;
     margin-top: pxToRem(64);
     padding: 0 pxToRem(17);
-    box-sizing: border-box;
     overflow: hidden;
 
     &__decor {
@@ -47,7 +46,6 @@
         width: 100%;
         min-height: pxToRem(366);
         margin-bottom: pxToRem(32);
-        box-sizing: border-box;
     }
 
     &__layer {
@@ -62,8 +60,6 @@
         inset: 0;
 
         gap: pxToRem(16);
-
-        box-sizing: border-box;
 
         padding: clamp(pxToRem(26), 11vw, pxToRem(39))
             clamp(pxToRem(20), 11vw, pxToRem(54)) pxToRem(1);
@@ -106,7 +102,7 @@
     &__eyebrow {
         @include flex-center;
         width: pxToRem(224);
-        box-sizing: border-box;
+
         padding: pxToRem(16) pxToRem(32);
         margin-top: pxToRem(4);
         gap: pxToRem(18);
@@ -151,7 +147,7 @@
     &__button {
         @include flex-center;
         width: 100%;
-        box-sizing: border-box;
+
         padding: pxToRem(24) pxToRem(32);
         text-align: center;
         border-radius: pxToRem(100);
@@ -278,7 +274,7 @@
 
     @include desktop {
         padding: pxToRem(64) 0 0 0;
-        box-sizing: border-box;
+
         margin: 0 clamp(pxToRem(48), 8.13vw, pxToRem(117));
         min-height: clamp(pxToRem(750), 60vw, pxToRem(1000));
         overflow: visible;
@@ -289,7 +285,6 @@
 
             width: clamp(pxToRem(600), 54vw, pxToRem(800));
             min-height: clamp(pxToRem(650), 100vw, pxToRem(710));
-            // height: 80%;
             margin: 0;
         }
 
