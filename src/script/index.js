@@ -31,12 +31,30 @@ const navbar = document.querySelector('.navbar');
 const menu = navbar.querySelector('.navbar__menu');
 
 /**
- * listens for the height changes in the y direction
- * applying specific styling to the navbar in the scrolled view
- * @type {HTMLDocument}
- * @event scroll
+ * function which is responsible for applying throttle to function passed
+ * @returns {Function}
  * */
-window.addEventListener('scroll', () => {
+function handleScrollThrottle(fn, delay = 200) {
+    let scrolling = false;
+
+    window.addEventListener('scroll', () => {
+        if (!scrolling) {
+            scrolling = true;
+            fn();
+
+            setTimeout(() => {
+                scrolling = false;
+                fn();
+            }, delay);
+        }
+    });
+}
+
+/**
+ * function which is responsible for changing the navbar style according to the scroll value
+ * @returns {void}
+ * */
+function handleScroll() {
     if (window.scrollY > 50) {
         navbar.classList.add('navbar-shorter');
         menu.classList.add('navbar__menu-shorter');
@@ -44,7 +62,13 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('navbar-shorter');
         menu.classList.remove('navbar__menu-shorter');
     }
-});
+}
+
+/**
+ * calling the throttle function with scroll callback function to handle scrolling with throttle applied
+ * @param {Function}
+ * */
+handleScrollThrottle(handleScroll);
 
 /**
  * logo of the site for placing according to the media query
