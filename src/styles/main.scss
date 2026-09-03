@@ -19,3 +19,6 @@
 
 @use 'layout/site-companies' as *;
 @use 'components/companies' as *;
+
+@use 'layout/header' as *;
+@use 'components/navbar' as *;
