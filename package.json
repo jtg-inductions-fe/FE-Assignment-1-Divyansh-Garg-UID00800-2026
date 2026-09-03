@@ -1,8 +1,12 @@
 {
-    "name": "static-html-base-template",
-    "description": "",
-    "keywords": [],
-    "version": "0.0.0",
+    "name": "Travlog",
+    "description": "An easy trip planner in your busy schedule",
+    "keywords": [
+        "Holiday",
+        "Fun",
+        "Adventure"
+    ],
+    "version": "1.0.0",
     "private": true,
     "type": "module",
     "scripts": {
@@ -39,5 +43,8 @@
             "eslint --max-warnings=0"
         ],
         "*.{html,scss,json}": "prettier --check"
+    },
+    "dependencies": {
+        "embla-carousel": "^8.6.0"
     }
 }

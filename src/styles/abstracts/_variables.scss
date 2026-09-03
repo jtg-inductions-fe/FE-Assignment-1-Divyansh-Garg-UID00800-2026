@@ -1,0 +1,72 @@
+// color variables
+$color-white: #ffffff;
+$color-light: #eeeeee;
+$color-pink: #f85e9f;
+$color-orange: #ff5722;
+$color-yellow: #facd49;
+$color-black: #000000;
+$color-dark: #222831;
+$color-primary: #5d50c6;
+$non-active-link: #191825;
+$active-link: #222831;
+
+// Media query variables
+$tablet: 431px;
+$desktop: 1025px;
+
+// Used for the logo size and hamburger icon size
+$logo-size: 40;
+$hamburger-size: 48;
+
+// these are getting used inside the menu-list
+$menu-item-size: 14;
+$menu-items-height: 17;
+$menu-gap: 64;
+$menu-gap-shorter: 50;
+$nav-button-height: 49;
+
+/* these are used for providing padding values in the action buttons
+made intially with a thought of getting used with multiple elements */
+$primary-button-padding-horizontal: 32;
+$primary-button-padding-vertical: 16;
+$primary-button-padding-horizontal-small: 24;
+$primary-button-padding-vertical-small: 8;
+
+$radius-md: 100;
+$radius-sm: 10;
+$radius-lsm: 16;
+$radius-lg: 999;
+
+// shadow variable getting used in applying shadow in wheel component
+$spin-shadow-modal: 0 30px 60px -15px rgba(30, 15, 50, 0.35);
+$spin-shadow-wheel: 0 18px 40px -12px rgba(30, 15, 50, 0.35);
+
+$font-size-sm: 14;
+$font-size-xsm: 12;
+$spin-radius-lg: 24;
+$spin-radius-pill: 999;
+$spin-radius-chip: 14;
+
+// for giving font-weight value
+$font-weight-regular: 400;
+$font-weight-xregular: 450;
+$font-weight-medium: 500;
+$font-weight-bold: 500;
+$font-weight-extra: 700;
+
+// for reusing multiple places according to the figma design
+$line-height-menu: 120%;
+$line-height-hero: 160%;
+$line-height-spinner: 100%;
+
+// these are used for providing value of letter-spacing according to the figma design
+$letter-spacing-normal: 0;
+$letter-spacing-xsmall: 0.05rem;
+$letter-spacing-small: 0.1rem;
+$letter-spacing-medium: 0.2rem;
+$letter-spacing-large: 0.3rem;
+$letter-spacing-xlarge: 0.35rem;
+
+// these are used for providing different font-family value
+$font-primary: 'Circular Std', Arial, Helvetica, sans-serif;
+$font-secondary: 'Inter', Arial, Helvetica, sans-serif;

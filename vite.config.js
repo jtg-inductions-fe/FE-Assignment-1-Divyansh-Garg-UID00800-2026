@@ -1,6 +1,7 @@
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { defineConfig } from 'vite';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig(() => {
     return {
@@ -9,7 +10,7 @@ export default defineConfig(() => {
                 minify: true,
             }),
             ViteImageOptimizer({
-                test: /\.(jpg|png)$/i,
+                test: /\.(jpg|png|webp)$/i,
                 includePublic: true,
                 logStats: true,
                 png: {
@@ -23,6 +24,32 @@ export default defineConfig(() => {
                 },
             }),
         ],
+        resolve: {
+            alias: {
+                '@': fileURLToPath(new URL('./src', import.meta.url)),
+                '@abstracts': fileURLToPath(
+                    new URL('./src/styles/abstracts', import.meta.url),
+                ),
+                '@base': fileURLToPath(
+                    new URL('./src/styles/base', import.meta.url),
+                ),
+                '@components': fileURLToPath(
+                    new URL('./src/styles/components', import.meta.url),
+                ),
+                '@layout': fileURLToPath(
+                    new URL('./src/styles/layout', import.meta.url),
+                ),
+                '@pages': fileURLToPath(
+                    new URL('./src/styles/pages', import.meta.url),
+                ),
+                '@themes': fileURLToPath(
+                    new URL('./src/styles/themes', import.meta.url),
+                ),
+                '@vendors': fileURLToPath(
+                    new URL('./src/styles/vendors', import.meta.url),
+                ),
+            },
+        },
         build: {
             rollupOptions: {
                 output: {
