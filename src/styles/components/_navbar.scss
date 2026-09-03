@@ -81,8 +81,7 @@
         padding: pxToRem(32) 0;
 
         &__logo {
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
 
         &__menu {
@@ -122,6 +121,7 @@
             }
         }
     }
+
     @include desktop {
         margin-top: pxToRem(34);
         padding: pxToRem(32) 0;
@@ -137,8 +137,7 @@
             position: static;
             width: auto;
             height: auto;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
             padding: 0;
             gap: pxToRem($menu-gap);
             background-color: transparent;

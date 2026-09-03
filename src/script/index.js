@@ -40,7 +40,6 @@ function handleScrollThrottle(fn, delay = 200) {
     window.addEventListener('scroll', () => {
         if (!scrolling) {
             scrolling = true;
-            fn();
 
             setTimeout(() => {
                 scrolling = false;
