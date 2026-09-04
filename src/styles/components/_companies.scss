@@ -5,6 +5,7 @@
 
 .companies {
     @include flex-center;
+
     margin: pxToRem(60) 0;
     padding: 0 pxToRem(64);
     flex-direction: column;
@@ -12,6 +13,7 @@
 
     &__item {
         @include flex-center;
+
         min-width: 0;
         flex: 0 1 auto;
     }
@@ -27,7 +29,6 @@
     @include tablet {
         margin: 0;
         padding: pxToRem(64) pxToRem(170);
-
         gap: pxToRem(32);
 
         &__logo {

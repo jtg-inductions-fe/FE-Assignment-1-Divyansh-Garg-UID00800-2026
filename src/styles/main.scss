@@ -14,11 +14,8 @@
 @use 'layout/header';
 @use 'components/navbar';
 
-@use 'layout/header' as *;
-@use 'components/navbar' as *;
-
 @use 'components/hero';
 @use 'layout/main-section';
 
-@use 'layout/site-companies' as *;
-@use 'components/companies' as *;
+@use 'layout/site-companies';
+@use 'components/companies';
