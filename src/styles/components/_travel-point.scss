@@ -5,13 +5,15 @@
 
 .travel-point {
     @include flex-center-col;
+
     gap: pxToRem(32);
     padding-bottom: pxToRem(64);
     text-align: center;
 
     &__visual {
-        margin: 0;
         @include flex-center;
+
+        margin: 0;
     }
 
     &__image {
@@ -68,10 +70,8 @@
     @include desktop {
         padding: pxToRem(77) 0;
         margin-right: pxToRem(117);
-
         display: grid;
         grid-template-columns: 2fr 1fr;
-
         max-height: none;
         gap: 0;
 
