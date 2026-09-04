@@ -23,7 +23,8 @@
     }
 
     @include desktop {
-        right: -10%;
+        right: 0;
+        bottom: pxToRem(-250);
         filter: blur(pxToRem(280));
     }
 }
