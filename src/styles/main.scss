@@ -14,10 +14,11 @@
 @use 'layout/header';
 @use 'components/navbar';
 
-@use 'components/hero';
 @use 'layout/main-section';
+@use 'components/hero';
 
 @use 'layout/site-companies';
 @use 'components/companies';
 
+@use 'components/carousel';
 @use 'components/travel-point';
