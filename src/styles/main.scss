@@ -9,7 +9,10 @@
 @use 'layout/container' as *;
 @use 'vendors/icomoon' as *;
 
-@use 'components/components.scss' as *;
+@use 'components/components.scss';
 
-@use 'layout/header' as *;
-@use 'components/navbar' as *;
+@use 'layout/header';
+@use 'components/navbar';
+
+@use 'components/hero';
+@use 'layout/main-section';

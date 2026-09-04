@@ -1,0 +1,50 @@
+@use '@abstracts/variables' as *;
+@use '@abstracts/functions' as *;
+@use '@abstracts/mixins' as *;
+
+.site-main {
+    display: flex;
+    padding-top: pxToRem(80);
+    width: 100%;
+    position: relative;
+    overflow-x: clip;
+
+    @include tablet {
+        margin-bottom: pxToRem(64);
+        padding-top: pxToRem(112);
+    }
+
+    @include desktop {
+        padding-top: pxToRem(144);
+        overflow-x: clip;
+    }
+}
+
+.ellipse-top {
+    position: absolute;
+    width: pxToRem(300);
+    height: pxToRem(300);
+    top: pxToRem(9);
+    left: pxToRem(-40);
+    background: $color-orange;
+    filter: blur(pxToRem(150));
+    opacity: 0.5;
+    border: none;
+    border-radius: 50%;
+    z-index: $z-index-hero-decoration;
+
+    @include tablet {
+        width: pxToRem(500);
+        height: pxToRem(500);
+        left: pxToRem(-50);
+        filter: blur(pxToRem(200));
+        top: -20%;
+        left: -20%;
+        z-index: $z-index-min;
+    }
+
+    @include desktop {
+        left: pxToRem(-60);
+        filter: blur(pxToRem(250));
+    }
+}
