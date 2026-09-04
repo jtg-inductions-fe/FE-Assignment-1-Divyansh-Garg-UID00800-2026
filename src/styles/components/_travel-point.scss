@@ -1,12 +1,12 @@
-@use '../abstracts/mixins' as *;
-@use '../abstracts/functions' as *;
-@use '../abstracts/variables' as *;
-@use '../base/typography' as *;
+@use '@abstracts/mixins' as *;
+@use '@abstracts/functions' as *;
+@use '@abstracts/variables' as *;
+@use '@base/typography' as *;
 
 .travel-point {
     @include flex-center-col;
-    gap: rem(32px);
-    padding-bottom: rem(64px);
+    gap: pxToRem(32);
+    padding-bottom: pxToRem(64);
     text-align: center;
 
     &__visual {
@@ -22,52 +22,52 @@
     }
 
     &__description {
-        margin: rem(32px) rem(40px) 0 rem(40px);
+        margin: pxToRem(32) pxToRem(40) 0 pxToRem(40);
     }
 
     &__stats {
         width: 100%;
-        padding: 0 rem(40px);
+        padding: 0 pxToRem(40);
     }
 
     &__stat {
         border: 1px solid rgba($non-active-link, 0.1);
-        border-radius: rem(32px);
+        border-radius: pxToRem(32);
 
         &-value {
-            margin-bottom: rem(16px);
+            margin-bottom: pxToRem(16);
         }
     }
 
     @include tablet {
         padding-bottom: 0;
-        gap: rem(64px);
+        gap: pxToRem(64);
 
         &__image {
-            min-height: rem(890px);
+            min-height: pxToRem(890);
         }
 
         &__content {
-            gap: rem(64px);
+            gap: pxToRem(64);
         }
 
         &__description {
-            margin: rem(16px) 0 0 0;
-            padding: 0 rem(64px);
+            margin: pxToRem(16) 0 0 0;
+            padding: 0 pxToRem(64);
         }
 
         &__stats {
-            padding: 0 rem(64px);
+            padding: 0 pxToRem(64);
         }
 
         &__stat {
-            min-height: rem(100px);
+            min-height: pxToRem(100);
         }
     }
 
     @include desktop {
-        padding: rem(77px) 0;
-        margin-right: rem(117px);
+        padding: pxToRem(77) 0;
+        margin-right: pxToRem(117);
 
         display: grid;
         grid-template-columns: 2fr 1fr;
@@ -113,8 +113,8 @@
         }
 
         &__stat {
-            min-height: rem(110px);
-            padding: rem(24px);
+            min-height: pxToRem(110);
+            padding: pxToRem(24);
         }
     }
 }

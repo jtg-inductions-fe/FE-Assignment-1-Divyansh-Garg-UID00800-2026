@@ -124,16 +124,16 @@
             }
         }
         &-shorter {
-            margin-top: rem(32px);
+            margin-top: pxToRem(32);
             transition: margin-top 0.5s ease;
-            padding: rem(16px) 0;
+            padding: pxToRem(16) 0;
 
             .navbar__actions {
-                margin-right: rem(32px);
+                margin-right: pxToRem(32);
             }
 
             .navbar__toggle {
-                margin-left: rem(32px);
+                margin-left: pxToRem(32);
             }
         }
     }
