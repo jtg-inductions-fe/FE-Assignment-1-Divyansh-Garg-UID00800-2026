@@ -4,9 +4,8 @@
 @use '@base/typography' as *;
 
 .footer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    @include flex-center-col;
+
     gap: pxToRem(82);
     padding: pxToRem(64) pxToRem(8) pxToRem(64) pxToRem(32);
     margin-top: pxToRem(3);
@@ -20,20 +19,18 @@
 
     &__logo-link {
         @include flex-center;
+
         justify-content: start;
         gap: pxToRem(16);
     }
 
     &__brand-name {
-        font-size: pxToRem(24);
-        font-family: $font-primary;
-        letter-spacing: 0;
-        line-height: pxToRem(40);
+        @include brand;
     }
 
     &__description {
+        @include description;
         font-family: $font-primary;
-        font-weight: $font-weight-xregular;
     }
 
     &__social {
@@ -50,11 +47,12 @@
     }
 
     &__navigation {
-        width: 100%;
         @include flex-center;
+
+        width: 100%;
         flex-direction: column;
         gap: pxToRem(79);
-        padding-right: 24px;
+        padding-right: pxToRem(24);
     }
 
     &__section {
@@ -62,6 +60,7 @@
 
         &-toggle {
             @include flex-between;
+
             width: 100%;
             border: none;
             background: transparent;
@@ -69,10 +68,8 @@
         }
 
         &-title {
-            font-family: $font-primary;
+            @include title;
             font-size: pxToRem(23);
-            line-height: $line-height-menu;
-            letter-spacing: 0;
         }
 
         &-icon {
@@ -82,10 +79,11 @@
 
         &-list {
             padding: 0;
-            margin: pxToRem(10) 0 0 0;
+            margin: pxToRem(10) 0 0;
             list-style: none;
             overflow: hidden;
             height: auto;
+
             transition:
                 height 0.5s ease,
                 margin 1s ease;
@@ -97,7 +95,7 @@
         }
 
         &-item {
-            margin-bottom: 10px;
+            margin-bottom: pxToRem(10);
 
             &:last-child {
                 margin-bottom: 0;
@@ -105,10 +103,10 @@
         }
 
         &-link {
-            font-family: $font-primary;
+            @include link;
+
             color: $non-active-link;
             opacity: 0.75;
-            font-size: pxToRem(20);
         }
 
         &--open {
@@ -119,7 +117,7 @@
     }
 
     @include tablet {
-        margin: pxToRem(96) pxToRem(63) 0 pxToRem(63);
+        margin: pxToRem(96) pxToRem(63) 0;
         padding: pxToRem(64) 0;
         gap: pxToRem(64);
 
@@ -146,25 +144,24 @@
                 gap: pxToRem(22);
 
                 &-hidden {
-                    margin: pxToRem(10) 0 0 0;
+                    margin: pxToRem(10) 0 0;
                     height: auto;
                 }
             }
 
             &-link {
-                font-family: $font-secondary;
-                columns: $font-primary;
+                // Typography is already defined by the mixin.
+                // No need to redefine font-family, font-size,
+                // or line-height here.
                 opacity: 0.75;
-                font-size: pxToRem(18);
-                line-height: $line-height-hero;
             }
         }
     }
 
     @include desktop {
         flex-direction: row;
-        margin: pxToRem(160) pxToRem(117) 0 pxToRem(117);
-        padding: pxToRem(45) 0 pxToRem(64) 0;
+        margin: pxToRem(160) pxToRem(117) 0;
+        padding: pxToRem(45) 0 pxToRem(64);
         gap: pxToRem(64);
 
         &__brand {

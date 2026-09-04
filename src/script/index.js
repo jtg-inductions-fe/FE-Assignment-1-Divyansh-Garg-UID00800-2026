@@ -102,7 +102,7 @@ const actions = navbar.querySelector('.navbar__actions');
 const toggle = navbar.querySelector('.navbar__toggle');
 
 /**
- * funciton which helps in dynamically updating the navbar components order according to the viewport
+ * function which helps in dynamically updating the navbar components order according to the viewport
  * @returns {void}
  */
 function updateNavbarOrder() {
@@ -134,7 +134,7 @@ tabletQuery.addEventListener('change', updateNavbarOrder);
 desktopQuery.addEventListener('change', updateNavbarOrder);
 
 /**
- * event listener which is reponsible for the toggling of the menu items
+ * event listener which is responsible for the toggling of the menu items
  * @return {void}
  * @event click
  */
@@ -211,9 +211,8 @@ menu.addEventListener('click', (e) => {
     menu.classList.remove('navbar__menu--is-open');
     toggle.classList.remove('navbar__menu--is-open');
 
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation menu');
-    });
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation menu');
 });
 
 /**
@@ -315,7 +314,7 @@ const updateActiveDot = (emblaApi) => {
 };
 
 /**
- * calling the function intially so that the chanages could be applied at the time of page loading only
+ * calling the function initially so that the changes could be applied at the time of page loading only
  * @event change
  * @returns {void}
  */
