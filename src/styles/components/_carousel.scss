@@ -1,7 +1,6 @@
-@use '../abstracts/mixins' as *;
-@use '../abstracts/functions' as *;
-@use '../abstracts/variables' as *;
-@use '../base/typography' as *;
+@use '@abstracts/variables' as *;
+@use '@abstracts/functions' as *;
+@use '@abstracts/mixins' as *;
 
 .testimonials {
     position: relative;
@@ -9,7 +8,6 @@
     padding: pxToRem(60) pxToRem(20);
     overflow: hidden;
     text-align: center;
-    font-family: $font-primary;
 
     &__background {
         display: none;
@@ -36,6 +34,7 @@
 
     &__content {
         @include flex-center;
+
         flex-direction: column;
     }
 
@@ -50,12 +49,14 @@
         }
 
         &-name {
-            font-size: pxToRem(28);
+            @include name;
+
             color: $color-orange;
         }
 
         &-role {
-            font-size: pxToRem(23);
+            @include role;
+
             color: $non-active-link;
         }
     }
@@ -65,7 +66,7 @@
         height: pxToRem(128);
         overflow: hidden;
         border-radius: 50%;
-        margin: pxToRem(60) 0 pxToRem(72) 0;
+        margin: pxToRem(60) 0 pxToRem(72);
 
         &--image {
             display: block;
@@ -86,26 +87,42 @@
     }
 
     &__quote {
-        margin: pxToRem(64) 0 pxToRem(45) 0;
+        @include description;
+
+        margin: pxToRem(64) 0 pxToRem(45);
         color: $non-active-link;
         opacity: 0.75;
-        font-size: pxToRem(18);
-        line-height: $line-height-hero;
     }
 
     &__navigation {
+        @include flex-center;
+
         position: absolute;
         top: pxToRem(96);
         right: 0;
         left: 0;
-
-        @include flex-center;
         justify-content: space-between;
-
         pointer-events: none;
     }
 
     &__button {
+        @include flex-center;
+
+        width: pxToRem(64);
+        height: pxToRem(64);
+        padding: 0;
+        border: 1px solid rgba($non-active-link, 0.1);
+        border-radius: 50%;
+        background-color: $color-white;
+        font-size: pxToRem(10);
+        line-height: 1;
+        cursor: pointer;
+        pointer-events: auto;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            transform 0.2s ease;
+
         &--white_right {
             display: none;
         }
@@ -113,28 +130,6 @@
         &--white_left {
             display: none;
         }
-
-        @include flex-center;
-
-        width: pxToRem(64);
-        height: pxToRem(64);
-        padding: 0;
-
-        border: 1px solid rgba($non-active-link, 0.1);
-        border-radius: 50%;
-
-        background-color: $color-white;
-
-        font-size: pxToRem(10);
-        line-height: 1;
-
-        cursor: pointer;
-        pointer-events: auto;
-
-        transition:
-            background-color 0.2s ease,
-            color 0.2s ease,
-            transform 0.2s ease;
 
         &:active {
             transform: scale(0.95);
@@ -174,6 +169,7 @@
 
     &__dots {
         @include flex-center;
+
         gap: pxToRem(24);
         width: auto;
     }
@@ -186,9 +182,7 @@
         border-radius: 50%;
         background: $non-active-link;
         opacity: 0.05;
-
         cursor: pointer;
-
         transition:
             background-color 0.2s ease,
             transform 0.2s ease;
@@ -204,11 +198,11 @@
     }
 
     @include tablet {
-        padding: pxToRem(32) pxToRem(64) pxToRem(64) pxToRem(64);
+        padding: pxToRem(32) pxToRem(64) pxToRem(64);
         gap: pxToRem(56);
 
         &__avatar {
-            margin: pxToRem(50) 0 pxToRem(65) 0;
+            margin: pxToRem(50) 0 pxToRem(65);
         }
 
         &__quote {
@@ -273,17 +267,17 @@
     }
 
     @include desktop {
-        padding: pxToRem(28) pxToRem(140) pxToRem(64) pxToRem(140);
+        padding: pxToRem(28) pxToRem(140) pxToRem(64);
         gap: pxToRem(56);
 
         &__quote {
             font-size: pxToRem(23);
             padding: 0 pxToRem(160);
-            margin: pxToRem(62) 0 pxToRem(52) 0;
+            margin: pxToRem(62) 0 pxToRem(52);
         }
 
         &__avatar {
-            margin: pxToRem(55) 0 pxToRem(64) 0;
+            margin: pxToRem(55) 0 pxToRem(64);
         }
 
         &__navigation {
