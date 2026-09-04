@@ -11,8 +11,8 @@
 
 @use 'components/components.scss';
 
-@use 'components/hero';
-@use 'layout/main-section';
-
 @use 'layout/header';
 @use 'components/navbar';
+
+@use 'components/hero';
+@use 'layout/main-section';

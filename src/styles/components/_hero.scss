@@ -84,14 +84,10 @@
 
     &__image {
         display: block;
-
         width: 100%;
         max-width: 100%;
-
         height: auto;
-
         object-fit: contain;
-
         min-width: 0;
 
         &--right {
@@ -101,16 +97,19 @@
 
     &__eyebrow {
         @include flex-center;
-        width: pxToRem(224);
+        @include eyebrow;
 
+        width: pxToRem(224);
         padding: pxToRem(16) pxToRem(32);
         margin-top: pxToRem(4);
         gap: pxToRem(18);
+
         border: none;
         border-radius: pxToRem(100);
+
         color: $color-pink;
-        font-size: pxToRem(14);
         white-space: nowrap;
+
         box-shadow:
             0 0 0 rgba(0, 0, 0, 0.07),
             0 34px 75px rgba(0, 0, 0, 0.07),
@@ -130,6 +129,8 @@
     }
 
     &__title {
+        @include title;
+
         flex-direction: column;
         display: inline;
         padding: 0 pxToRem(22);
@@ -146,17 +147,17 @@
 
     &__button {
         @include flex-center;
-        width: 100%;
+        @include button;
 
+        width: 100%;
         padding: pxToRem(24) pxToRem(32);
+
         text-align: center;
         border-radius: pxToRem(100);
         text-decoration: none;
-        font-size: pxToRem(14);
 
         &--primary {
             background: $color-primary;
-
             color: $color-white;
 
             box-shadow:
@@ -190,8 +191,10 @@
 
         &__media {
             min-height: clamp(pxToRem(500), 69.63vw, pxToRem(713));
+
             margin: clamp(pxToRem(32), 6.25vw, pxToRem(64))
                 clamp(pxToRem(24), 6.05vw, pxToRem(62));
+
             width: auto;
         }
 
@@ -219,13 +222,11 @@
         &__decor {
             &--left {
                 left: pxToRem(118);
-
                 top: pxToRem(410);
             }
 
             &--bottom {
                 left: pxToRem(536);
-
                 top: pxToRem(730);
             }
         }
@@ -233,7 +234,6 @@
         &__badge {
             top: pxToRem(488);
             right: pxToRem(56);
-
             width: pxToRem(170);
 
             &-icon {
@@ -277,6 +277,7 @@
 
         margin: 0 clamp(pxToRem(48), 8.13vw, pxToRem(117));
         min-height: clamp(pxToRem(750), 60vw, pxToRem(1000));
+
         overflow: visible;
 
         &__media {
@@ -291,7 +292,6 @@
         &__image-box {
             width: 100%;
             height: 100%;
-
             margin: 0;
 
             padding: clamp(pxToRem(50), 7.32vw, pxToRem(75))
@@ -362,6 +362,7 @@
 
         &__description {
             padding: 0 pxToRem(50) 0 0;
+
             &--block {
                 display: block;
             }
