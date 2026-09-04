@@ -67,3 +67,62 @@
         transform: scale(0.98);
     }
 }
+
+@mixin button {
+    font-family: $font-primary;
+    font-size: pxToRem($font-size-sm);
+    font-weight: $font-weight-bold;
+    line-height: $line-height-menu;
+    letter-spacing: $letter-spacing-normal;
+}
+
+@mixin menu-link {
+    font-family: $font-primary;
+    font-size: pxToRem($menu-item-size);
+    font-weight: $font-weight-bold;
+    line-height: $line-height-menu;
+    letter-spacing: $letter-spacing-normal;
+}
+
+@mixin eyebrow {
+    font-family: $font-primary;
+    font-size: pxToRem(16);
+    font-weight: $font-weight-medium;
+    line-height: $line-height-menu;
+    letter-spacing: $letter-spacing-medium;
+}
+
+@mixin title {
+    font-family: $font-primary;
+    font-size: pxToRem(32);
+    font-weight: $font-weight-medium;
+    line-height: $line-height-menu;
+}
+
+@mixin description {
+    font-family: $font-secondary;
+    font-size: pxToRem(16);
+    font-weight: $font-weight-regular;
+    line-height: $line-height-hero;
+}
+
+@mixin label {
+    font-family: $font-secondary;
+    font-size: pxToRem(18);
+    font-weight: $font-weight-regular;
+    line-height: $line-height-hero;
+}
+
+@mixin value {
+    font-family: $font-primary;
+    font-size: pxToRem(35);
+    font-weight: $font-weight-regular;
+    line-height: $line-height-menu;
+}
+
+@mixin badge {
+    font-family: $font-primary;
+    font-size: pxToRem(7);
+    font-weight: $font-weight-regular;
+    line-height: $line-height-menu;
+}
