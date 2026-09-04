@@ -1,0 +1,120 @@
+@use '@abstracts/mixins' as *;
+@use '@abstracts/functions' as *;
+@use '@abstracts/variables' as *;
+@use '@base/typography' as *;
+
+.travel-point {
+    @include flex-center-col;
+
+    gap: pxToRem(32);
+    padding-bottom: pxToRem(64);
+    text-align: center;
+
+    &__visual {
+        @include flex-center;
+
+        margin: 0;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    &__description {
+        margin: pxToRem(32) pxToRem(40) 0 pxToRem(40);
+    }
+
+    &__stats {
+        width: 100%;
+        padding: 0 pxToRem(40);
+    }
+
+    &__stat {
+        border: 1px solid rgba($non-active-link, 0.1);
+        border-radius: pxToRem(32);
+
+        &-value {
+            margin-bottom: pxToRem(16);
+        }
+    }
+
+    @include tablet {
+        padding-bottom: 0;
+        gap: pxToRem(64);
+
+        &__image {
+            min-height: pxToRem(890);
+        }
+
+        &__content {
+            gap: pxToRem(64);
+        }
+
+        &__description {
+            margin: pxToRem(16) 0 0 0;
+            padding: 0 pxToRem(64);
+        }
+
+        &__stats {
+            padding: 0 pxToRem(64);
+        }
+
+        &__stat {
+            min-height: pxToRem(100);
+        }
+    }
+
+    @include desktop {
+        padding: pxToRem(77) 0;
+        margin-right: pxToRem(117);
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        max-height: none;
+        gap: 0;
+
+        &__visual {
+            order: 1;
+            min-width: 0;
+            min-height: 0;
+        }
+
+        &__image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        &__content {
+            order: 2;
+            margin: 0;
+        }
+
+        &__header {
+            text-align: left;
+        }
+
+        &__eyebrow {
+            width: 100%;
+            justify-content: left;
+        }
+
+        &__description {
+            margin: 0;
+            padding: 0;
+        }
+
+        &__stats {
+            padding: 0;
+        }
+
+        &__stat {
+            min-height: pxToRem(110);
+            padding: pxToRem(24);
+        }
+    }
+}

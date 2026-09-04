@@ -123,8 +123,20 @@
                 margin-left: pxToRem(32);
             }
         }
-    }
+        &-shorter {
+            margin-top: pxToRem(32);
+            transition: margin-top 0.5s ease;
+            padding: pxToRem(16) 0;
 
+            .navbar__actions {
+                margin-right: pxToRem(32);
+            }
+
+            .navbar__toggle {
+                margin-left: pxToRem(32);
+            }
+        }
+    }
     @include desktop {
         margin-top: pxToRem(34);
         padding: pxToRem(32) 0;

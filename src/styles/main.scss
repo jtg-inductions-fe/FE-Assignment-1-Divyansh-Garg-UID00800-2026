@@ -1,15 +1,15 @@
-@use 'base/base' as *;
-@use 'base/reset' as *;
-@use 'base/typography' as *;
+@use 'abstracts/variables';
+@use 'abstracts/functions';
+@use 'abstracts/mixins';
 
-@use 'abstracts/variables' as *;
-@use 'abstracts/functions' as *;
-@use 'abstracts/mixins' as *;
+@use 'vendors/icomoon';
 
-@use 'layout/container' as *;
-@use 'vendors/icomoon' as *;
+@use 'base/reset';
+@use 'base/base';
+@use 'base/typography';
 
-@use 'components/components.scss';
+@use 'layout/container';
+@use 'components/components';
 
 @use 'layout/header';
 @use 'components/navbar';
@@ -19,3 +19,5 @@
 
 @use 'layout/site-companies';
 @use 'components/companies';
+
+@use 'components/travel-point';

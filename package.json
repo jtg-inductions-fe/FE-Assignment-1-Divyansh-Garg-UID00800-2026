@@ -30,7 +30,7 @@
         "husky": "9.1.7",
         "lint-staged": "15.3.0",
         "prettier": "3.3.3",
-        "sass": "1.78.0",
+        "sass": "^1.78.0",
         "sass-embedded": "1.78.0",
         "sharp": "0.33.5",
         "vite": "5.4.1",
