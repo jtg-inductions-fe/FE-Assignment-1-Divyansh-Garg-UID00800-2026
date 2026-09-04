@@ -211,9 +211,8 @@ menu.addEventListener('click', (e) => {
     menu.classList.remove('navbar__menu--is-open');
     toggle.classList.remove('navbar__menu--is-open');
 
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation menu');
-    });
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation menu');
 });
 
 /**
@@ -321,43 +320,3 @@ const updateActiveDot = (emblaApi) => {
  */
 updateActiveDot(emblaApi);
 emblaApi.on('select', updateActiveDot);
-
-/**
- * toggles which are responsible for mobile media for toggling the state of navigation links
- * @type {NodeListOf<HTMLElement>}
- * */
-const toggles = document.querySelectorAll('.footer__section-toggle');
-
-/**
- * specific toggle element which is responsible for the toggling of the clicked navigation
- * and toggling the state of other navigation too
- * @type {HTMLElement}
- * */
-toggles.forEach((toggle) => {
-    toggle.addEventListener('click', () => {
-        const section = toggle.closest('.footer__section');
-        const contentId = toggle.getAttribute('aria-controls');
-        const content = document.getElementById(contentId);
-
-        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-
-        // Standard close loop for remaining accordion sections
-        toggles.forEach((toggleAgain) => {
-            if (toggleAgain !== toggle) {
-                const otherSection = toggleAgain.closest('.footer__section');
-                const otherContentId =
-                    toggleAgain.getAttribute('aria-controls');
-                const otherContent = document.getElementById(otherContentId);
-
-                toggleAgain.setAttribute('aria-expanded', 'false');
-                otherContent.classList.add('footer__section-list-hidden');
-                otherSection.classList.remove('footer__section--open');
-            }
-        });
-
-        // Toggle state indicators for current target section
-        toggle.setAttribute('aria-expanded', !isOpen);
-        content.classList.toggle('footer__section-list-hidden');
-        section.classList.toggle('footer__section--open', !isOpen);
-    });
-});

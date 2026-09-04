@@ -6,7 +6,7 @@
 .testimonials {
     position: relative;
     width: 100%;
-    padding: rem(60px) rem(20px);
+    padding: pxToRem(60) pxToRem(20);
     overflow: hidden;
     text-align: center;
     font-family: $font-primary;
@@ -50,22 +50,22 @@
         }
 
         &-name {
-            font-size: rem(28px);
+            font-size: pxToRem(28);
             color: $color-orange;
         }
 
         &-role {
-            font-size: rem(23px);
+            font-size: pxToRem(23);
             color: $non-active-link;
         }
     }
 
     &__avatar {
-        width: rem(128px);
-        height: rem(128px);
+        width: pxToRem(128);
+        height: pxToRem(128);
         overflow: hidden;
         border-radius: 50%;
-        margin: rem(60px) 0 rem(72px) 0;
+        margin: pxToRem(60) 0 pxToRem(72) 0;
 
         &--image {
             display: block;
@@ -77,25 +77,25 @@
 
     &__rating {
         display: flex;
-        gap: rem(16px);
-        margin-top: rem(32px);
+        gap: pxToRem(16);
+        margin-top: pxToRem(32);
     }
 
     &__star {
-        font-size: rem(32px);
+        font-size: pxToRem(32);
     }
 
     &__quote {
-        margin: rem(64px) 0 rem(45px) 0;
+        margin: pxToRem(64) 0 pxToRem(45) 0;
         color: $non-active-link;
         opacity: 0.75;
-        font-size: rem(18px);
+        font-size: pxToRem(18);
         line-height: $line-height-hero;
     }
 
     &__navigation {
         position: absolute;
-        top: rem(96px);
+        top: pxToRem(96);
         right: 0;
         left: 0;
 
@@ -116,8 +116,8 @@
 
         @include flex-center;
 
-        width: rem(64px);
-        height: rem(64px);
+        width: pxToRem(64);
+        height: pxToRem(64);
         padding: 0;
 
         border: 1px solid rgba($non-active-link, 0.1);
@@ -125,7 +125,7 @@
 
         background-color: $color-white;
 
-        font-size: rem(10px);
+        font-size: pxToRem(10);
         line-height: 1;
 
         cursor: pointer;
@@ -162,25 +162,25 @@
 
             .testimonials__button--white_right {
                 display: flex;
-                font-size: rem(18px);
+                font-size: pxToRem(18);
             }
 
             .testimonials__button--white_left {
                 display: flex;
-                font-size: rem(18px);
+                font-size: pxToRem(18);
             }
         }
     }
 
     &__dots {
         @include flex-center;
-        gap: rem(24px);
+        gap: pxToRem(24);
         width: auto;
     }
 
     &__dot {
-        width: rem(24px);
-        height: rem(24px);
+        width: pxToRem(24);
+        height: pxToRem(24);
         padding: 0;
         border: 0;
         border-radius: 50%;
@@ -204,18 +204,18 @@
     }
 
     @include tablet {
-        padding: rem(32px) rem(64px) rem(64px) rem(64px);
-        gap: rem(56px);
+        padding: pxToRem(32) pxToRem(64) pxToRem(64) pxToRem(64);
+        gap: pxToRem(56);
 
         &__avatar {
-            margin: rem(50px) 0 rem(65px) 0;
+            margin: pxToRem(50) 0 pxToRem(65) 0;
         }
 
         &__quote {
-            margin-top: rem(60px);
-            margin-bottom: rem(55px);
-            font-size: rem(23px);
-            padding: 0 rem(156px);
+            margin-top: pxToRem(60);
+            margin-bottom: pxToRem(55);
+            font-size: pxToRem(23);
+            padding: 0 pxToRem(156);
         }
 
         &__navigation {
@@ -223,38 +223,38 @@
         }
 
         &__button {
-            width: rem(100px);
-            height: rem(100px);
+            width: pxToRem(100);
+            height: pxToRem(100);
 
             &:hover {
                 .testimonials__button--white_right {
-                    font-size: rem(27px);
+                    font-size: pxToRem(27);
                 }
 
                 .testimonials__button--white_left {
-                    font-size: rem(27px);
+                    font-size: pxToRem(27);
                 }
             }
         }
 
         .icon {
-            font-size: rem(30px);
+            font-size: pxToRem(30);
         }
 
         &__star {
-            font-size: rem(30px);
+            font-size: pxToRem(30);
         }
 
         &__rating {
-            margin-top: rem(35px);
+            margin-top: pxToRem(35);
         }
 
         .testimonials__button--black_left {
-            font-size: rem(15px);
+            font-size: pxToRem(15);
         }
 
         .testimonials__button--black_right {
-            font-size: rem(15px);
+            font-size: pxToRem(15);
         }
 
         &__background {
@@ -273,17 +273,17 @@
     }
 
     @include desktop {
-        padding: rem(28px) rem(140px) rem(64px) rem(140px);
-        gap: rem(56px);
+        padding: pxToRem(28) pxToRem(140) pxToRem(64) pxToRem(140);
+        gap: pxToRem(56);
 
         &__quote {
-            font-size: rem(23px);
-            padding: 0 rem(160px);
-            margin: rem(62px) 0 rem(52px) 0;
+            font-size: pxToRem(23);
+            padding: 0 pxToRem(160);
+            margin: pxToRem(62) 0 pxToRem(52) 0;
         }
 
         &__avatar {
-            margin: rem(55px) 0 rem(64px) 0;
+            margin: pxToRem(55) 0 pxToRem(64) 0;
         }
 
         &__navigation {
@@ -291,28 +291,28 @@
         }
 
         &__button {
-            width: rem(100px);
-            height: rem(100px);
+            width: pxToRem(100);
+            height: pxToRem(100);
         }
 
         &__star {
-            font-size: rem(32px);
+            font-size: pxToRem(32);
         }
 
         .testimonials__button--black_left {
-            font-size: rem(14px);
+            font-size: pxToRem(14);
         }
 
         .testimonials__button--black_right {
-            font-size: rem(14px);
+            font-size: pxToRem(14);
         }
 
         .testimonials__button--white_left {
-            font-size: rem(28px);
+            font-size: pxToRem(28);
         }
 
         .testimonials__button--white_right {
-            font-size: rem(28px);
+            font-size: pxToRem(28);
         }
 
         &__background {
