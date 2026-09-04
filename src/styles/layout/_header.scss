@@ -1,13 +1,13 @@
 @use '@abstracts/variables' as *;
 @use '@abstracts/functions' as *;
+@use '@abstracts/mixins' as *;
 
 .site-header {
+    @include flex-center;
+
     position: fixed;
     z-index: $z-index-max;
     top: 0;
-    box-sizing: border-box;
     width: 100%;
-    display: flex;
-    justify-content: center;
     max-width: pxToRem(1440);
 }

@@ -1,22 +1,17 @@
 @use '@abstracts/variables' as *;
 @use '@abstracts/functions' as *;
 @use '@abstracts/mixins' as *;
-@use '@base/typography' as *;
 
 .btn {
     @include flex-center;
+    @include button;
+
     min-height: pxToRem($nav-button-height);
     padding: pxToRem($primary-button-padding-vertical)
         pxToRem($primary-button-padding-horizontal);
 
     border: none;
     border-radius: pxToRem($radius-md);
-
-    font-family: $font-primary;
-    font-size: pxToRem($font-size-sm);
-    font-weight: $font-weight-bold;
-    line-height: $line-height-menu;
-    letter-spacing: $letter-spacing-normal;
 
     text-decoration: none;
     white-space: nowrap;
@@ -53,18 +48,14 @@
 }
 
 .value {
-    font-family: $font-primary;
-    line-height: $line-height-menu;
-    font-size: pxToRem(35);
-    color: $color-orange;
+    @include value;
 
-    @include desktop {
-        font-size: pxToRem(35);
-    }
+    color: $color-orange;
 }
 
 .content {
     @include flex-center-col;
+
     font-family: $font-primary;
     text-align: center;
     gap: pxToRem(32);
@@ -83,12 +74,9 @@
 
 .eyebrow {
     @include flex-center;
-    font-family: $font-primary;
-    line-height: $line-height-menu;
-    letter-spacing: $letter-spacing-medium;
+    @include eyebrow;
+
     text-transform: uppercase;
-    font-size: pxToRem(16);
-    font-weight: $font-weight-medium;
     color: $color-pink;
 
     @include tablet {
@@ -98,10 +86,8 @@
 
 .title {
     @include flex-center;
-    font-family: $font-primary;
-    line-height: $line-height-menu;
-    font-size: pxToRem(32);
-    font-weight: $font-weight-medium;
+    @include title;
+
     color: $non-active-link;
 
     @include tablet {
@@ -114,10 +100,8 @@
 }
 
 .description {
-    font-size: pxToRem(16);
-    font-family: $font-secondary;
-    line-height: $line-height-hero;
-    font-weight: $font-weight-regular;
+    @include description;
+
     color: $non-active-link;
     opacity: 0.5;
 
@@ -127,14 +111,9 @@
 }
 
 .label {
-    font-family: $font-secondary;
-    font-size: pxToRem(18);
-    line-height: $line-height-hero;
-    color: $non-active-link;
+    @include label;
 
-    @include desktop {
-        font-size: pxToRem(18);
-    }
+    color: $non-active-link;
 }
 
 .logo {
@@ -165,12 +144,11 @@
 
 .badge {
     @include flex-between;
+    @include badge;
+
     background-color: $color-white;
-    font-size: pxToRem(7);
-    font-family: $font-primary;
     border: none;
     z-index: $z-index-hero-decoration;
-    line-height: $line-height-menu;
     gap: pxToRem(4);
     padding: pxToRem(8) pxToRem(16);
 
@@ -183,6 +161,7 @@
 
 .list {
     @include flex-center;
+
     list-style: none;
     width: 100%;
     gap: pxToRem(32);
@@ -191,6 +170,7 @@
 
 .actions {
     @include flex-center;
+
     width: 100%;
     gap: pxToRem(24);
 }
