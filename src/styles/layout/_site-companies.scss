@@ -1,0 +1,47 @@
+@use '@abstracts/variables' as *;
+@use '@abstracts/mixins' as *;
+@use '@abstracts/functions' as *;
+
+.site-companies {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.ellipse-side {
+    display: none;
+
+    @include tablet {
+        position: absolute;
+        display: block;
+        width: pxToRem(406);
+        height: pxToRem(406);
+        background: $color-yellow;
+        right: 0;
+        filter: blur(pxToRem(240));
+        z-index: $z-index-min;
+    }
+
+    @include desktop {
+        right: 0;
+        bottom: pxToRem(-250);
+        filter: blur(pxToRem(280));
+    }
+}
+
+.arrow-image {
+    display: none;
+
+    @include tablet {
+        position: absolute;
+        display: block;
+        left: 4%;
+        top: -82%;
+        z-index: $z-index-min;
+    }
+
+    @include desktop {
+        top: -50%;
+        width: pxToRem(60);
+    }
+}

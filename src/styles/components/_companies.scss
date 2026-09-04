@@ -1,0 +1,55 @@
+@use '@abstracts/variables' as *;
+@use '@abstracts/functions' as *;
+@use '@abstracts/mixins' as *;
+@use '@components/components' as *;
+
+.companies {
+    @include flex-center;
+
+    margin: pxToRem(60) 0;
+    padding: 0 pxToRem(64);
+    flex-direction: column;
+    gap: clamp(pxToRem(20), 8vw, pxToRem(32));
+
+    &__item {
+        @include flex-center;
+
+        min-width: 0;
+        flex: 0 1 auto;
+    }
+
+    &__logo {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: pxToRem(32);
+        object-fit: contain;
+    }
+
+    @include tablet {
+        margin: 0;
+        padding: pxToRem(64) pxToRem(170);
+        gap: pxToRem(32);
+
+        &__logo {
+            height: pxToRem(32);
+        }
+    }
+
+    @include desktop {
+        margin: 0;
+        width: 100%;
+        margin-bottom: pxToRem(10);
+        padding: pxToRem(32) clamp(pxToRem(64), 1vw, pxToRem(80));
+        flex-direction: row;
+
+        &__list {
+            gap: pxToRem(48);
+        }
+
+        &__logo {
+            height: pxToRem(32);
+            width: pxToRem(200);
+        }
+    }
+}
