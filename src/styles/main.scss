@@ -20,5 +20,9 @@
 @use 'layout/site-companies';
 @use 'components/companies';
 
-@use 'components/carousel';
 @use 'components/travel-point';
+
+@use 'components/carousel';
+
+@use 'layout/footer';
+@use 'components/site-links';

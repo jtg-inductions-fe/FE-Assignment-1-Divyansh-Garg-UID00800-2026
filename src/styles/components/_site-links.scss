@@ -1,34 +1,34 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/functions' as *;
-@use '../abstracts/mixins' as *;
-@use '../base/typography' as *;
+@use '@abstracts/variables' as *;
+@use '@abstracts/functions' as *;
+@use '@abstracts/mixins' as *;
+@use '@base/typography' as *;
 
 .footer {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: rem(82px);
-    padding: rem(64px) rem(8px) rem(64px) rem(32px);
-    margin-top: rem(3px);
+    gap: pxToRem(82);
+    padding: pxToRem(64) pxToRem(8) pxToRem(64) pxToRem(32);
+    margin-top: pxToRem(3);
 
     &__brand {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: rem(32px);
+        gap: pxToRem(32);
     }
 
     &__logo-link {
         @include flex-center;
         justify-content: start;
-        gap: rem(16px);
+        gap: pxToRem(16);
     }
 
     &__brand-name {
-        font-size: rem(24px);
+        font-size: pxToRem(24);
         font-family: $font-primary;
         letter-spacing: 0;
-        line-height: rem(40px);
+        line-height: pxToRem(40);
     }
 
     &__description {
@@ -39,13 +39,13 @@
     &__social {
         &-list {
             justify-content: start;
-            max-height: rem(32px);
-            font-size: rem(32px);
+            max-height: pxToRem(32);
+            font-size: pxToRem(32);
         }
 
         &-item {
-            width: rem(32px);
-            height: rem(32px);
+            width: pxToRem(32);
+            height: pxToRem(32);
         }
     }
 
@@ -53,7 +53,7 @@
         width: 100%;
         @include flex-center;
         flex-direction: column;
-        gap: rem(79px);
+        gap: pxToRem(79);
         padding-right: 24px;
     }
 
@@ -70,19 +70,19 @@
 
         &-title {
             font-family: $font-primary;
-            font-size: rem(23px);
+            font-size: pxToRem(23);
             line-height: $line-height-menu;
             letter-spacing: 0;
         }
 
         &-icon {
-            font-size: rem(24px);
+            font-size: pxToRem(24);
             transition: transform 0.2s ease;
         }
 
         &-list {
             padding: 0;
-            margin: rem(10px) 0 0 0;
+            margin: pxToRem(10) 0 0 0;
             list-style: none;
             overflow: hidden;
             height: auto;
@@ -108,7 +108,7 @@
             font-family: $font-primary;
             color: $non-active-link;
             opacity: 0.75;
-            font-size: rem(20px);
+            font-size: pxToRem(20);
         }
 
         &--open {
@@ -119,18 +119,18 @@
     }
 
     @include tablet {
-        margin: rem(96px) rem(63px) 0 rem(63px);
-        padding: rem(64px) 0;
-        gap: rem(64px);
+        margin: pxToRem(96) pxToRem(63) 0 pxToRem(63);
+        padding: pxToRem(64) 0;
+        gap: pxToRem(64);
 
         &__description {
-            font-size: rem(23px);
+            font-size: pxToRem(23);
         }
 
         &__navigation {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: rem(32px);
+            gap: pxToRem(32);
             align-items: start;
             padding-right: 0;
         }
@@ -143,10 +143,10 @@
             &-list {
                 display: flex;
                 flex-direction: column;
-                gap: rem(22px);
+                gap: pxToRem(22);
 
                 &-hidden {
-                    margin: rem(10px) 0 0 0;
+                    margin: pxToRem(10) 0 0 0;
                     height: auto;
                 }
             }
@@ -155,7 +155,7 @@
                 font-family: $font-secondary;
                 columns: $font-primary;
                 opacity: 0.75;
-                font-size: rem(18px);
+                font-size: pxToRem(18);
                 line-height: $line-height-hero;
             }
         }
@@ -163,23 +163,23 @@
 
     @include desktop {
         flex-direction: row;
-        margin: rem(160px) rem(117px) 0 rem(117px);
-        padding: rem(45px) 0 rem(64px) 0;
-        gap: rem(64px);
+        margin: pxToRem(160) pxToRem(117) 0 pxToRem(117);
+        padding: pxToRem(45) 0 pxToRem(64) 0;
+        gap: pxToRem(64);
 
         &__brand {
             height: 100%;
-            margin-bottom: rem(16px);
+            margin-bottom: pxToRem(16);
         }
 
         &__section {
             &-list {
-                gap: rem(32px);
+                gap: pxToRem(32);
             }
         }
 
         &__social {
-            margin-top: rem(32px);
+            margin-top: pxToRem(32);
         }
     }
 }

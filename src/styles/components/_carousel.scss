@@ -206,7 +206,7 @@
         }
 
         &__avatar {
-            margin: rem(50px) 0 rem(65px) 0;
+            margin: pxToRem(50) 0 pxToRem(65) 0;
         }
 
         &__quote {
