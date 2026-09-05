@@ -147,3 +147,17 @@
     font-weight: $font-weight-regular;
     line-height: $line-height-menu;
 }
+
+@mixin brand {
+    font-family: $font-primary;
+    font-size: pxToRem(24);
+    font-weight: $font-weight-bold;
+    line-height: $line-height-menu;
+}
+
+@mixin link {
+    font-family: $font-secondary;
+    font-size: pxToRem(18);
+    font-weight: $font-weight-regular;
+    line-height: $line-height-hero;
+}

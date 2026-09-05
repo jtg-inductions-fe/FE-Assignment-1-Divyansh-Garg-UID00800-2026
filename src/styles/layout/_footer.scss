@@ -1,0 +1,21 @@
+@use '@abstracts/variables' as *;
+@use '@abstracts/mixins' as *;
+
+.site-footer {
+    position: relative;
+    width: 100%;
+    background-color: $color-white;
+    overflow: hidden;
+    z-index: $z-index-min;
+}
+
+.star-image {
+    display: none;
+    position: absolute;
+    bottom: 10%;
+    right: -10%;
+
+    @include tablet {
+        display: block;
+    }
+}

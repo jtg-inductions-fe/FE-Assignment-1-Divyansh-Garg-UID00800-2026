@@ -102,7 +102,7 @@ const actions = navbar.querySelector('.navbar__actions');
 const toggle = navbar.querySelector('.navbar__toggle');
 
 /**
- * funciton which helps in dynamically updating the navbar components order according to the viewport
+ * function which helps in dynamically updating the navbar components order according to the viewport
  * @returns {void}
  */
 function updateNavbarOrder() {
@@ -134,7 +134,7 @@ tabletQuery.addEventListener('change', updateNavbarOrder);
 desktopQuery.addEventListener('change', updateNavbarOrder);
 
 /**
- * event listener which is reponsible for the toggling of the menu items
+ * event listener which is responsible for the toggling of the menu items
  * @return {void}
  * @event click
  */
@@ -177,7 +177,7 @@ function addAuthActionButtons(e) {
 }
 
 /**
- * calling the function initially so that the chanages could be applied at the time of page loading only
+ * calling the function initially so that the changes could be applied at the time of page loading only
  * @event change
  * @param {MediaQueryList}
  * @returns {void}
@@ -216,7 +216,7 @@ menu.addEventListener('click', (e) => {
 });
 
 /**
- * adding the embla carousel libraray for implementation of the carousel
+ * adding the embla carousel library for implementation of the carousel
  * used the naming convention of the elements getting used in the carousel according to the documentation
  * */
 import EmblaCarousel from 'embla-carousel';
@@ -234,13 +234,13 @@ const wrapperNode = document.querySelector('.embla');
 const viewportNode = wrapperNode.querySelector('.embla__viewport');
 
 /**
- * prev button elenent which is getting used for moving backward
+ * prev button element which is getting used for moving backward
  * @type {HTMLElement}
  */
 const prevButtonNode = wrapperNode.querySelector('.embla__prev');
 
 /**
- * next button elenent which is getting used for moving forward
+ * next button element which is getting used for moving forward
  * @type {HTMLElement}
  */
 const nextButtonNode = wrapperNode.querySelector('.embla__next');
@@ -252,7 +252,7 @@ const nextButtonNode = wrapperNode.querySelector('.embla__next');
 const dotsNode = wrapperNode.querySelector('.testimonials__dots');
 
 /**
- * a node array which has all the dot elements reponsible for the moving of carousel and getting to a spefic slide directly
+ * a node array which has all the dot elements responsible for the moving of carousel and getting to a specific slide directly
  * @type {NodeListOf<HTMLElement>}
  * */
 const dotNodes = dotsNode.querySelectorAll('.testimonials__dot');
@@ -286,7 +286,7 @@ nextButtonNode.addEventListener('click', () => {
 });
 
 /**
- * listener on each dot element element for moving to the spefic slide using the instantiated APi
+ * listener on each dot element element for moving to the specific slide using the instantiated APi
  * @event click
  * @return {DotNode}
  */
@@ -297,7 +297,7 @@ dotNodes.forEach((dotNode, index) => {
 });
 
 /**
- * Used for synchornization of the dots and making the current dot active and other in-active
+ * Used for synchronization of the dots and making the current dot active and other in-active
  * by adding the specific class and looping on each dot
  * @param {Object} emblaApi - The active instance controlling carousel interactions.
  * @returns {void}
@@ -314,9 +314,50 @@ const updateActiveDot = (emblaApi) => {
 };
 
 /**
- * calling the function intially so that the chanages could be applied at the time of page loading only
- * @event change
+ * calling the function initially so that the changes could be applied at the time of page loading only
+ * @event select
+ * The select event is triggered by drag interactions or the goToNext, goToPrev or goTo methods.
  * @returns {void}
  */
 updateActiveDot(emblaApi);
 emblaApi.on('select', updateActiveDot);
+
+/**
+ * toggles which are responsible for mobile media for toggling the state of navigation links
+ * @type {NodeListOf<HTMLElement>}
+ * */
+const toggles = document.querySelectorAll('.footer__section-toggle');
+
+/**
+ * toggles the clicked navigation section while closing all others.
+ * @type {HTMLElement}
+ */
+toggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+        const section = toggle.closest('.footer__section');
+        const contentId = toggle.getAttribute('aria-controls');
+        if (!contentId) return;
+        const content = document.getElementById(contentId);
+
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+        // Standard close loop for remaining accordion sections
+        toggles.forEach((toggleAgain) => {
+            if (toggleAgain !== toggle) {
+                const otherSection = toggleAgain.closest('.footer__section');
+                const otherContentId =
+                    toggleAgain.getAttribute('aria-controls');
+                const otherContent = document.getElementById(otherContentId);
+
+                toggleAgain.setAttribute('aria-expanded', 'false');
+                otherContent.classList.add('footer__section-list-hidden');
+                otherSection.classList.remove('footer__section--open');
+            }
+        });
+
+        // Toggle state indicators for current target section
+        toggle.setAttribute('aria-expanded', !isOpen);
+        content.classList.toggle('footer__section-list-hidden');
+        section.classList.toggle('footer__section--open', !isOpen);
+    });
+});
