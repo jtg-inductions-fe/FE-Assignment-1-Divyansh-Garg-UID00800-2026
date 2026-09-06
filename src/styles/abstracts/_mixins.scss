@@ -133,3 +133,17 @@
     font-weight: $font-weight-regular;
     line-height: $line-height-menu;
 }
+
+@mixin name {
+    font-family: $font-primary;
+    font-size: pxToRem(28);
+    font-weight: $font-weight-medium;
+    line-height: $line-height-menu;
+}
+
+@mixin role {
+    font-family: $font-primary;
+    font-size: pxToRem(23);
+    font-weight: $font-weight-regular;
+    line-height: $line-height-menu;
+}

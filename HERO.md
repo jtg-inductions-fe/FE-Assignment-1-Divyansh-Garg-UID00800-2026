@@ -15,8 +15,6 @@ Implemented the hero section with the required layout, content, image positionin
 
 ```text
 src/styles/
-├── base/
-│   └── _base.scss
 ├── components/
 │   └── _hero.scss
 └── layout/
