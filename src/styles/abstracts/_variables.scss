@@ -14,7 +14,7 @@ $color-black: #000000;
 $color-dark: #222831;
 $color-primary: #5d50c6;
 $color-gray: #111827;
-$color-gray-light: #303131;
+$color-gray-light: #e0e0e0;
 $non-active-link: #191825;
 $spin-muted: #212122;
 $active-link: #222831;
@@ -45,7 +45,6 @@ $primary-button-padding-vertical-small: 8;
 $radius-md: 100;
 $radius-sm: 10;
 $radius-lsm: 16;
-$radius-lg: 999;
 
 // shadow variable getting used in applying shadow in wheel component
 $spin-shadow-modal: 0 30px 60px -15px rgba(30, 15, 50, 0.35);
@@ -54,7 +53,6 @@ $spin-shadow-wheel: 0 18px 40px -12px rgba(30, 15, 50, 0.35);
 $font-size-sm: 14;
 $font-size-xsm: 12;
 $spin-radius-lg: 24;
-$spin-radius-pill: 999;
 $spin-radius-chip: 14;
 
 // for giving font-weight value

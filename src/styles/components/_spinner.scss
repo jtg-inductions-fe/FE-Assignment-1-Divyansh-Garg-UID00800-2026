@@ -61,6 +61,7 @@
         top: -2px;
         right: -4px;
         border: none;
+        border-radius: pxToRem($radius-lsm);
         background: transparent;
         color: $color-gray;
         cursor: pointer;
@@ -247,7 +248,7 @@
         color: $color-white;
         font-weight: $font-weight-semibold;
         padding: pxToRem(10) pxToRem(18);
-        border-radius: pxToRem($radius-lg);
+        border-radius: pxToRem($spin-radius-lg);
         opacity: 0;
         pointer-events: none;
         transition:
