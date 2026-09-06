@@ -13,8 +13,12 @@ $color-light-blue: #06b6d4;
 $color-black: #000000;
 $color-dark: #222831;
 $color-primary: #5d50c6;
+$color-gray: #111827;
+$color-gray-light: #303131;
 $non-active-link: #191825;
+$spin-muted: #212122;
 $active-link: #222831;
+$border-color: #aaaaaa;
 
 // Media query variables
 $tablet: 431px;
@@ -32,7 +36,7 @@ $menu-gap-shorter: 50;
 $nav-button-height: 49;
 
 /* these are used for providing padding values in the action buttons
-made intially with a thought of getting used with multiple elements */
+made initially with a thought of getting used with multiple elements */
 $primary-button-padding-horizontal: 32;
 $primary-button-padding-vertical: 16;
 $primary-button-padding-horizontal-small: 24;
@@ -58,6 +62,7 @@ $font-weight-regular: 400;
 $font-weight-xregular: 450;
 $font-weight-medium: 500;
 $font-weight-bold: 500;
+$font-weight-semibold: 600;
 $font-weight-extra: 700;
 
 // for reusing multiple places according to the figma design

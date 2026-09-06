@@ -1,15 +1,15 @@
-@use '../abstracts/mixins' as *;
-@use '../abstracts/variables' as *;
-@use '../abstracts/functions' as *;
+@use '@abstracts/mixins' as *;
+@use '@abstracts/variables' as *;
+@use '@abstracts/functions' as *;
 
 .site-spin-modal {
+    @include flex-center;
+
+    align-items: flex-end;
     position: fixed;
     inset: 0;
-    z-index: 9999;
-    @include flex-center;
-    flex-direction: row;
-    align-items: flex-end;
-    padding: 0 rem(20px);
+    z-index: $z-index-max;
+    padding: 0 pxToRem(20);
 
     .overlay {
         position: absolute;
@@ -32,10 +32,7 @@
 
     @include tablet {
         @include flex-center;
+
         flex-direction: row;
     }
-}
-
-[hidden] {
-    display: none !important;
 }

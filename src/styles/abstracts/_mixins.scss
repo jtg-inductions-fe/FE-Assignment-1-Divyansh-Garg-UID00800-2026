@@ -26,13 +26,6 @@
     flex-direction: column;
 }
 
-@mixin flex-center-col {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
 @mixin flex-between {
     display: flex;
     align-items: center;
@@ -41,6 +34,7 @@
 
 @mixin floating-icon($background-color) {
     @include flex-center;
+
     width: pxToRem(33);
     height: pxToRem(33);
     border: none;
@@ -56,6 +50,7 @@
 
 @mixin spin-pill-button {
     @include flex-center;
+
     gap: 8px;
     width: 100%;
     border: none;
@@ -160,4 +155,32 @@
     font-size: pxToRem(18);
     font-weight: $font-weight-regular;
     line-height: $line-height-hero;
+}
+
+@mixin heading-small {
+    font-family: $font-secondary;
+    font-size: pxToRem(20);
+    font-weight: $font-weight-extra;
+    line-height: $line-height-spinner;
+}
+
+@mixin text-small {
+    font-family: $font-secondary;
+    font-size: pxToRem(12);
+    font-weight: $font-weight-regular;
+    line-height: $line-height-spinner;
+}
+
+@mixin text-medium {
+    font-family: $font-secondary;
+    font-size: pxToRem(14);
+    font-weight: $font-weight-regular;
+    line-height: $line-height-menu;
+}
+
+@mixin button-small {
+    font-family: $font-secondary;
+    font-size: pxToRem(10);
+    font-weight: $font-weight-extra;
+    line-height: 1;
 }

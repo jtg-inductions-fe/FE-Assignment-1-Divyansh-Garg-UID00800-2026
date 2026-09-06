@@ -184,19 +184,19 @@
         }
         &-shorter {
             .navbar__logo {
-                margin-left: rem(64px);
+                margin-left: pxToRem(64);
             }
             .navbar__actions {
-                margin-right: rem(64px);
+                margin-right: pxToRem(64);
             }
             .navbar__menu {
-                height: rem(50px);
+                height: pxToRem(50);
             }
             .navbar__link {
-                font-size: rem(20px);
+                font-size: pxToRem(20);
             }
             .btn {
-                font-size: rem(15px);
+                font-size: pxToRem(15);
             }
         }
         &__toggle {

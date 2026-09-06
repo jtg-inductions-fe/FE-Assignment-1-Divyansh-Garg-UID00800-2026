@@ -1,57 +1,58 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
-@use '../abstracts/functions' as *;
-@use '../base/typography' as *;
+@use '@abstracts/variables' as *;
+@use '@abstracts/mixins' as *;
+@use '@abstracts/functions' as *;
 
 .spin-modal {
     @include flex-center-col;
+
     position: relative;
     width: 100%;
     max-height: 90vh;
-    max-width: rem(360px);
-    gap: rem(20px);
+    max-width: pxToRem(360);
+    gap: pxToRem(20);
     overflow-y: auto;
     background: $color-white;
-    border-radius: $spin-radius-lg;
-    padding: rem(24px) rem(24px) rem(50px) rem(24px);
+    border-radius: pxToRem($spin-radius-lg);
+    padding: pxToRem(24) pxToRem(24) pxToRem(50);
     transform: translateY(0) scale(1);
     transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-    bottom: rem(-30px);
+    bottom: pxToRem(-30);
 
     &__header {
         width: 100%;
         position: relative;
         text-align: center;
-        margin-bottom: rem(20px);
+        margin-bottom: pxToRem(20);
     }
 
     &__heading {
-        @include flex-center;
-        flex-direction: column;
-        gap: rem(8px);
-        font-size: rem(12px);
-        font-family: $font-secondary;
+        @include flex-center-col;
+
+        gap: pxToRem(8);
     }
 
     &__eyebrow {
+        @include eyebrow;
+
         gap: 6px;
-        font-weight: 600;
+        font-family: $font-secondary;
+        font-size: pxToRem(12);
+        font-weight: $font-weight-semibold;
+        line-height: $line-height-spinner;
         letter-spacing: $letter-spacing-small;
         color: $color-pink-dark;
         text-transform: uppercase;
     }
 
     &__title {
-        font-weight: 700;
-        line-height: $line-height-spinner;
-        font-size: rem(20px);
+        @include heading-small;
+
         color: $color-gray;
     }
 
     &__subtitle {
-        font-size: rem(12px);
-        font-weight: 400;
-        line-height: $line-height-spinner;
+        @include text-small;
+
         color: $color-gray-light;
     }
 
@@ -72,37 +73,43 @@
 
     &__view {
         @include flex-center-col;
-        gap: rem(20px);
+
+        gap: pxToRem(20);
     }
 
     &__result {
         @include flex-center-col;
+
         width: 100%;
         animation: spin-modal-pop-in 0.35s ease both;
     }
 
     &__result-heading {
-        margin-bottom: rem(8px);
+        @include button;
+
+        margin-bottom: pxToRem(8);
         text-align: center;
         font-family: $font-secondary;
-        font-weight: 700;
-        font-size: rem(12px);
+        font-size: pxToRem(12);
+        line-height: $line-height-spinner;
         color: $color-black;
     }
 
     &__result-code {
         @include flex-center;
-        gap: rem(8px);
+
+        gap: pxToRem(8);
     }
 
     &__result-card,
     &__deal-row {
         @include flex-between;
+
         gap: 12px;
         background: rgba($color-pink-dark, 0.05);
         border: 1px solid rgba($color-pink-dark, 0.2);
-        border-radius: $radius-lsm;
-        padding: rem(16px);
+        border-radius: pxToRem($radius-lsm);
+        padding: pxToRem(16);
         width: 100%;
     }
 
@@ -122,17 +129,16 @@
 
     &__result-name,
     &__deal-name {
-        font-family: $font-secondary;
-        font-weight: 600;
-        font-size: rem(14px);
+        @include text-medium;
+
+        font-weight: $font-weight-semibold;
         color: $non-active-link;
     }
 
     &__result-expiry,
     &__deal-expiry {
-        font-family: $font-secondary;
-        font-size: rem(12px);
-        font-weight: 400;
+        @include text-small;
+
         color: $color-purple;
     }
 
@@ -141,22 +147,23 @@
     }
 
     &__code {
-        flex-shrink: 0;
         @include flex-center;
-        gap: rem(8px);
+        @include text-small;
+
+        flex-shrink: 0;
+        gap: pxToRem(8);
         background: $color-white;
         border: 1px solid $color-light;
-        border-radius: $spin-radius-chip;
-        padding: rem(4px) rem(10px);
-        font-family: $font-secondary;
-        font-weight: 600;
-        font-size: rem(12px);
+        border-radius: pxToRem($spin-radius-chip);
+        padding: pxToRem(4) pxToRem(10);
+        font-weight: $font-weight-semibold;
         letter-spacing: 0.05em;
         color: $color-black;
     }
 
     &__copy {
         @include flex-center;
+
         border: none;
         background: transparent;
         color: $color-pink-dark;
@@ -171,45 +178,45 @@
 
     &__empty {
         text-align: center;
-        padding: rem(30px) 0;
+        padding: pxToRem(30) 0;
     }
 
     &__empty-title {
-        font-family: $font-secondary;
-        font-weight: 700;
-        font-size: rem(17px);
+        @include heading-small;
+
+        font-size: pxToRem(17);
         color: $color-black;
         letter-spacing: $letter-spacing-small;
-        margin-bottom: rem(5px);
+        margin-bottom: pxToRem(5);
     }
 
     &__empty-sub {
-        font-family: $font-secondary;
-        font-size: rem(14px);
+        @include text-medium;
+
         color: $color-gray;
-        line-height: $line-height-menu;
     }
 
     &__deal-list {
         @include flex-center-col;
-        gap: rem(10px);
-        margin-bottom: rem(6px);
+
+        gap: pxToRem(10);
+        margin-bottom: pxToRem(6);
     }
 
     &__list-empty {
-        font-family: $font-secondary;
-        text-align: center;
-        padding: 0 0 rem(20px) 0;
-        color: $color-gray;
-        font-size: 14px;
+        @include text-medium;
+
         width: 100%;
+        text-align: center;
+        padding: 0 0 pxToRem(20);
+        color: $color-gray;
     }
 
     &__footer {
         width: 100%;
-        padding: rem(10px) rem(32px);
-        border: rem(1px) solid $border-color;
-        border-radius: rem(100px);
+        padding: pxToRem(10) pxToRem(32);
+        border: pxToRem(1) solid $border-color;
+        border-radius: pxToRem(100);
     }
 
     &__deals-button,
@@ -219,27 +226,28 @@
 
     &__deals-count {
         @include flex-center;
-        min-width: rem(20px);
-        height: rem(20px);
-        border-radius: $radius-sm;
+
+        min-width: pxToRem(20);
+        height: pxToRem(20);
+        border-radius: pxToRem($radius-sm);
         background: $color-purple-dark;
         color: $color-white;
-        font-size: rem(12px);
-        font-weight: 500;
+        font-size: pxToRem(12);
+        font-weight: $font-weight-medium;
     }
 
     &__toast {
+        @include text-medium;
+
         position: fixed;
         left: 50%;
-        bottom: rem(32px);
+        bottom: pxToRem(32);
         transform: translateX(-50%) translateY(20px);
         background: $color-black;
         color: $color-white;
-        font-family: $font-secondary;
-        font-weight: 600;
-        font-size: rem(14px);
-        padding: rem(10px) rem(18px);
-        border-radius: $radius-lg;
+        font-weight: $font-weight-semibold;
+        padding: pxToRem(10) pxToRem(18);
+        border-radius: pxToRem($radius-lg);
         opacity: 0;
         pointer-events: none;
         transition:
@@ -254,20 +262,21 @@
     }
 
     @include tablet {
-        padding: rem(24px);
+        padding: pxToRem(24);
         bottom: auto;
     }
 }
 
 .spin-wheel {
-    position: relative;
-    width: rem(230px);
-    height: rem(230px);
     @include flex-center;
+
+    position: relative;
+    width: pxToRem(230);
+    height: pxToRem(230);
 
     &-divider {
         position: absolute;
-        width: rem(5px);
+        width: pxToRem(5);
         height: 50%;
         left: 49%;
         top: 0;
@@ -291,17 +300,16 @@
     }
 
     &__loading {
-        position: absolute;
         @include flex-center;
+        @include text-small;
+
+        position: absolute;
         inset: 0;
         border-radius: 50%;
         background: $color-light;
-        border: rem(8px) solid $color-white;
+        border: pxToRem(8) solid $color-white;
         box-shadow: $spin-shadow-wheel;
-        font-family: $font-secondary;
         color: $color-black;
-        font-size: rem(12px);
-        font-weight: 400;
     }
 
     &__segments {
@@ -320,34 +328,32 @@
     }
 
     &__text {
+        @include text-small;
+
         position: absolute;
         top: 50%;
         left: 50%;
-        width: rem(80px);
-        margin-left: rem(-46px);
+        width: pxToRem(80);
+        margin-left: pxToRem(-46);
         text-align: center;
         transform-origin: 50% 0;
-        font-family: $font-secondary;
-        font-weight: 700;
-        font-size: rem(12px);
-        line-height: $line-height-spinner;
+        font-weight: $font-weight-extra;
         color: $color-white;
-        padding-top: rem(56px);
+        padding-top: pxToRem(56);
     }
 
     &__button {
+        @include button-small;
+
         position: absolute;
         top: 41.5%;
         left: 41.5%;
-        width: rem(44px);
-        height: rem(44px);
+        width: pxToRem(44);
+        height: pxToRem(44);
         border-radius: 50%;
         border: 3px solid $color-pink-dark;
         background: $color-white;
         color: $color-pink-dark;
-        font-family: $font-secondary;
-        font-weight: 700;
-        font-size: rem(10px);
         letter-spacing: 0.05rem;
         cursor: pointer;
         z-index: 4;
@@ -365,6 +371,7 @@
         opacity: 0;
         transform: translateY(6px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

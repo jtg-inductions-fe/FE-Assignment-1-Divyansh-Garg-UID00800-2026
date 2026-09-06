@@ -14,7 +14,7 @@ const openTrigger = document.querySelector('.spinner__link');
 const modal = document.getElementById('spinModal');
 
 /**
- * a variabale containg the url of the deals data
+ * a variable containing the url of the deals data
  * @var {string}
  * */
 const DEALS_URL =
@@ -157,7 +157,7 @@ function initSpinner() {
     let isSpinning = false;
 
     /**
-     * function responsible for saving all the deals which user won to localstorgae
+     * function responsible for saving all the deals which user won to localstorage
      * @return {}
      * */
     function saveUnlocked() {
@@ -169,7 +169,7 @@ function initSpinner() {
     }
 
     /**
-     * function responsible for fetching all the deals which are avaiable for the user to win
+     * function responsible for fetching all the deals which are available for the user to win
      * by getting deals from the localstorage and comparing them by the help of the unlocked deals id
      * and will return a list that contain the structured data
      * will return only top 4 entries if more than 4 are present
@@ -180,7 +180,7 @@ function initSpinner() {
         // id of the unlocked deals
         const wonIds = new Set(unlocked.map((d) => d.id));
 
-        // getting the deals which are locked by comapring with the unlocked deals id
+        // getting the deals which are locked by comparing with the unlocked deals id
         let lockedDealsData = Object.keys(DEAL_META)
             .filter((id) => !wonIds.has(id))
             .map((id) => ({ id, ...DEAL_META[id] }));
@@ -252,10 +252,10 @@ function initSpinner() {
         return div.innerHTML;
     }
 
-    /** function responsbile for showing the wheel on the modal
-     * will check the availabel and then show wheel dynamically
-     * by making the wheel using hte segAngle calculated with the help of the size of the avaiable deals max 4
-     * and showing the deal text using the elements and the seperation in betwen them expect for 1 deal left
+    /** function responsible for showing the wheel on the modal
+     * will check the available and then show wheel dynamically
+     * by making the wheel using hte segAngle calculated with the help of the size of the available deals max 4
+     * and showing the deal text using the elements and the separation in between them expect for 1 deal left
      * */
     function renderWheel() {
         const available = getAvailableDeals();
@@ -398,13 +398,9 @@ function initSpinner() {
      * */
     function showResult(won) {
         if (won.label === 'Try Again') {
-            resultHeading.textContent = 'Better luck next time!';
-            resultName.textContent = won.label;
-            resultExpiry.hidden = true;
-            resultCodeContainer.hidden = true;
             resultBanner.hidden = false;
-            resultCard.style.justifyContent = 'center';
-            resultCard.style.background = 'rgba(gray, 0.5)';
+            resultHeading.textContent = 'Better luck next time!';
+            resultCard.hidden = true;
         } else {
             resultHeading.textContent = 'You Won!';
             const { text } = getExpiryInfo(won);
@@ -499,7 +495,7 @@ function initSpinner() {
 
     /**
      * function handling the click event of the modal for copying code
-     * and is using the event delegation allowing not targeting each btn seperately
+     * and is using the event delegation allowing not targeting each btn separately
      * @event click
      * @return {}
      * */
@@ -646,7 +642,7 @@ function openModal() {
 }
 
 /**
- * condition for opeining the modal by clicking on the html element
+ * condition for opening the modal by clicking on the html element
  * @type {HTMLElement}
  * @event click
  * */
