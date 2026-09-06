@@ -1,0 +1,182 @@
+@use '@abstracts/variables' as *;
+@use '@abstracts/functions' as *;
+@use '@abstracts/mixins' as *;
+@use '@base/typography' as *;
+
+.footer {
+    @include flex-center-col;
+
+    gap: pxToRem(82);
+    padding: pxToRem(64) pxToRem(8) pxToRem(64) pxToRem(32);
+    margin-top: pxToRem(3);
+
+    &__brand {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: pxToRem(32);
+    }
+
+    &__logo-link {
+        @include flex-center;
+
+        justify-content: start;
+        gap: pxToRem(16);
+    }
+
+    &__brand-name {
+        @include brand;
+    }
+
+    &__description {
+        @include description;
+        font-family: $font-primary;
+    }
+
+    &__social {
+        &-list {
+            justify-content: start;
+            max-height: pxToRem(32);
+            font-size: pxToRem(32);
+        }
+
+        &-item {
+            width: pxToRem(32);
+            height: pxToRem(32);
+        }
+    }
+
+    &__navigation {
+        @include flex-center;
+
+        width: 100%;
+        flex-direction: column;
+        gap: pxToRem(79);
+        padding-right: pxToRem(24);
+    }
+
+    &__section {
+        width: 100%;
+
+        &-toggle {
+            @include flex-between;
+
+            width: 100%;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        &-title {
+            @include title;
+            font-size: pxToRem(23);
+        }
+
+        &-icon {
+            font-size: pxToRem(24);
+            transition: transform 0.2s ease;
+        }
+
+        &-list {
+            padding: 0;
+            margin: pxToRem(10) 0 0;
+            list-style: none;
+            overflow: hidden;
+            height: auto;
+
+            transition:
+                height 0.5s ease,
+                margin 1s ease;
+
+            &-hidden {
+                margin: 0;
+                height: 0;
+            }
+        }
+
+        &-item {
+            margin-bottom: pxToRem(10);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-link {
+            @include link;
+
+            color: $non-active-link;
+            opacity: 0.75;
+        }
+
+        &--open {
+            .footer__section-icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    @include tablet {
+        margin: pxToRem(96) pxToRem(63) 0;
+        padding: pxToRem(64) 0;
+        gap: pxToRem(64);
+
+        &__description {
+            font-size: pxToRem(23);
+        }
+
+        &__navigation {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: pxToRem(32);
+            align-items: start;
+            padding-right: 0;
+        }
+
+        &__section {
+            &-icon {
+                display: none;
+            }
+
+            &-list {
+                display: flex;
+                flex-direction: column;
+                gap: pxToRem(22);
+
+                &-hidden {
+                    margin: pxToRem(10) 0 0;
+                    height: auto;
+                }
+            }
+
+            &-link {
+                // Typography is already defined by the mixin.
+                // No need to redefine font-family, font-size,
+                // or line-height here.
+                opacity: 0.75;
+            }
+        }
+    }
+
+    @include desktop {
+        flex-direction: row;
+        margin: pxToRem(160) pxToRem(117) 0;
+        padding: pxToRem(45) 0 pxToRem(64);
+        gap: pxToRem(64);
+
+        &__brand {
+            height: 100%;
+            margin-bottom: pxToRem(16);
+        }
+
+        &__section {
+            &-list {
+                gap: pxToRem(32);
+            }
+        }
+
+        &__social {
+            margin-top: pxToRem(32);
+        }
+    }
+}

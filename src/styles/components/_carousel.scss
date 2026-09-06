@@ -205,6 +205,10 @@
             margin: pxToRem(50) 0 pxToRem(65);
         }
 
+        &__avatar {
+            margin: pxToRem(50) 0 pxToRem(65) 0;
+        }
+
         &__quote {
             margin-top: pxToRem(60);
             margin-bottom: pxToRem(55);

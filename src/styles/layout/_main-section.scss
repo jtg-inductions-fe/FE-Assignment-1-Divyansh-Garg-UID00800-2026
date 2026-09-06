@@ -7,8 +7,6 @@
     padding-top: pxToRem(80);
     width: 100%;
     position: relative;
-    overflow-x: clip;
-
     @include tablet {
         margin-bottom: pxToRem(64);
         padding-top: pxToRem(112);
