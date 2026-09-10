@@ -4,9 +4,7 @@
 .site-footer {
     position: relative;
     width: 100%;
-    background-color: $color-white;
     overflow: hidden;
-    z-index: $z-index-min;
 }
 
 .star-image {
@@ -14,6 +12,7 @@
     position: absolute;
     bottom: 10%;
     right: -10%;
+    z-index: $z-index-min;
 
     @include tablet {
         display: block;

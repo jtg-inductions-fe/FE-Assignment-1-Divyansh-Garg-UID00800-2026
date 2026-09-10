@@ -1,14 +1,24 @@
 // color variables
 $color-white: #ffffff;
 $color-light: #eeeeee;
+$color-arrow: #aaaaaa;
 $color-pink: #f85e9f;
+$color-pink-dark: #f4436c;
+$color-purple: #7c3aed;
+$color-purple-dark: #5d50c6;
 $color-orange: #ff5722;
 $color-yellow: #facd49;
+$color-yellow-dark: #7c3aed;
+$color-light-blue: #06b6d4;
 $color-black: #000000;
 $color-dark: #222831;
 $color-primary: #5d50c6;
+$color-gray: #111827;
+$color-gray-light: #e0e0e0;
 $non-active-link: #191825;
+$spin-muted: #212122;
 $active-link: #222831;
+$border-color: #aaaaaa;
 
 // Media query variables
 $tablet: 431px;
@@ -26,7 +36,7 @@ $menu-gap-shorter: 50;
 $nav-button-height: 49;
 
 /* these are used for providing padding values in the action buttons
-made intially with a thought of getting used with multiple elements */
+made initially with a thought of getting used with multiple elements */
 $primary-button-padding-horizontal: 32;
 $primary-button-padding-vertical: 16;
 $primary-button-padding-horizontal-small: 24;
@@ -35,7 +45,6 @@ $primary-button-padding-vertical-small: 8;
 $radius-md: 100;
 $radius-sm: 10;
 $radius-lsm: 16;
-$radius-lg: 999;
 
 // shadow variable getting used in applying shadow in wheel component
 $spin-shadow-modal: 0 30px 60px -15px rgba(30, 15, 50, 0.35);
@@ -44,7 +53,6 @@ $spin-shadow-wheel: 0 18px 40px -12px rgba(30, 15, 50, 0.35);
 $font-size-sm: 14;
 $font-size-xsm: 12;
 $spin-radius-lg: 24;
-$spin-radius-pill: 999;
 $spin-radius-chip: 14;
 
 // for giving font-weight value
@@ -52,6 +60,7 @@ $font-weight-regular: 400;
 $font-weight-xregular: 450;
 $font-weight-medium: 500;
 $font-weight-bold: 500;
+$font-weight-semibold: 600;
 $font-weight-extra: 700;
 
 // for reusing multiple places according to the figma design

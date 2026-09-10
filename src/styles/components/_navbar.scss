@@ -16,7 +16,6 @@
         border-radius: pxToRem(100);
         width: 90%;
     }
-
     &__menu {
         flex-direction: column;
         position: fixed;
@@ -31,7 +30,6 @@
 
         &--is-open {
             transform: translateX(0);
-
             .navbar__link {
                 font-size: pxToRem(20);
             }
@@ -44,11 +42,9 @@
         color: $non-active-link;
         opacity: 0.5;
         text-decoration: none;
-
         transition:
             color 1s ease,
             opacity 1s ease;
-
         &:hover,
         &-active-link {
             color: $active-link;
@@ -70,7 +66,6 @@
         background-color: transparent;
         cursor: pointer;
         flex-shrink: 0;
-
         img {
             object-fit: contain;
         }
@@ -88,7 +83,6 @@
 
             &--is-open {
                 transform: translateX(0);
-
                 .navbar__link {
                     font-size: pxToRem(25);
                 }
@@ -100,7 +94,6 @@
             width: clamp(pxToRem(10), 35vw, pxToRem(220));
             margin-right: clamp(pxToRem(40), 10vw, pxToRem(64));
         }
-
         &__toggle {
             display: flex;
             justify-content: flex-start;
@@ -145,7 +138,6 @@
             transform: none;
             margin-left: pxToRem(117);
         }
-
         &__menu {
             @include flex-between;
 
@@ -164,7 +156,6 @@
                 gap: pxToRem($menu-gap-shorter);
             }
         }
-
         &__actions {
             width: pxToRem(220);
             margin-right: pxToRem(117);
@@ -191,7 +182,23 @@
                 font-size: pxToRem(15);
             }
         }
-
+        &-shorter {
+            .navbar__logo {
+                margin-left: pxToRem(64);
+            }
+            .navbar__actions {
+                margin-right: pxToRem(64);
+            }
+            .navbar__menu {
+                height: pxToRem(50);
+            }
+            .navbar__link {
+                font-size: pxToRem(20);
+            }
+            .btn {
+                font-size: pxToRem(15);
+            }
+        }
         &__toggle {
             display: none;
         }

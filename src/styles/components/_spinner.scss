@@ -1,0 +1,380 @@
+@use '@abstracts/variables' as *;
+@use '@abstracts/mixins' as *;
+@use '@abstracts/functions' as *;
+
+.spin-modal {
+    @include flex-center-col;
+
+    position: relative;
+    width: 100%;
+    max-height: 90vh;
+    max-width: pxToRem(360);
+    gap: pxToRem(20);
+    overflow-y: auto;
+    background: $color-white;
+    border-radius: pxToRem($spin-radius-lg);
+    padding: pxToRem(24) pxToRem(24) pxToRem(50);
+    transform: translateY(0) scale(1);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    bottom: pxToRem(-30);
+
+    &__header {
+        width: 100%;
+        position: relative;
+        text-align: center;
+        margin-bottom: pxToRem(20);
+    }
+
+    &__heading {
+        @include flex-center-col;
+
+        gap: pxToRem(8);
+    }
+
+    &__eyebrow {
+        @include eyebrow;
+
+        gap: 6px;
+        font-family: $font-secondary;
+        font-size: pxToRem(12);
+        font-weight: $font-weight-semibold;
+        line-height: $line-height-spinner;
+        letter-spacing: $letter-spacing-small;
+        color: $color-pink-dark;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        @include heading-small;
+
+        color: $color-gray;
+    }
+
+    &__subtitle {
+        @include text-small;
+
+        color: $color-gray-light;
+    }
+
+    &__close {
+        position: absolute;
+        top: -2px;
+        right: -4px;
+        border: none;
+        border-radius: pxToRem($radius-lsm);
+        background: transparent;
+        color: $color-gray;
+        cursor: pointer;
+        transition: background 0.15s ease;
+
+        &:hover {
+            background: $color-gray-light;
+        }
+    }
+
+    &__view {
+        @include flex-center-col;
+
+        gap: pxToRem(20);
+    }
+
+    &__result {
+        @include flex-center-col;
+
+        width: 100%;
+        animation: spin-modal-pop-in 0.35s ease both;
+    }
+
+    &__result-heading {
+        @include button;
+
+        margin-bottom: pxToRem(8);
+        text-align: center;
+        font-family: $font-secondary;
+        font-size: pxToRem(12);
+        line-height: $line-height-spinner;
+        color: $color-black;
+    }
+
+    &__result-code {
+        @include flex-center;
+
+        gap: pxToRem(8);
+    }
+
+    &__result-card,
+    &__deal-row {
+        @include flex-between;
+
+        gap: 12px;
+        background: rgba($color-pink-dark, 0.05);
+        border: 1px solid rgba($color-pink-dark, 0.2);
+        border-radius: pxToRem($radius-lsm);
+        padding: pxToRem(16);
+        width: 100%;
+    }
+
+    &__deal-row--expired {
+        background: rgba($color-black, 0.2);
+        border-color: $color-gray;
+
+        .spin-modal__deal-name {
+            color: $spin-muted;
+        }
+    }
+
+    &__result-info,
+    &__deal-info {
+        min-width: 0;
+    }
+
+    &__result-name,
+    &__deal-name {
+        @include text-medium;
+
+        font-weight: $font-weight-semibold;
+        color: $non-active-link;
+    }
+
+    &__result-expiry,
+    &__deal-expiry {
+        @include text-small;
+
+        color: $color-purple;
+    }
+
+    &__deal-expiry--expired {
+        color: $spin-muted;
+    }
+
+    &__code {
+        @include flex-center;
+        @include text-small;
+
+        flex-shrink: 0;
+        gap: pxToRem(8);
+        background: $color-white;
+        border: 1px solid $color-light;
+        border-radius: pxToRem($spin-radius-chip);
+        padding: pxToRem(4) pxToRem(10);
+        font-weight: $font-weight-semibold;
+        letter-spacing: 0.05em;
+        color: $color-black;
+    }
+
+    &__copy {
+        @include flex-center;
+
+        border: none;
+        background: transparent;
+        color: $color-pink-dark;
+        cursor: pointer;
+        padding: 0;
+        transition: transform 0.12s ease;
+
+        &:active {
+            transform: scale(0.85);
+        }
+    }
+
+    &__empty {
+        text-align: center;
+        padding: pxToRem(30) 0;
+    }
+
+    &__empty-title {
+        @include heading-small;
+
+        font-size: pxToRem(17);
+        color: $color-black;
+        letter-spacing: $letter-spacing-small;
+        margin-bottom: pxToRem(5);
+    }
+
+    &__empty-sub {
+        @include text-medium;
+
+        color: $color-gray;
+    }
+
+    &__deal-list {
+        @include flex-center-col;
+
+        gap: pxToRem(10);
+        margin-bottom: pxToRem(6);
+    }
+
+    &__list-empty {
+        @include text-medium;
+
+        width: 100%;
+        text-align: center;
+        padding: 0 0 pxToRem(20);
+        color: $color-gray;
+    }
+
+    &__footer {
+        width: 100%;
+        padding: pxToRem(10) pxToRem(32);
+        border: pxToRem(1) solid $border-color;
+        border-radius: pxToRem(100);
+    }
+
+    &__deals-button,
+    &__back-button {
+        @include spin-pill-button;
+    }
+
+    &__deals-count {
+        @include flex-center;
+
+        min-width: pxToRem(20);
+        height: pxToRem(20);
+        border-radius: pxToRem($radius-sm);
+        background: $color-purple-dark;
+        color: $color-white;
+        font-size: pxToRem(12);
+        font-weight: $font-weight-medium;
+    }
+
+    &__toast {
+        @include text-medium;
+
+        position: fixed;
+        left: 50%;
+        bottom: pxToRem(32);
+        transform: translateX(-50%) translateY(20px);
+        background: $color-black;
+        color: $color-white;
+        font-weight: $font-weight-semibold;
+        padding: pxToRem(10) pxToRem(18);
+        border-radius: pxToRem($spin-radius-lg);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
+        z-index: 9999;
+
+        &--is-visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    @include tablet {
+        padding: pxToRem(24);
+        bottom: auto;
+    }
+}
+
+.spin-wheel {
+    @include flex-center;
+
+    position: relative;
+    width: pxToRem(230);
+    height: pxToRem(230);
+
+    &-divider {
+        position: absolute;
+        width: pxToRem(5);
+        height: 50%;
+        left: 49%;
+        top: 0;
+        background: $color-white;
+        transform-origin: 50% 100%;
+        pointer-events: none;
+    }
+
+    &__pointer {
+        position: absolute;
+        top: -10px;
+        left: 50.5%;
+        transform: translateX(-50%);
+        z-index: 5;
+    }
+
+    &__container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__loading {
+        @include flex-center;
+        @include text-small;
+
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: $color-light;
+        border: pxToRem(8) solid $color-white;
+        box-shadow: $spin-shadow-wheel;
+        color: $color-black;
+    }
+
+    &__segments {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 6px solid $color-white;
+        overflow: hidden;
+        transition: transform 6.5s ease;
+    }
+
+    &__segment {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    &__text {
+        @include text-small;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: pxToRem(80);
+        margin-left: pxToRem(-46);
+        text-align: center;
+        transform-origin: 50% 0;
+        font-weight: $font-weight-extra;
+        color: $color-white;
+        padding-top: pxToRem(56);
+    }
+
+    &__button {
+        @include button-small;
+
+        position: absolute;
+        top: 41.5%;
+        left: 41.5%;
+        width: pxToRem(44);
+        height: pxToRem(44);
+        border-radius: 50%;
+        border: 3px solid $color-pink-dark;
+        background: $color-white;
+        color: $color-pink-dark;
+        letter-spacing: 0.05rem;
+        cursor: pointer;
+        z-index: 4;
+        transition: transform 5.6s ease;
+
+        &:disabled {
+            opacity: 0.8;
+            cursor: not-allowed;
+        }
+    }
+}
+
+@keyframes spin-modal-pop-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,7 +1,6 @@
 @use '@abstracts/variables' as *;
 @use '@abstracts/functions' as *;
 @use '@abstracts/mixins' as *;
-@use '@base/typography' as *;
 
 .footer {
     @include flex-center-col;
@@ -150,9 +149,6 @@
             }
 
             &-link {
-                // Typography is already defined by the mixin.
-                // No need to redefine font-family, font-size,
-                // or line-height here.
                 opacity: 0.75;
             }
         }
@@ -172,6 +168,11 @@
         &__section {
             &-list {
                 gap: pxToRem(32);
+            }
+
+            &-item {
+                margin-bottom: 0;
+                overflow-wrap: break-word;
             }
         }
 
